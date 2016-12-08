@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-// import { Provider} from 'react-redux';
-// import { createStore } from 'redux';
+// import App from './App';
+import { Provider} from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
+import { createStore } from 'redux';
 // import reducers from './reducers';
 
-// const store = createStore(reducers)
+const reducers = (state=0, action) => {
+  switch(action.type) {
+    case 'INC':
+      return state + 1;
+    default:
+      return state;
+  }
+}
 
-// store.dispatch({type: 'INC'})
-
+const store = createStore(reducers)
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>,
   document.getElementById('root')
 );
