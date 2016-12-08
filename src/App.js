@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationAuthorize from './components/Navigation/NavigationAuthorize';
-import NavigationUnauthorize from './components/Navigation/NavigationUnauthorize';
+// import NavigationUnauthorize from './components/Navigation/NavigationUnauthorize';
 
 const App = () => {
     return (
