@@ -4,29 +4,29 @@ import React from 'react';
 
 const App = () => {
     return (
-    <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
-    	<div class="container">
-    				<div class="navbar-header">
-    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
-    						<span class="sr-only">Toggle navigation</span>
-    						<span class="icon-bar"></span>
-    						<span class="icon-bar"></span>
-    						<span class="icon-bar"></span>
+    <nav className="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+    	<div className="container">
+    				<div className="navbar-header">
+    				<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+    						<span className="sr-only">Toggle navigation</span>
+    						<span className="icon-bar"></span>
+    						<span className="icon-bar"></span>
+    						<span className="icon-bar"></span>
     				</button>
     				<a href="http://www.creative-tim.com">
-    					<div class="logo-container">
-    						<div class="brand">
+    					<div className="logo-container">
+    						<div className="brand">
     								Partneran
     						</div>
     					</div>
     				</a>
     			</div>
 
-    			<div class="collapse navbar-collapse" id="navigation-index">
-    				<ul class="nav navbar-nav navbar-right">
+    			<div className="collapse navbar-collapse" id="navigation-index">
+    				<ul className="nav navbar-nav navbar-right">
     					<li>
     						<a href="#" target="_blank">
-    							<i class="material-icons">explore</i> Explore
+    							<i className="material-icons">explore</i> Explore
     						</a>
     					</li>
 
@@ -40,12 +40,12 @@ const App = () => {
     					</li>
     					<li>
     						<a href="#" target="_blank">
-    							<i class="material-icons">account_circle</i> My Profile
+    							<i className="material-icons">account_circle</i> My Profile
     						</a>
     					</li>
     					<li>
     						<a href="#" target="_blank">
-    							<i class="material-icons">add_circle</i>
+    							<i className="material-icons">add_circle</i>
     						</a>
     					</li>
     					<li>
