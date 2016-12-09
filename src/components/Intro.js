@@ -2,7 +2,7 @@ import React from 'react';
 
 const Intro = () => {
     return (
-        <div className="header header-filter" >
+        <div id="intro" className="header header-filter" >
           <div className="container">
             <div className="row">
               <div className="col-md-6">

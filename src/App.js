@@ -9,7 +9,7 @@ import NavigationBar from './components/Navigation/NavigationBar';
 class App extends Component {
   render() {
       return (
-        <div className='container'>
+        <div>
           <NavigationBar />
           {this.props.children}
         </div>
