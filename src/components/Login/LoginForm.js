@@ -2,11 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class LoginForm extends Component {
+    constructor(props) {
+        super(props)
+        this.state={
+            email:"",
+            password:""
+        }
+        this.onChange=this.onChange.bind(this)
+        this.onSubmit=this.onSubmit.bind(this)
+    }
+
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit(e) {
+        e.preventDefault()
+        console.log(this.state)
+    }
 
   render() {
     return (
           <div className="card card-signup">
-            <form className="form">
+            <form className="form" onSubmit={this.onSubmit}>
                 <div className="header header-info text-center" style={{height:'auto'}}>
                     <h4>LOGIN</h4>
                     <div className="social-line">
@@ -24,6 +42,9 @@ class LoginForm extends Component {
                         type="text"
                         className="form-control"
                         placeholder="Email..."
+                        name="email"
+                        onChange={this.onChange}
+                        value={this.state.email}
                     />
                 </div>
 
@@ -33,6 +54,9 @@ class LoginForm extends Component {
                     type="password"
                     placeholder="Password..."
                     className="form-control"
+                    name="password"
+                    onChange={this.onChange}
+                    value={this.state.password}
                 />
                 </div>
 
@@ -40,7 +64,7 @@ class LoginForm extends Component {
                 <div className="footer text-center">
                     <Link to="signup" className="btn btn-simple btm-sm btn-info"> Don't have account? Signup Now! </Link>
                     <Link to="forget-password" className="btn btn-simple btm-sm btn-info"> Forget Password? </Link>
-                    <a href="#pablo" className="btn btn-info btn-lg"> Login</a>
+                    <button className="btn btn-info btn-lg"> Login</button>
                 </div>
             </form>
           </div>

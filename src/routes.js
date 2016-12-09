@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import SignupPage from './components/Signup/SignupPage';
 import LoginPage from './components/Login/LoginPage';
 import ForgetPasswordPage from './components/ForgetPassword/ForgetPasswordPage';
+import NewPasswordPage from './components/ForgetPassword/NewPasswordPage';
 // import ExplorePage from './components/ExplorePage';
 // import ProfilePage from'./components/ProfilePage';
 // import IdeaPage from './components/IdeaPage';
@@ -16,6 +17,7 @@ export default (
         <Route path="signup" component={SignupPage} />
         <Route path="login" component={LoginPage} />
         <Route path="forget-password" component={ForgetPasswordPage} />
+        <Route path="verify-password" component={NewPasswordPage} />
     </Route>
 )
 

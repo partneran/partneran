@@ -13,7 +13,7 @@ const NavigationAuthorize = () => {
                                     <span className="icon-bar"></span>
                             </button>
                             <Link to="/" className="brand logo-container">
-                              <img src="assets/img/parneran-logo-small-inline.png" />
+                              <img src="assets/img/parneran-logo-small-inline.png" alt="Partneran" role="presentation" /> 
                             </Link>
                         </div>
 
