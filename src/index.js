@@ -7,7 +7,6 @@ import routes from './routes';
 import { createStore } from 'redux';
 // import reducers from './reducers';
 
-console.log("routers",routes)
 
 const reducers = (state=0, action) => {
   switch(action.type) {

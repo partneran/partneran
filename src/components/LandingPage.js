@@ -1,12 +1,20 @@
 import React from 'react';
 import Intro from './Intro';
-import HelloHome from './HelloHome';
+import PopularIdea from './Category/PopularIdea';
+import LatestIdea from './Category/LatestIdea';
+import RecommendedIdea from './Category/RecommendedIdea';
+import Footer from './Footer/Footer';
 
 const LandingPage = () => {
     return (
         <div className="wrapper">
             <Intro />
-            <HelloHome />
+            <div className="main">
+                <PopularIdea />
+                <LatestIdea />
+                <RecommendedIdea />
+                <Footer />
+            </div>
         </div>
     )
 }
