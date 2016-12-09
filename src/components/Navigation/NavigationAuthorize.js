@@ -20,13 +20,16 @@ const NavigationAuthorize = () => {
                         <div className="collapse navbar-collapse" id="navigation-index">
                             <ul className="nav navbar-nav navbar-right">
                                 <li className="text-info">
+                                  <Link to="notifications"><i className="material-icons">notifications</i></Link>
+                                </li>
+                                <li className="text-info">
                                     <Link to="profile"> <i className="material-icons">account_circle</i> My Profile</Link>
                                 </li>
                                 <li className="text-info">
                                     <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link>
                                 </li>
                                 <li className="text-info">
-                                    <Link to="signout"> Signout </Link>
+                                    <Link to="signout"><i className="fa fa-sign-out sign-out" /> Sign Out </Link>
                                 </li>
                             </ul>
                         </div>
