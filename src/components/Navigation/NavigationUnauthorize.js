@@ -12,19 +12,21 @@ const NavigationUnauthorize = () => {
     						<span className="icon-bar"></span>
     						<span className="icon-bar"></span>
     				</button>
-                    <Link to="/" className="brand logo-container">Parneran</Link>
+            <Link to="/" className="brand logo-container">
+              <img src="assets/img/parneran-logo-small-inline.png" />
+            </Link>
     			</div>
 
     			<div className="collapse navbar-collapse" id="navigation-index">
     				<ul className="nav navbar-nav navbar-right">
-    					<li>
+    					<li className="text-info">
                             <Link to="explore"><i className="material-icons">explore</i> Explore</Link>
     					</li>
-    					<li>
-                            <Link to="login"> Sign In </Link>
+    					<li className="text-info">
+                            <Link to="login"><i className="fa fa-sign-in sign-in" /> Sign In </Link>
     					</li>
-    					<li>
-                            <Link to="signup"> Sign Up </Link>
+    					<li className="text-info">
+                            <Link to="signup"><i className="fa fa-user-plus user-plus" /> Sign Up </Link>
     					</li>
     				</ul>
     			</div>

@@ -12,18 +12,20 @@ const NavigationAuthorize = () => {
                                     <span className="icon-bar"></span>
                                     <span className="icon-bar"></span>
                             </button>
-                            <Link to="/" className="brand logo-container">Parneran</Link>
+                            <Link to="/" className="brand logo-container">
+                              <img src="assets/img/parneran-logo-small-inline.png" />
+                            </Link>
                         </div>
 
                         <div className="collapse navbar-collapse" id="navigation-index">
                             <ul className="nav navbar-nav navbar-right">
-                                <li>
+                                <li className="text-info">
                                     <Link to="profile"> <i className="material-icons">account_circle</i> My Profile</Link>
                                 </li>
-                                <li>
+                                <li className="text-info">
                                     <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link>
                                 </li>
-                                <li>
+                                <li className="text-info">
                                     <Link to="signout"> Signout </Link>
                                 </li>
                             </ul>
