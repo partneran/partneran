@@ -1,84 +1,74 @@
 import React, { Component } from 'react';
-// import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 class SignupForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: '',
-      email: '',
-      password: '',
-      passwordConfimation: ''
-    }
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onSubmit(e) {
-    e.preventDefault()
-    alert(this.state)
-  }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Sign Up Now </h1>
-        <div className="form-group">
-          <label className="control-label">Username</label>
-          <input
-            value={this.state.username}
-            onChange={this.onChange}
-            type="text"
-            name="username"
-            className="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <label className="control-label">email</label>
-          <input
-            value={this.state.email}
-            onChange={this.onChange}
-            type="email"
-            name="email"
-            className="form-control"
-          />
-        </div>
+            <form className="form">
+								<div className="header header-info text-center" style={{height:'auto'}}>
+									<h4>Sign Up</h4>
+									<div className="social-line">
+										<a href="#pablo" className="btn btn-simple btn-just-icon">
+											<i className="fa fa-facebook-square"></i>
+										</a>
+									</div>
+								</div>
+								<p className="text-divider">Or Be classNameical</p>
+								<div className="content">
 
-        <div className="form-group">
-          <label className="control-label">password</label>
-          <input
-            value={this.state.password}
-            onChange={this.onChange}
-            type="password"
-            name="password"
-            className="form-control"
-          />
-        </div>
+									<div className="input-group">
+										<span className="input-group-addon">
+											<i className="material-icons">face</i>
+										</span>
+										<input 
+                      type="text" 
+                      className="form-control" 
+                      placeholder="Name" 
+                    />
+									</div>
 
-        <div className="form-group">
-          <label className="control-label">Password Confimation</label>
-          <input
-            value={this.state.passwordConfimation}
-            onChange={this.onChange}
-            type="password"
-            name="passwordConfimation"
-            className="form-control"
-          />
-        </div>
+									<div className="input-group">
+										<span className="input-group-addon">
+											<i className="material-icons">email</i>
+										</span>
+										<input 
+                      type="text" 
+                      className="form-control" 
+                      placeholder="Email..." 
+                    />
+									</div>
 
-        <div className="form-group">
-          <button className="btn btn-primary btn-md">
-            Sign up
-          </button>
-        </div>
-      </form>
-    );
+									<div className="input-group">
+										<span className="input-group-addon">
+											<i className="material-icons">lock_outline</i>
+										</span>
+										<input 
+                      type="password" 
+                      placeholder="Password..." 
+                      className="form-control" 
+                    />
+									</div>
+
+                  <div className="input-group">
+										<span className="input-group-addon">
+											<i className="material-icons">lock_outline</i>
+										</span>
+										<input 
+                      type="password" 
+                      placeholder="Confirm your password..." 
+                      className="form-control" 
+                    />
+									</div>
+
+								</div>
+								<div className="footer text-center">
+                  <Link to="login" className="btn btn-simple btm-sm btn-info"> Already have an account? Sign In here </Link>
+									<a href="#pablo" className="btn btn-info btn-lg">Sign Up</a>
+								</div>
+							</form>
+    )
   }
 }
 
-export default SignupForm;
+export default SignupForm
