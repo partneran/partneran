@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 
 class ForgetPasswordForm extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            email:""
+        }
+
+        this.onChange = this.onChange.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    onChange(e){
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onSubmit(e){
+        e.preventDefault()
+        console.log(this.state)
+    }
+
+
 
     render() {
         return (
-            <form className="form" method="" action="">
+            <form className="form" onSubmit={this.onSubmit} >
                 <div className="header header-info text-center" style={{height:'auto'}}>
                     <h4>Reset your password</h4>
                 </div>
@@ -15,12 +35,19 @@ class ForgetPasswordForm extends Component {
                         <span className="input-group-addon">
                             <i className="material-icons">email</i>
                         </span>
-                        <input type="text" className="form-control" placeholder="Email..." />
+                        <input 
+                            type="email" 
+                            className="form-control" 
+                            placeholder="Email"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                        />
                     </div>
 
                 </div>
                 <div className="footer text-center">
-                    <a href="#pablo" className="btn btn-info btn-lg">Send reset password link</a>
+                    <button className="btn btn-info btn-lg">Send reset password link</button>
                 </div>
             </form>
         )

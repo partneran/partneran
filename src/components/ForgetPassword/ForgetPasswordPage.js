@@ -19,7 +19,7 @@ const ForgetPasswordPage = () => {
             </div>
         </div>
         <Footer />
-        </div>
+    </div>
     )
 }
 
