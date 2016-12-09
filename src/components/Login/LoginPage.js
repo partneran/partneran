@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 
 const LoginPage = () => {
   return (
-    <div className="login-page">
+    <div className="signup-page">
      <div className="wrapper">
         <div className="header header-filter" style={{backgroundImage: 'url(../assets/img/city.jpg)', backgroundSize: 'cover', backgroundPosition: 'top center'}}>
           <div className="container">
@@ -19,7 +19,7 @@ const LoginPage = () => {
       </div>
       <Footer />
     </div>
-  ) 
+  )
 }
 
 export default LoginPage
