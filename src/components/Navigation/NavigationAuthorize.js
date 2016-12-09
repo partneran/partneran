@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const NavigationAuthorize = () => {
     return (
-        <nav className="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll navbar-info">
+        <nav className="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
                 <div className="container">
                             <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">

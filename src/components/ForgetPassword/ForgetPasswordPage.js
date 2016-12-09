@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 
 const ForgetPasswordPage = () => {
     return (
-        <div class="signup-page">
+        <div className="signup-page">
             <div className="header header-filter" style={{backgroundImage: 'url(../assets/img/city.jpg)', backgroundSize: 'cover', backgroundPosition: 'top center'}}>
                 <div className="container">
                     <div className="row">
