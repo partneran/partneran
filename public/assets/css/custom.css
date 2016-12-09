@@ -117,8 +117,6 @@
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
-<<<<<<< HEAD
-=======
 
 #marketing {
   background-image: url('https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=1260&h=750&auto=compress&cs=tinysrgb');
@@ -126,4 +124,3 @@
   background-attachment: fixed;
   background-size: cover;
 }
->>>>>>> fixing-style
