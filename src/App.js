@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NavigationAuthorize from './components/Navigation/NavigationAuthorize';
 // import NavigationUnauthorize from './components/Navigation/NavigationUnauthorize';
 
-const App = () => {
-    return (
-		//if authorize render this
-		<NavigationAuthorize />
-		// if not render this
-		// <NavigationUnauthorize />
-    )
-}
 
-export default App
+
+
+class App extends Component {
+  render() {
+      return (
+        <div className='container'>
+          <NavigationAuthorize />
+          {this.props.children}
+        </div>
+      )
+    }
+  }
+
+export default App;
