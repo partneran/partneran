@@ -4,7 +4,7 @@
   width: 100%;
 }*/
 #intro {
-  background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450')
+  background-image: url('https://static.pexels.com/photos/33972/pexels-photo.jpg')
 }
 .no-padding-left {
   padding-left: 0px;
@@ -14,8 +14,32 @@
   padding: 5px 0px;
 }
 
+.popular {
+  padding: 0;
+  margin: 0;
+}
+
+.poptitle {
+  font-weight: bold;
+  text-transform: uppercase;
+  /*border-top: 1px #333 solid;
+  border-bottom: 1px #333 solid;*/
+}
+
+.popular-thumb {
+  height: 400px !important;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.popular-thumb-sm {
+  height: 200px !important;
+}
+
 .idea_thumbnail {
   height: 240px !important;
+  background-size: cover;
 }
 
 .navbar, .navbar.navbar-default {
@@ -119,8 +143,17 @@
 }
 
 #marketing {
-  background-image: url('https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=1260&h=750&auto=compress&cs=tinysrgb');
+  background-image: url('https://images.pexels.com/photos/8704/pen-idea-bulb-paper.jpg?w=1260&h=750&auto=compress&cs=tinysrgb');
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  height: 55vh;
+  padding: 10% 0;
+}
+
+#marketing h2.title,
+#marketing h5 {
+  color: #fff;
 }
