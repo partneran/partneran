@@ -1,7 +1,10 @@
-body>#root>div {
+/*body>#root>div {
   margin: 0;
   padding: 0;
   width: 100%;
+}*/
+#intro {
+  background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450')
 }
 .no-padding-left {
   padding-left: 0px;
@@ -13,6 +16,19 @@ body>#root>div {
 
 .idea_thumbnail {
   height: 240px !important;
+}
+
+.navbar, .navbar.navbar-default {
+  background-color: #fff;
+  color: #333;
+}
+
+.signup-page .wrapper > .header {
+  min-height: 90vh;
+}
+
+.signup-page .wrapper .card-signup {
+  margin: 130px 0px 20px;
 }
 
 .hovereffect {
@@ -101,3 +117,13 @@ body>#root>div {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+<<<<<<< HEAD
+=======
+
+#marketing {
+  background-image: url('https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=1260&h=750&auto=compress&cs=tinysrgb');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+>>>>>>> fixing-style
