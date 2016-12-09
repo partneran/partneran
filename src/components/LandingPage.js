@@ -7,6 +7,7 @@ import Footer from './Footer/Footer';
 
 const LandingPage = () => {
     return (
+      <div className="landing-page">
         <div className="wrapper">
             <Intro />
             <div className="main">
@@ -16,6 +17,7 @@ const LandingPage = () => {
                 <Footer />
             </div>
         </div>
+      </div>      
     )
 }
 
