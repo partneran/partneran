@@ -3,7 +3,9 @@ import Intro from './Intro';
 
 const LandingPage = () => {
     return (
-        <Intro />
+        <div className="wrapper">
+            <Intro />
+        </div>
     )
 }
 
