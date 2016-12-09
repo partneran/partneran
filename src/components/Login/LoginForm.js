@@ -38,6 +38,7 @@ class LoginForm extends Component {
                 </div>
                 <div className="footer text-center">
                     <Link to="signup" className="btn btn-simple btm-sm btn-info"> Don't have account? Signup Now! </Link>
+                    <Link to="forget-password" className="btn btn-simple btm-sm btn-info"> Forget Password? </Link>
                     <a href="#pablo" className="btn btn-info btn-lg"> Login</a>
                 </div>
             </form>
