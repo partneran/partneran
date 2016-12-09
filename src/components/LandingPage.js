@@ -3,6 +3,7 @@ import Intro from './Intro';
 import PopularIdea from './Category/PopularIdea';
 import LatestIdea from './Category/LatestIdea';
 import RecommendedIdea from './Category/RecommendedIdea';
+import Marketing from './Marketing'
 import Footer from './Footer/Footer';
 
 const LandingPage = () => {
@@ -14,10 +15,11 @@ const LandingPage = () => {
                 <PopularIdea />
                 <LatestIdea />
                 <RecommendedIdea />
+                <Marketing />
                 <Footer />
             </div>
         </div>
-      </div>      
+      </div>
     )
 }
 

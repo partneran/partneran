@@ -4,10 +4,7 @@
   width: 100%;
 }*/
 #intro {
-  background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');
-}
-.section {
-  padding: 35px 0;
+  background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450')
 }
 .no-padding-left {
   padding-left: 0px;
@@ -106,4 +103,11 @@
   filter: alpha(opacity=100);
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
+}
+
+#marketing {
+  background-image: url('https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=1260&h=750&auto=compress&cs=tinysrgb');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
