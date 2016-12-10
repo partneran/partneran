@@ -1,4 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import 'jquery/dist/jquery.min.js'
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css'; // import styles
+
+// Import bootstrap(v3 or v4) dependencies
+
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const CreateIdea = () => {
   return (
@@ -32,9 +42,15 @@ const CreateIdea = () => {
                         <input type="text" className="form-control" required />
                       </div>
                       <div className="form-group label-floating">
-                        <label className="btn btn-info btn-sm">Upload Feautured Image</label>
-                        <input type="file" id="exampleInputFile" />
+                        <div className="col-md-10 no-padding-left">
+                        <input type="text" className="form-control" placeholder="Featured Image URL"/>
+                        </div>
+                        <div className="col-md-2 no-padding-left">
+                        <label className="btn btn-info btn-sm">Upload Image</label>
+                        <input type="file" id="exampleInputFile" required/>
+                        </div>
                       </div>
+                      <RichTextEditor/>
                     </form>
                   </div>
                 </div>
@@ -45,6 +61,34 @@ const CreateIdea = () => {
       </div>
     </div>
   )
+}
+
+class RichTextEditor extends Component {
+  onChange(content) {
+    console.log('onChange', content);
+  }
+
+  render() {
+    return (
+      <ReactSummernote
+        value="Default value"
+        options={{
+          height: 350,
+          dialogsInBody: true,
+          toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview']]
+          ]
+        }}
+        onChange={this.onChange}
+      />
+    );
+  }
 }
 
 export default CreateIdea;
