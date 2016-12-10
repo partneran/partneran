@@ -173,3 +173,16 @@
 .navbar .navbar-nav > li > a {
   font-size: 16px;
 }
+
+#new-idea-intro {
+  height: 50vh;
+  color: #fff;
+  padding: 15% 0;
+  background-image: url('https://images.pexels.com/photos/40120/pexels-photo-40120.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
+  background-size: cover;
+  background-attachment: fixed; 
+}
+
+#new-idea-intro h1.title {
+  color: #fff;
+}
