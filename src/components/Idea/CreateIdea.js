@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'jquery/dist/jquery.min.js'
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
 
@@ -71,7 +70,7 @@ class RichTextEditor extends Component {
   render() {
     return (
       <ReactSummernote
-        value="Default value"
+        placeholder="Your Idea's detail . . ."
         options={{
           height: 350,
           dialogsInBody: true,

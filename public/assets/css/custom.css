@@ -7,7 +7,7 @@
   background-image: url('https://static.pexels.com/photos/33972/pexels-photo.jpg')
 }
 .no-padding-left {
-  padding-left: 0px;
+  padding-left: 0px !important;
 }
 
 .small-detail {
@@ -221,3 +221,27 @@
 .card .card-content {
   padding: 15px 20px;
 }
+
+.note-editor.note-frame {
+  margin-top: 75px;
+}
+
+/*.text-info {
+  color: #03a9f4 !important;
+}
+
+.btn-simple {
+  border: none !important;
+}
+
+.btn-lg {
+  padding: 12px 30px !important;
+}
+
+.btn {
+  border-radius: 3px !important;
+  border: none !important;
+  font-size: 12px !important;
+  margin-top: 3px !important;
+  margin-bottom: 5px !important;
+}*/
