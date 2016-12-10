@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signup } from '../../actions/userRegistration';
 
 class SignupForm extends Component {
 	constructor(props) {
@@ -21,6 +24,7 @@ class SignupForm extends Component {
 
 	onSubmit(e) {
 		e.preventDefault()
+		this.props.signup(this.state)
 		console.log(this.state)
 		// set the action to communicate with server
 	}
@@ -109,4 +113,18 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm
+function mapStateToProps(state) {
+  return {
+    state
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    signup: bindActionCreators(signup, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
+
+// export default SignupForm

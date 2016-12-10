@@ -17,6 +17,7 @@ import routes from './routes';
 const middleware = applyMiddleware(thunk, promise, logger())
 
 const store = createStore(reducers, middleware)
+// store.dispatch({type: 'SIGN_UP', payload: {name: 'JUANG', email:'JuangWiantoro@gmail.com', password: "adaadaja"}})
 
 
 ReactDOM.render(

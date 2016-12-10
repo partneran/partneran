@@ -1,13 +1,13 @@
 import {
     SIGN_UP
-} from '../constants/actionType'
+} from '../constants/actionTypes'
 
-const userReducer = (state={}, action) => {
+const user = (state={}, action) => {
     switch(action.type){
         case SIGN_UP:
             return {
                 ...state,
-                user: action.payload.user,
+                user: action.payload,
                 status: false
             }
         default:
@@ -15,3 +15,5 @@ const userReducer = (state={}, action) => {
 
     }
 }
+
+export default user
