@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { newPassword } from '../../actions/user';
 
 class NewPasswordForm extends Component {
     constructor(props) {
@@ -18,7 +21,9 @@ class NewPasswordForm extends Component {
 
     onSubmit(e){
         e.preventDefault()
-        console.log(this.state)
+        // adding some validation here
+        this.props.newPassword(this.state.password)
+        // console.log(this.state)
     }
 
     render() {
@@ -67,4 +72,10 @@ class NewPasswordForm extends Component {
     }
 }
 
-export default NewPasswordForm
+function mapDispatchToProps(dispatch) {
+  return {
+    newPassword: bindActionCreators(newPassword, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NewPasswordForm)
