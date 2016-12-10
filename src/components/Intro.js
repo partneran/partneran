@@ -9,9 +9,9 @@ const Intro = () => {
                 <h1 className="title">Write the best title for your page.</h1>
                           <h4>Every landing page needs a small description after the big bold title, that's why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
                           <br />
-                          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="btn btn-info btn-raised btn-lg">
+                          <button type="button" data-toggle="modal" data-target="#myModal" className="btn btn-info btn-raised btn-lg">
                   <i className="fa fa-play"></i> Watch video
-                </a>
+                </button>
               </div>
             </div>
           </div>

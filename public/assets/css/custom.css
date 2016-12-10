@@ -158,6 +158,15 @@
   color: #fff;
 }
 
+.modal-video {
+  width: 75%;
+  margin: 5% auto auto !important;
+
+}
+
+.video-intro {
+  padding: 24px 0 0 !important;
+}
 .brand img {
   max-height: 50px;
 }

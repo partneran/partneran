@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from './Intro';
+import ModalVideo from './ModalVideo';
 import PopularIdea from './Category/PopularIdea';
 import LatestIdea from './Category/LatestIdea';
 import RecommendedIdea from './Category/RecommendedIdea';
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <div className="landing-page">
         <div className="wrapper">
             <Intro />
+            <ModalVideo />
             <div className="main">
                 <PopularIdea />
                 <LatestIdea />

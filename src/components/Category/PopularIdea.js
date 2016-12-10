@@ -38,6 +38,7 @@ const PopularIdea = () => {
     )
 }
 
+
 const PopularIdeaItem = () => {
   return (
     <div className="popular col-md-4 text-left">
