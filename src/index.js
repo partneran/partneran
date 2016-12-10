@@ -1,23 +1,23 @@
+// React dependency
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import { Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
+import { Provider} from 'react-redux';
+
+// Redux dependency
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise';
+import logger from 'redux-logger';
+
+// internal dipendency
 import routes from './routes';
-import { createStore } from 'redux';
-// import reducers from './reducers';
 
+const middleware = applyMiddleware(thunk, promise, logger())
 
-const reducers = (state=0, action) => {
-  switch(action.type) {
-    case 'INC':
-      return state + 1;
-    default:
-      return state;
-  }
-}
+const store = createStore(reducers, middleware)
 
-const store = createStore(reducers)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -21,9 +21,6 @@ class SignupForm extends Component {
 
 	onSubmit(e) {
 		e.preventDefault()
-		if(this.state.password.length <= 8) {
-			return console.log('the password must contains at least 8 characters ')
-		}
 		console.log(this.state)
 		// set the action to communicate with server
 	}
