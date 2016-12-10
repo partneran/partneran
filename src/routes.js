@@ -20,5 +20,3 @@ export default (
         <Route path="verify-password" component={NewPasswordPage} />
     </Route>
 )
-
-// <Route path="signup" component={Signup} />
