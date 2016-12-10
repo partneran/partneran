@@ -20,8 +20,6 @@ class ForgetPasswordForm extends Component {
         console.log(this.state)
     }
 
-
-
     render() {
         return (
             <form className="form" onSubmit={this.onSubmit} >
