@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-import ReactSummernote from 'react-summernote';
-import 'react-summernote/dist/react-summernote.css'; // import styles
-
-// Import bootstrap(v3 or v4) dependencies
-
-import 'bootstrap/js/modal';
-import 'bootstrap/js/dropdown';
-import 'bootstrap/js/tooltip';
-import 'bootstrap/dist/css/bootstrap.css';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const CreateIdea = () => {
   return (
@@ -37,7 +30,7 @@ const CreateIdea = () => {
                         <input type="text" className="form-control" required />
                       </div>
                       <div className="form-group label-floating">
-                        <label className="control-label">Featured Video (Youtube Link)</label>
+                        <label className="control-label">Featured Video (Youtube-Link)</label>
                         <input type="text" className="form-control" required />
                       </div>
                       <div className="form-group label-floating">
@@ -49,7 +42,12 @@ const CreateIdea = () => {
                         <input type="file" id="exampleInputFile" required/>
                         </div>
                       </div>
-                      <RichTextEditor/>
+                      <div className="form-group">
+                        <br/>
+                        <label>Your Idea Detail</label>
+                        <Editor/>
+                      </div>
+
                     </form>
                   </div>
                 </div>
@@ -60,34 +58,6 @@ const CreateIdea = () => {
       </div>
     </div>
   )
-}
-
-class RichTextEditor extends Component {
-  onChange(content) {
-    console.log('onChange', content);
-  }
-
-  render() {
-    return (
-      <ReactSummernote
-        placeholder="Your Idea's detail . . ."
-        options={{
-          height: 350,
-          dialogsInBody: true,
-          toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview']]
-          ]
-        }}
-        onChange={this.onChange}
-      />
-    );
-  }
 }
 
 export default CreateIdea;

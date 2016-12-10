@@ -226,6 +226,12 @@
   margin-top: 75px;
 }
 
+.rdw-editor-main {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 10px;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
