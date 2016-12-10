@@ -1,5 +1,6 @@
 import {
-    SIGN_UP
+    SIGN_UP,
+    LOG_IN
 } from '../constants/actionTypes'
 
 const user = (state={}, action) => {
@@ -8,7 +9,12 @@ const user = (state={}, action) => {
             return {
                 ...state,
                 user: action.payload,
-                status: false
+                verify: false
+            }
+        case LOG_IN:
+            return {
+                ...state,
+                user: action.payload,
             }
         default:
             return state

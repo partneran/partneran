@@ -24,8 +24,9 @@ class SignupForm extends Component {
 
 	onSubmit(e) {
 		e.preventDefault()
+		// validation 
 		this.props.signup(this.state)
-		console.log(this.state)
+		// console.log(this.state)
 		// set the action to communicate with server
 	}
 
@@ -126,5 +127,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
-
-// export default SignupForm
