@@ -180,9 +180,44 @@
   padding: 15% 0;
   background-image: url('https://images.pexels.com/photos/40120/pexels-photo-40120.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
 }
 
 #new-idea-intro h1.title {
   color: #fff;
+}
+
+.form-card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 50px 0;
+  color: rgba(0,0,0,.87);
+  background: #fff;
+}
+
+.card .card-header {
+  box-shadow: 0 10px 30px -12px rgba(0,0,0,.42) , 0 4px 25px 0 rgba(0,0,0,.12) , 0 8px 10px -5px rgba(0,0,0,.2);
+  margin: -20px 15px 0;
+  border-radius: 3px;
+  padding: 15px;
+  color: #fff;
+  background-color: #999;
+}
+
+.card-header>.title {
+  color: #fff;
+}
+
+.card [data-background-color] {
+  background-color: #fff;
+}
+
+.card [data-background-color="blue"] {
+  background-color: #03a9f4;
+  box-shadow: 0 16px 26px -10px rgba(3,169,244,.56) , 0 4px 25px 0 rgba(0,0,0,.12) , 0 8px 10px -5px rgba(3,169,244,.2);
+}
+
+.card .card-content {
+  padding: 15px 20px;
 }

@@ -15,21 +15,30 @@ const CreateIdea = () => {
         <div className="main">
           <div className="container">
             <div className="row">
-              <form encType="multipart/form-data">
-                <div className="form-group label-floating">
-                  <label className="control-label">Your Idea's Title</label>
-                  <input type="text" className="form-control" required />
+              <div className="card form-card">
+                <div className="card-header" data-background-color="blue">
+                  <h4 className="title">Your Idea</h4>
+		              <p className="category">Tell us about your idea</p>
                 </div>
-                <div className="form-group label-floating">
-                  <label >Upload Feautured Image</label>
-                  <input type="file" id="exampleInputFile" />
-                  <p className="help-block">Example block-level help text here.</p>
+                <div className="card-signup">
+                  <div className="container">
+                    <form encType="multipart/form-data">
+                      <div className="form-group label-floating">
+                        <label className="control-label">Your Idea's Title</label>
+                        <input type="text" className="form-control" required />
+                      </div>
+                      <div className="form-group label-floating">
+                        <label className="control-label">Featured Video (Youtube Link)</label>
+                        <input type="text" className="form-control" required />
+                      </div>
+                      <div className="form-group label-floating">
+                        <label className="btn btn-info btn-sm">Upload Feautured Image</label>
+                        <input type="file" id="exampleInputFile" />
+                      </div>
+                    </form>
+                  </div>
                 </div>
-                <div className="form-group label-floating">
-                  <label className="control-label">Featured Video</label>
-                  <input type="text" className="form-control" required />
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
