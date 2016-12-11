@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -42,6 +43,16 @@ const CreateIdea = () => {
                         <input type="file" id="exampleInputFile" required/>
                         </div>
                       </div>
+                      <br/>
+                      <br/>
+                      <div className="form-group label-floating">
+                        <label className="control-label">Category</label>
+                        <select className="form-control">
+                          <option>Lalala</option>
+                          <option>Lalala</option>
+                          <option>Lalala</option>
+                        </select>
+                      </div>
                       <div className="form-group">
                         <br/>
                         <label>Your Idea Detail</label>
@@ -56,6 +67,7 @@ const CreateIdea = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
