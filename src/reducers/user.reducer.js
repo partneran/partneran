@@ -6,6 +6,7 @@ import {
 const user = (state={}, action) => {
     switch(action.type){
         case SIGN_UP:
+        console.log(action);
             return {
                 ...state,
                 user: action.payload,
