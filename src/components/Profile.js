@@ -7,7 +7,7 @@ const ProfilePage = () => {
       <div className="wrapper">
   		  <div className="header header-filter header-profile">
           <div className="container text-center">
-            <h1>User's Name Profile</h1>
+            <h1>Ken Duigraha Profile</h1>
           </div>
   		  </div>
     		<div className="main">
@@ -16,11 +16,11 @@ const ProfilePage = () => {
               <div className="row">
                 <div className="profile">
                   <div className="avatar">
-                    <img src="../assets/img/christian.jpg" alt="Circle Image" className="img-circle img-responsive img-raised"/>
+                    <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Circle Image" className="img-circle img-responsive img-raised"/>
                   </div>
                   <div className="name">
-                    <h3 className="title">Christian Louboutin</h3>
-			              <h6>Designer</h6>
+                    <h3 className="title">Ken Duigraha</h3>
+			              <h6>kenduigraha@yahoo.com</h6>
                   </div>
                 </div>
               </div>
