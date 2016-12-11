@@ -16,7 +16,7 @@ const ProfilePage = () => {
               <div className="row">
                 <div className="profile">
                   <div className="avatar">
-                    <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Circle Image" className="img-circle img-responsive img-raised"/>
+                    <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Profile" className="img-circle img-responsive img-raised"/>
                   </div>
                   <div className="name">
                     <h3 className="title">Ken Duigraha</h3>
