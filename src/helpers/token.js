@@ -20,7 +20,6 @@ const Auth = {
         let token = Auth.getToken()
         if(!token) return {}
         else {
-            console.log(token)
             return jwt_decode(token)
         }
     }
