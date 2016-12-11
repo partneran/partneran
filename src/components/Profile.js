@@ -16,7 +16,7 @@ const ProfilePage = () => {
               <div className="row">
                 <div className="profile">
                   <div className="avatar">
-                    <img src="../assets/img/christian.jpg" alt="Circle Image" className="img-circle img-responsive img-raised"/>
+                    <img src="../assets/img/christian.jpg" alt="Profile Pict" className="img-circle img-responsive img-raised"/>
                   </div>
                   <div className="name">
                     <h3 className="title">Christian Louboutin</h3>
