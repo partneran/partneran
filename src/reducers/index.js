@@ -1,10 +1,9 @@
-// import { combineReducers, applyMiddleware } from 'redux';
-// import thunk from 'redux-thunk';
-// import logger from 'redux-logger';
+import { combineReducers } from 'redux';
+import counter from './counter';
+import user from './user.reducer';
 
-// import idea from './idea';
 
-// const middleware = applyMiddleware(thunk, logger)
+const reducers = combineReducers({ counter, user })
 
-// export const reducers = combineReducers({counter, middleware})
+export default reducers
 

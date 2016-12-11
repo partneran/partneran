@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { forgetPassword } from '../../actions/user';
 
 class ForgetPasswordForm extends Component {
     constructor(props){
@@ -17,7 +20,8 @@ class ForgetPasswordForm extends Component {
 
     onSubmit(e){
         e.preventDefault()
-        console.log(this.state)
+        this.props.forgetPassword(this.state.email)
+        // console.log(this.state)
     }
 
     render() {
@@ -52,4 +56,10 @@ class ForgetPasswordForm extends Component {
     }
 }
 
-export default ForgetPasswordForm
+function mapDispatchToProps(dispatch) {
+  return {
+    forgetPassword: bindActionCreators(forgetPassword, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ForgetPasswordForm)

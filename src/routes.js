@@ -24,5 +24,3 @@ export default (
         <Route path="profile" component={ProfilePage} />
     </Route>
 )
-
-// <Route path="signup" component={Signup} />

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from '../../actions/user';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -18,7 +21,8 @@ class LoginForm extends Component {
 
     onSubmit(e) {
         e.preventDefault()
-        console.log(this.state)
+        this.props.login(this.state)
+        // console.log(this.state)
     }
 
   render() {
@@ -72,4 +76,16 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+// function mapStateToProps(state) {
+//   return {
+//     state
+//   }
+// }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: bindActionCreators(login, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LoginForm)

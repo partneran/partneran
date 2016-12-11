@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signup } from '../../actions/user';
+import R from 'ramda';
 
 class SignupForm extends Component {
 	constructor(props) {
@@ -21,14 +26,19 @@ class SignupForm extends Component {
 
 	onSubmit(e) {
 		e.preventDefault()
-		console.log(this.state)
-		// set the action to communicate with server
+		// validation
+		if(this.state.password !== this.state.passwordConfirmation){
+			// lacking popup
+
+			return ReactDOM.findDOMNode(this.refs.passwordConfirmation).focus(); 
+		}
+		this.props.signup(R.omit(['passwordConfirmation'], this.state))
 	}
 
   render() {
     return (
           <div className="card card-signup">
-            <form className="form" onSubmit={this.onSubmit} >
+            <form className="form" onSubmit={this.onSubmit}  >
 								<div className="header header-info text-center" style={{height:'auto'}}>
 									<h4>Sign Up</h4>
 									<div className="social-line">
@@ -59,12 +69,13 @@ class SignupForm extends Component {
 											<i className="material-icons">email</i>
 										</span>
 										<input
-                      type="text"
+                      type="email"
                       className="form-control"
                       placeholder="Email..."
 											name="email"
 											value={this.state.email}
 											onChange={this.onChange}
+											required
                     />
 									</div>
 
@@ -79,6 +90,8 @@ class SignupForm extends Component {
 											name="password"
 											value={this.state.password}
 											onChange={this.onChange}
+											pattern=".{8,}" 
+											required title="Minimum Password is 8 Characters"
                     />
 									</div>
 
@@ -89,10 +102,12 @@ class SignupForm extends Component {
 										<input
                       type="password"
                       placeholder="Confirm your password..."
+											ref="passwordConfirmation"
                       className="form-control"
 											name="passwordConfirmation"
 											value={this.state.passwordConfirmation}
 											onChange={this.onChange}
+											// add popup
                     />
 									</div>
 
@@ -109,4 +124,16 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm
+function mapStateToProps(state) {
+  return {
+    state
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    signup: bindActionCreators(signup, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
