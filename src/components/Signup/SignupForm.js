@@ -126,7 +126,7 @@ class SignupForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    state: console.log(state)
   }
 }
 
