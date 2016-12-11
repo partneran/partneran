@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import { isLoggedIn } from '../../helpers/verification';
 
 // import {
 //   convertFromHTML,
@@ -43,6 +44,7 @@ class CreateIdea extends Component {
   
   render() {
     const { title, video, image, category, description} = this.state
+    isLoggedIn()
     return (
         <div className="components-page">
           <div className="wrapper">
@@ -73,7 +75,7 @@ class CreateIdea extends Component {
                               name="title"
                               value={title}
                               onChange={this.onChange}
-                              // required 
+                              required 
                             />
                           </div>
                           <p>{title}</p>
@@ -85,7 +87,7 @@ class CreateIdea extends Component {
                               name="video" 
                               value={video}
                               onChange={this.onChange}
-                              // required 
+                              required 
                             />
                           </div>
                           <div className="form-group label-floating">
@@ -104,7 +106,7 @@ class CreateIdea extends Component {
                             <input 
                               type="file" 
                               id="exampleInputFile" 
-                              // required
+                              required
                             />
                             </div>
                           </div>
@@ -122,7 +124,6 @@ class CreateIdea extends Component {
                             <br/>
                             <label>Your Idea Detail</label>
                             <Editor
-                              // name="description"
                               description={description}
                               onChange={this.onEditorChange}
                             />
