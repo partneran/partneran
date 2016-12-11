@@ -58,6 +58,9 @@ const CreateIdea = () => {
                         <label>Your Idea Detail</label>
                         <Editor/>
                       </div>
+                      <div className="form-group">
+                        <button type="button" className="btn btn-info">Submit</button>
+                      </div>
 
                     </form>
                   </div>
