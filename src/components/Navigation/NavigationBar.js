@@ -1,13 +1,10 @@
 import React from 'react';
 import NavigationAuthorize from './NavigationAuthorize';
 import NavigationUnauthorize from './NavigationUnauthorize';
-// import { isLoggedIn } from '../../helpers/verification';
-// console.log(isLoggedIn)
 
-// cannot be like this because it mutate state
-const NavigationBar = () => {
-
-    if(true) {
+const NavigationBar = (props) => {
+    const isLoggedIn = props.isLoggedIn;
+    if(isLoggedIn) {
         return <NavigationAuthorize />
     }
     return <NavigationUnauthorize />

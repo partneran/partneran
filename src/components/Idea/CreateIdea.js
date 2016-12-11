@@ -3,7 +3,7 @@ import Footer from '../Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
-import { isLoggedIn } from '../../helpers/verification';
+// import { isLoggedIn } from '../../helpers/verification';
 
 // import {
 //   convertFromHTML,
@@ -44,7 +44,7 @@ class CreateIdea extends Component {
   
   render() {
     const { title, video, image, category, description} = this.state
-    isLoggedIn()
+    // isLoggedIn()
     return (
         <div className="components-page">
           <div className="wrapper">
