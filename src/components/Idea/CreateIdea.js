@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Footer from '../Footer/Footer'
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+// import 'tinymce/tinymce.min.js';
+// import { Editor } from 'react-draft-wysiwyg';
+// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const CreateIdea = () => {
   return (
@@ -56,7 +57,7 @@ const CreateIdea = () => {
                       <div className="form-group">
                         <br/>
                         <label>Your Idea Detail</label>
-                        <Editor/>
+                        <textarea id="tinymce"></textarea>
                       </div>
                       <div className="form-group">
                         <button type="button" className="btn btn-info">Submit</button>
