@@ -232,6 +232,16 @@
   min-height: 300px;
   padding: 10px;
 }
+
+.header-profile {
+  background-image: url('https://static.pexels.com/photos/6508/nature-laptop-outside-macbook.jpg');
+  background-position: center center !important;
+  background-attachment: fixed;
+  padding-top: 10%;
+}
+.header-profile h1 {
+  color: #fff;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
