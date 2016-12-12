@@ -1,5 +1,7 @@
 import React from 'react';
-import PopularIdea from './Category/PopularIdea';
+import UserIdea from './Category/UserIdea';
+import MemberIdea from './Category/MemberIdea';
+import Footer from './Footer/Footer';
 
 const ProfilePage = () => {
   return (
@@ -26,14 +28,28 @@ const ProfilePage = () => {
               </div>
               <div className="description text-center">
                 <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                <div className="btn-group">
+                  <button type="button" className="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Edit Profile <span className="caret"></span>
+                  </button>
+                  <ul className="dropdown-menu">
+                    <li><a href="#">Edit Profile</a></li>
+                    <li><a href="#">Change Password</a></li>
+                  </ul>
+                </div>
               </div>
               <div className="section">
-                <PopularIdea/>
+                <UserIdea/>
+              </div>
+
+              <div className="section">
+                <MemberIdea/>
               </div>
             </div>
 	        </div>
     		</div>
       </div>
+      <Footer />
     </div>
   )
 }
