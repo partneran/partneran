@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AllIdea from './Category/AllIdea'
+import AllIdea from './Category/AllIdea';
+import Footer from './Footer/Footer';
 
 class MainPage extends Component {
   constructor(){
@@ -22,7 +23,7 @@ class MainPage extends Component {
               </div>
             </div>
           </div>
-        </div>
+
 
         <div className="main">
           <div className="section">
@@ -52,6 +53,7 @@ class MainPage extends Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </div>
