@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const PopularIdea = () => {
+
+const PopularIdea = ({ idea }) => {
     return (
             <div className="container">
               <div className="section text-center">
@@ -63,4 +65,10 @@ const PopularIdeaItem = () => {
   )
 }
 
-export default PopularIdea
+const mapStateToProps = (state) => {
+  return {
+    idea: state.idea
+  }
+}
+
+export default connect(mapStateToProps, null)(PopularIdea)
