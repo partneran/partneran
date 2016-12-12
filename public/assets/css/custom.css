@@ -242,6 +242,10 @@
 .header-profile h1 {
   color: #fff;
 }
+
+.explore-title {
+  margin-top: 0px;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
