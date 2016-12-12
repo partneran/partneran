@@ -7,14 +7,15 @@ import {
 
 const initialState = [
     {
-        title: 'Title 1',
+        title: 'This on Ed Tech 1',
         image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
         description: 'This is description from the first title',
         slug: 'http:localhost:3000/firstidea',
         id: '1',
         author: 'Ken',
         social: 'http://twitter.com',
-        join: '12 December 2016'
+        join: '12 December 2016',
+        category: 'edTech'
     },
     {
         title: 'Title 2',
@@ -24,7 +25,8 @@ const initialState = [
         id: '2',
         author: 'tama',
         social: 'http://twitter.com',
-        join: '12 December 2016'
+        join: '12 December 2016',
+        category: 'finTech'
     },
     {
         title: 'Title 3',
@@ -34,7 +36,8 @@ const initialState = [
         id: '3',
         author: 'juang',
         social: 'http://twitter.com',
-        join: '12 December 2016'
+        join: '12 December 2016',
+        category: 'iot'
     }
 ]
 
