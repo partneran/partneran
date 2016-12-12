@@ -129,7 +129,7 @@ class CreateIdea extends Component {
                             />
                           </div>
                           <div className="form-group">
-                            <button type="submit" className="btn btn-info">Submit</button>
+                            <button type="submit" className="btn btn-info">Save</button>
                           </div>
                         </form>
                       </div>
