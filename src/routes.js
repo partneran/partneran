@@ -8,6 +8,7 @@ import ForgetPasswordPage from './components/ForgetPassword/ForgetPasswordPage';
 import NewPasswordPage from './components/ForgetPassword/NewPasswordPage';
 import CreateIdea from './components/Idea/CreateIdea';
 import ProfilePage from './components/Profile';
+import MainPage from './components/MainPage';
 // import ExplorePage from './components/ExplorePage';
 // import ProfilePage from'./components/ProfilePage';
 // import IdeaPage from './components/IdeaPage';
@@ -22,5 +23,6 @@ export default (
         <Route path="verify-password" component={NewPasswordPage} />
         <Route path="share-idea" component={CreateIdea} />
         <Route path="profile" component={ProfilePage} />
+        <Route path="explore" component={MainPage} />
     </Route>
 )
