@@ -5,7 +5,7 @@ const MainPage = () => {
   return (
     <div className="components-page">
       <div className="wrapper">
-        <div className="header header-filter">
+        <div className="header header-filter explore-header">
       		<div className="container">
       			<div className="row">
       				<div className="col-md-6 col-md-offset-3">

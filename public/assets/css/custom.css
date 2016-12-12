@@ -246,6 +246,10 @@
 .explore-title {
   margin-top: 0px;
 }
+
+.explore-header {
+  background-image: url('https://static.pexels.com/photos/185764/pexels-photo-185764.jpeg');
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
