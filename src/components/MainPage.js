@@ -19,6 +19,7 @@ class MainPage extends Component {
               <div className="row">
                 <div className="col-md-6 col-md-offset-3">
                   <h1 className="title text-center">Explore Great Ideas</h1>
+                  <h2 className="title text-center"> In {this.state.category}</h2>
                 </div>
               </div>
             </div>
@@ -32,18 +33,18 @@ class MainPage extends Component {
                 <div className="col-md-2">
                   <div className="fixed-section affix-top" data-spy="affix" data-offset-top="340">
                       <ul className="list-group">
-                          <li className="list-group-item" onClick={() => this.setState({category: 'all'})}><a href="#">All Categories</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'eCommerce'})}><a href="#">E-Commerce</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'edTech'})}><a href="#">EdTech</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'finTech'})}><a href="#">FinTech</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'iot'})}><a href="#">IoT</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'art'})}><a href="#">Art & Culture</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'agriculture'})}><a href="#">Agriculture</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'health'})}><a href="#">Health & Lifestyle</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'onDemand'})}><a href="#">On Demand Service</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'games'})}><a href="#">Games</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'software'})}><a href="#">Software</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'mobile'})}><a href="#">Mobile</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'All Categories'})}><a href="#">All Categories</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'E Commerce'})}><a href="#">E-Commerce</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Education Technology'})}><a href="#">EdTech</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Financial Technology'})}><a href="#">FinTech</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Internet of Thing'})}><a href="#">IoT</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Art'})}><a href="#">Art & Culture</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Agriculture'})}><a href="#">Agriculture</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Health'})}><a href="#">Health & Lifestyle</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'On Demand Service'})}><a href="#">On Demand Service</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Games'})}><a href="#">Games</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Software'})}><a href="#">Software</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Mobile'})}><a href="#">Mobile</a></li>
                       </ul>
                   </div>
                 </div>
@@ -55,7 +56,7 @@ class MainPage extends Component {
           </div>
         </div>
         </div>
-
+        <Footer />
       </div>
     )
   }

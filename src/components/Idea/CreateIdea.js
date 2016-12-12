@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import CategoryDetail from './CategoryDetail';
 // import { isLoggedIn } from '../../helpers/verification';
 
 // import {
@@ -75,7 +76,7 @@ class CreateIdea extends Component {
                               name="title"
                               value={title}
                               onChange={this.onChange}
-                              required
+                              // required
                             />
                           </div>
                           <p>{title}</p>
@@ -87,7 +88,7 @@ class CreateIdea extends Component {
                               name="video"
                               value={video}
                               onChange={this.onChange}
-                              required
+                              // required
                             />
                           </div>
                           <div className="form-group label-floating">
@@ -106,7 +107,7 @@ class CreateIdea extends Component {
                             <input
                               type="file"
                               id="exampleInputFile"
-                              required
+                              // required
                             />
                             </div>
                           </div>
@@ -114,11 +115,7 @@ class CreateIdea extends Component {
                           <br/>
                           <div className="form-group label-floating">
                             <label className="control-label">Category</label>
-                            <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
-                              <option value="option1">Lalala</option>
-                              <option value="option2">Lalala</option>
-                              <option value="option3">Lalala</option>
-                            </select>
+                            <CategoryDetail onChange={this.onChange} value={category} name="category"/>
                           </div>
                           <div className="form-group">
                             <br/>

@@ -2,7 +2,8 @@
 import v4 from 'uuid/v4';
 
 import {
-    ADD_IDEA
+    ADD_IDEA,
+    DELETE_IDEA
 } from '../constants/actionTypes'
 
 const initialState = [
@@ -15,7 +16,7 @@ const initialState = [
         author: 'Ken',
         social: 'http://twitter.com',
         join: '12 December 2016',
-        category: 'edTech'
+        category: 'E Commerce'
     },
     {
         title: 'Title 2',
@@ -26,7 +27,7 @@ const initialState = [
         author: 'tama',
         social: 'http://twitter.com',
         join: '12 December 2016',
-        category: 'finTech'
+        category: 'Financial Technology'
     },
     {
         title: 'Title 3',
@@ -37,7 +38,7 @@ const initialState = [
         author: 'juang',
         social: 'http://twitter.com',
         join: '12 December 2016',
-        category: 'iot'
+        category: 'Internet of Thing'
     }
 ]
 
@@ -54,6 +55,8 @@ const idea = (state = {}, action) => {
                 video: action.payload.video,
                 category: action.payload.category
             }
+        case DELETE_IDEA:
+            return {}
         default:
             return state
     }

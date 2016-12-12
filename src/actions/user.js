@@ -9,6 +9,7 @@ import Auth from '../helpers/token';
 
 const uri = 'http://localhost:8080/api/auth/signup'
 
+
 export const signup = user =>
     ({
         type: SIGN_UP,
@@ -19,11 +20,10 @@ export const signup = user =>
                     password: user.password
                 })
                 .then(res => {
-                  console.log(res);
                     Auth.authenticateUser(res)
                     browserHistory.push('/')
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.error(err))
     })
 
 export const login = (user) =>
@@ -50,11 +50,16 @@ export const forgetPassword = (email) =>
                 .then(res => {
                     browserHistory.push('/')
                 })
-                .catch(err => console.errror(err))
+                .catch(err => console.error(err))
     })
 
 export const newPassword = (password) =>
     ({
         type: NEW_PASSWORD,
-        password
+        password: axios
+                    .post(uri, { password })
+                    .then(res => {
+                        browserHistory.push('/')
+                    })
+                    .catch(err => console.error(err))
     })
