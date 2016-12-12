@@ -6,17 +6,23 @@ const initialState = [
     {
         title: 'test title',
         image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        slug: 'http:localhost:3000/firstidea',
+        id: '1'
     },
     {
         title: 'test title',
         image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        slug: 'http:localhost:3000/firstidea',
+        id: '2'
     },
     {
         title: 'test title',
         image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        slug: 'http:localhost:3000/firstidea',
+        id: '3'
     }
 ]
 
