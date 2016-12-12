@@ -41,7 +41,7 @@ class CreateIdea extends Component {
       description: draftToHtml(description)
     })
   }
-  
+
   render() {
     const { title, video, image, category, description} = this.state
     // isLoggedIn()
@@ -69,43 +69,43 @@ class CreateIdea extends Component {
                         <form encType="multipart/form-data" onSubmit={this.onSubmit}>
                           <div className="form-group label-floating">
                             <label className="control-label">Your Idea's Title</label>
-                            <input 
-                              type="text" 
-                              className="form-control" 
+                            <input
+                              type="text"
+                              className="form-control"
                               name="title"
                               value={title}
                               onChange={this.onChange}
-                              required 
+                              required
                             />
                           </div>
                           <p>{title}</p>
                           <div className="form-group label-floating">
                             <label className="control-label">Featured Video (Youtube-Link)</label>
-                            <input 
-                              type="url" 
+                            <input
+                              type="url"
                               className="form-control"
-                              name="video" 
+                              name="video"
                               value={video}
                               onChange={this.onChange}
-                              required 
+                              required
                             />
                           </div>
                           <div className="form-group label-floating">
                             <div className="col-md-10 no-padding-left">
-                            <input 
-                              type="text" 
-                              className="form-control" 
+                            <input
+                              type="text"
+                              className="form-control"
                               placeholder="Featured Image URL"
                               name="image"
                               value={image}
-                              onChange={this.onChange}  
+                              onChange={this.onChange}
                             />
                             </div>
                             <div className="col-md-2 no-padding-left">
                             <label className="btn btn-info btn-sm">Upload Image</label>
-                            <input 
-                              type="file" 
-                              id="exampleInputFile" 
+                            <input
+                              type="file"
+                              id="exampleInputFile"
                               required
                             />
                             </div>
@@ -114,7 +114,7 @@ class CreateIdea extends Component {
                           <br/>
                           <div className="form-group label-floating">
                             <label className="control-label">Category</label>
-                            <select className="form-control" onChange={this.onChange} value={category} name="category">
+                            <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
                               <option value="option1">Lalala</option>
                               <option value="option2">Lalala</option>
                               <option value="option3">Lalala</option>
