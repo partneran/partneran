@@ -33,6 +33,9 @@ const PopularIdea = () => {
                     </div>
                     <PopularIdeaItem />
                   </div>
+                  <ul className="pager">
+                    <li className="next"><a href="#">Explore more <span aria-hidden="true">&rarr;</span></a></li>
+                  </ul>
               </div>
             </div>
     )

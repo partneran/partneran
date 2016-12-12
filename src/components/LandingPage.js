@@ -15,8 +15,8 @@ const LandingPage = () => {
             <ModalVideo />
             <div className="main">
                 <PopularIdea />
-                <LatestIdea />
                 <RecommendedIdea />
+                <LatestIdea />
                 <Marketing />
                 <Footer />
             </div>

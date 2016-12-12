@@ -72,6 +72,9 @@ const LatestIdea = () => {
                       </div>
                     </div>
                 </div>
+                <ul className="pager">
+                  <li className="next"><a href="#">Explore More <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
             </div>
         </div>
     )
