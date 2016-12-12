@@ -35,7 +35,6 @@ const MainPage = () => {
                         <li className="list-group-item"><a href="#">Games</a></li>
                         <li className="list-group-item"><a href="#">Software</a></li>
                         <li className="list-group-item"><a href="#">Mobile</a></li>
-
                     </ul>
                 </div>
               </div>
