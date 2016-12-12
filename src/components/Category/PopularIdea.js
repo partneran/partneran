@@ -2,38 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-const PopularIdea = ({ idea }) => {
+const PopularIdea = ({ ideas }) => {
+    const ideaList = ideas.map(i => <PopularIdeaItem title={i.title} image={i.image} description={i.description} />)
     return (
             <div className="container">
               <div className="section text-center">
                   <h2 className="poptitle text-info">Popular Ideas</h2>
                   <div className="row">
-                    <div className="popular col-md-4 text-left">
-                      <div className="card">
-                        <div className="popular-thumb hovereffect" style={{backgroundImage: 'url(https://static.pexels.com/photos/7374/startup-photos.jpg)'}}>
-                            <div className="overlay">
-                                <div className="box">
-                                    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-                              <p> <a href="#">LINK HERE</a> </p>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="popular col-md-4 text-left">
-                      <div className="card">
-                        <div className="popular-thumb hovereffect" style={{backgroundImage: 'url(https://images.pexels.com/photos/7375/startup-photos.jpg?w=1260&h=750&auto=compress&cs=tinysrgb)'}}>
-                            <div className="overlay">
-                                <div className="box">
-                                    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-              				        <p> <a href="#">LINK HERE</a> </p>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <PopularIdeaItem />
+                    {ideaList}
                   </div>
                   <ul className="pager">
                     <li className="next"><a href="#">Explore more <span aria-hidden="true">&rarr;</span></a></li>
@@ -44,15 +20,15 @@ const PopularIdea = ({ idea }) => {
 }
 
 
-const PopularIdeaItem = () => {
+const PopularIdeaItem = (props) => {
   return (
     <div className="popular col-md-4 text-left">
       <div className="card">
         <div className="popular-thumb hovereffect" style={{backgroundImage: 'url(https://static.pexels.com/photos/7374/startup-photos.jpg)'}}>
             <div className="overlay">
                 <div className="box">
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-              <p> <a href="#">LINK HERE</a> </p>
+                    <h2>{props.description}</h2>
+              <p> <a href="#">{props.title}</a> </p>
                 </div>
             </div>
         </div>
@@ -67,7 +43,7 @@ const PopularIdeaItem = () => {
 
 const mapStateToProps = (state) => {
   return {
-    idea: state.idea
+    ideas: state.ideas
   }
 }
 
