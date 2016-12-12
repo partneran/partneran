@@ -1,46 +1,10 @@
-import { combineReducers } from 'redux';
-import counter from './counter';
-import user from './user.reducer';
+import { combineReducers } from 'redux'
 
-const initialState = [
-    {
-        title: 'test title',
-        image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        slug: 'http:localhost:3000/firstidea',
-        id: '1'
-    },
-    {
-        title: 'test title',
-        image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        slug: 'http:localhost:3000/firstidea',
-        id: '2'
-    },
-    {
-        title: 'test title',
-        image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        slug: 'http:localhost:3000/firstidea',
-        id: '3'
-    }
-]
+// import all available reducers
+import counter from './counter'
+import user from './user.reducer'
+import ideas from './ideas'
 
-const ideas = (state = initialState, action) => {
-    switch(action.type){
-        case 'ADD_IDEA':
-            return [
-                {
-                    title: action.payload.title,
-                    image: action.payload.image,
-                    description: action.payload.description
-                },
-                ...state
-            ]
-        default:
-            return state
-    }
-}
 
 
 const reducers = combineReducers({ counter, user, ideas })
