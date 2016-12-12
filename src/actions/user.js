@@ -7,7 +7,6 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
-// const uri = 'https://partneran-484c5.firebaseio.com/user'
 const uri = 'http://localhost:8080/api/auth/signup'
 
 export const signup = user =>
@@ -30,13 +29,28 @@ export const signup = user =>
 export const login = (user) =>
     ({
         type: LOG_IN,
-        user
+        user: axios
+                .post(uri, {
+                    email: user.email,
+                    password: user.password
+                })
+                .then(res => {
+                  console.log(res);
+                    Auth.authenticateUser(res)
+                    browserHistory.push('/')
+                })
+                .catch(err => console.log(err))
     })
 
 export const forgetPassword = (email) =>
     ({
         type: FORGET_PASSWORD,
-        email
+        email: axios
+                .post(uri, { email })
+                .then(res => {
+                    browserHistory.push('/')
+                })
+                .catch(err => console.errror(err))
     })
 
 export const newPassword = (password) =>

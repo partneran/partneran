@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { signup } from '../../actions/user';
 import R from 'ramda';
+import {browserHistory} from 'react-router'
 
 class SignupForm extends Component {
 	constructor(props) {

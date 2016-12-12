@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from '../../actions/user';
+import { browserHistory } from 'react-router';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -22,7 +23,10 @@ class LoginForm extends Component {
     onSubmit(e) {
         e.preventDefault()
         this.props.login(this.state)
-        // console.log(this.state)
+        
+        setTimeout(function() {
+            browserHistory.push('/');
+        }, 1500);
     }
 
   render() {
