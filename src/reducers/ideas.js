@@ -72,7 +72,18 @@ const ideas = (state = initialState, action) => {
             ]
         case LOAD_IDEA:
             return [
-                ...state
+                ...state, 
+                {
+                     title: 'This on Ed Tech 1',
+        image: 'https://static.pexels.com/photos/7374/startup-photos.jpg',
+        description: 'This is description from the first title',
+        slug: 'http:localhost:3000/firstidea',
+        id: '1',
+        author: 'Ken',
+        social: 'http://twitter.com',
+        join: '12 December 2016',
+        category: 'E Commerce'
+                }
             ]
         default:
             return state;
