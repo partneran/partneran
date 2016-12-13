@@ -7,9 +7,9 @@ console.log(Auth.getUser())
 
 class SignupPage extends Component {
 
-  componentDidMount(){
-    !Auth.getToken() ? this.props.router.replace('/login') : this.props.router.replace('/explore')
-  }
+  // componentDidMount(){
+  //   !Auth.getToken() ? this.props.router.replace('/login') : this.props.router.replace('/explore')
+  // }
 
   render() {
     return (
@@ -27,7 +27,7 @@ class SignupPage extends Component {
         </div>
         <Footer />
       </div>
-    ) 
+    )
   }
 }
 

@@ -33,7 +33,7 @@ class MainPage extends Component {
                 <div className="col-md-2">
                   <div className="fixed-section affix-top" data-spy="affix" data-offset-top="340">
                       <ul className="list-group">
-                          <li className="list-group-item" onClick={() => this.setState({category: 'All Categories'})}><button className="btn btn-simple btn-sm btn-info">All Categories</button></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'All Categories'})}><a href="#">All Categories</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'E Commerce'})}><a href="#">E-Commerce</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Education Technology'})}><a href="#">EdTech</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Financial Technology'})}><a href="#">FinTech</a></li>
@@ -42,7 +42,7 @@ class MainPage extends Component {
                           <li className="list-group-item" onClick={() => this.setState({category: 'Agriculture'})}><a href="#">Agriculture</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Health'})}><a href="#">Health & Lifestyle</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'On Demand Service'})}><a href="#">On Demand Service</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'Games'})}><button className="btn btn-simple btn-sm btn-info">Games</button></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Games'})}><a href="#">Games</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Software'})}><a href="#">Software</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Mobile'})}><a href="#">Mobile</a></li>
                       </ul>

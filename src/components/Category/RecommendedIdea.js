@@ -7,19 +7,19 @@ import IdeaCard from './IdeaCard'
 
 const RecommendedIdea = ({ideas}) => {
   const sampleIdea = sampleSize(ideas, 3)
-  const recommendIdeaList = sampleIdea.map(i => <IdeaCard image={i.image} 
-                                                          key={i.id} 
-                                                          title={i.title} 
-                                                          author={i.author} 
+  const recommendIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
+                                                          key={i.id}
+                                                          title={i.title}
+                                                          author={i.author}
                                                           social={i.social}
                                                           join={i.join}
-                                                          description={i.description}                                            
+                                                          description={i.description}
                                                 />
                                           )
     return (
         <div className="container">
             <div className="section text-center">
-                <h2>Recommended Ideas</h2>
+                <h2 className="poptitle text-info">Recommended Ideas</h2>
                 <div className="row">
                   {recommendIdeaList}
                 </div>
