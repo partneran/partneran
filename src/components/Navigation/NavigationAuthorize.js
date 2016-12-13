@@ -36,6 +36,9 @@ class NavigationAuthorize extends Component{
                                     <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link>
                                 </li>
                                 <li className="text-info">
+                                              <Link to="explore"><i className="material-icons">explore</i> Explore</Link>
+                      					</li>
+                                <li className="text-info">
                                     <a href="#" onClick={this.LogOut.bind(this)}><i className="fa fa-sign-out sign-out" /> Sign Out </a>
                                 </li>
                             </ul>
