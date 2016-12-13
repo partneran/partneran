@@ -6,6 +6,9 @@ import draftToHtml from 'draftjs-to-html'
 import CategoryDetail from './CategoryDetail'
 import { assign } from 'lodash'
 import Auth from '../../helpers/token'
+import { addIdea } from '../../actions/idea'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 // import { isLoggedIn } from '../../helpers/verification';
 
 // import {
@@ -36,7 +39,7 @@ class CreateIdea extends Component {
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    console.log(assign(this.state, {UserId: Auth.getUser().sub}))
+    addIdea(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
   onEditorChange(description) {
@@ -145,5 +148,10 @@ class CreateIdea extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    addIdea: bindActionCreators(addIdea, dispatch)
+  }
+}
 
-export default CreateIdea;
+export default connect(null, mapDispatchToProps)(CreateIdea)

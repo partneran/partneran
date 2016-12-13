@@ -10,8 +10,8 @@ import { bindActionCreators } from 'redux'
 
 class App extends Component {
   componentDidMount() {
-    console.log(this.props.ideas)
     this.props.loadIdea()
+    console.log('this',this.props.ideas)
   }
 
   render() {
