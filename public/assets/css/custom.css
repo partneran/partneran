@@ -479,6 +479,13 @@ line-height: 22px;
   color: #e2001a;
   font-size: 1.3em;
 }
+
+.header-detail {
+  background-image: url('https://static.pexels.com/photos/213/blur-old-antique-book.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 /*.text-info {
   color: #03a9f4 !important;
 }

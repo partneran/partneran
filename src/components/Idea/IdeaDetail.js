@@ -5,7 +5,7 @@ const IdeaDetail = () => {
   return (
     <div className="components-page">
       <div className="wrapper">
-        <div className="header header-filter">
+        <div className="header header-filter header-detail">
           <div className="container">
             <div className="row text-center">
               <h1 className="title">
@@ -178,9 +178,54 @@ const IdeaDetail = () => {
                     </div>
                   </div>
 
+                  <div className="row">
+                    <h2>Comment List</h2>
+                    <div className="comment-list">
+                      <ul className="list-group">
+                        <li className="list-group-item">
+                          <strong>Author said:</strong>
+                          <p>Pertamax!!!</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Author said:</strong>
+                          <p>keduax!!!</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Author said:</strong>
+                          <p>Ketigax!!!</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Author said:</strong>
+                          <p>Kelimax!!!</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Author said:</strong>
+                          <p>Keenamx!!!</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
 
                 </div>
-                <div role="tabpanel" className="tab-pane fade" id="members">...</div>
+                <div role="tabpanel" className="tab-pane fade" id="members">
+                  <div className="row">
+                    <h2>Member List</h2>
+                      <ul className="list-group">
+                        <li className="list-group-item">
+                          <strong>Name</strong>
+                          <p>Initiator</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Name</strong>
+                          <p>Member</p>
+                        </li>
+                        <li className="list-group-item">
+                          <strong>Name</strong>
+                          <p>Member</p>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
