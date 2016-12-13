@@ -8,21 +8,21 @@ import Auth from '../helpers/token';
 
 const uri = 'http://localhost:8080/api/ideas/'
 
-export const addIdea = idea =>
-  ({
-    type: ADD_IDEA,
-    idea:  axios
-            .post(uri+'', {
-                name: user.name,
-                email: user.email,
-                password: user.password
-            })
-            .then(res => {
-                Auth.authenticateUser(res)
-                browserHistory.push('/')
-            })
-            .catch(err => console.error(err))
-  })
+// export const addIdea = idea =>
+//   ({
+//     type: ADD_IDEA,
+//     idea:  axios
+//             .post(uri+'', {
+//                 name: user.name,
+//                 email: user.email,
+//                 password: user.password
+//             })
+//             .then(res => {
+//                 Auth.authenticateUser(res)
+//                 browserHistory.push('/')
+//             })
+//             .catch(err => console.error(err))
+//   })
 
 export const signup = user =>
     ({

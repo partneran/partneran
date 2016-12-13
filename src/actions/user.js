@@ -7,14 +7,14 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
-const uri = 'http://localhost:8080/api/auth/'
+const uri = 'http://localhost:8080/api/'
 
 
 export const signup = user =>
     ({
         type: SIGN_UP,
         user:  axios
-                .post(uri+'signup', {
+                .post(uri+'auth/signup', {
                     name: user.name,
                     email: user.email,
                     password: user.password
@@ -30,7 +30,7 @@ export const login = (user) =>
     ({
         type: LOG_IN,
         user: axios
-                .post(uri+'login', {
+                .post(uri+'auth/login', {
                     email: user.email,
                     password: user.password
                 })
@@ -46,7 +46,7 @@ export const forgetPassword = (email) =>
     ({
         type: FORGET_PASSWORD,
         email: axios
-                .post(uri, { email })
+                .post(uri+'users/foget', { email })
                 .then(res => {
                     browserHistory.push('/')
                 })

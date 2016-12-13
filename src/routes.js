@@ -12,6 +12,7 @@ import MainPage from './components/MainPage';
 import IdeaDetail from './components/Idea/IdeaDetail';
 import EditProfile from './components/EditProfile';
 import EditPassword from './components/EditPassword';
+import AllIdea from './components/Category/AllIdea';
 // import ExplorePage from './components/ExplorePage';
 // import ProfilePage from'./components/ProfilePage';
 // import IdeaPage from './components/IdeaPage';
@@ -26,7 +27,9 @@ export default (
         <Route path="verify-password" component={NewPasswordPage} />
         <Route path="share-idea" component={CreateIdea} />
         <Route path="profile" component={ProfilePage} />
-        <Route path="explore" component={MainPage} />
+        <Route path="explore" component={MainPage}>
+            <Route path="all-idea" component={AllIdea}/>
+        </Route>
         <Route path="idea" component={IdeaDetail} />
         <Route path="edit-profile" component={EditProfile} />
         <Route path="edit-password" component={EditPassword} />
