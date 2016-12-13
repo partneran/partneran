@@ -39,8 +39,8 @@ const ProfilePage = () => {
                     Edit Profile <span className="caret"></span>
                   </button>
                   <ul className="dropdown-menu">
-                    <li><a href="#">Edit Profile</a></li>
-                    <li><a href="#">Change Password</a></li>
+                    <li><Link to="#">Edit Profile</Link></li>
+                    <li><Link to="edit-password">Change Password</Link></li>
                   </ul>
                 </div>
               </div>
