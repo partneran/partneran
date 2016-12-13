@@ -479,7 +479,9 @@ line-height: 22px;
   color: #e2001a;
   font-size: 1.3em;
 }
-
+#timeline {
+  margin-bottom: 20px;
+}
 .header-detail {
   background-image: url('https://static.pexels.com/photos/213/blur-old-antique-book.jpg');
   background-position: center center;
