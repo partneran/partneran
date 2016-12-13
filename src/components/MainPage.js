@@ -6,7 +6,7 @@ class MainPage extends Component {
   constructor(){
     super()
     this.state = {
-      category: ""
+      category: "All Categories"
     }
   }
 

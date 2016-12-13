@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-const NavigationAuthorize = () => {
+
+class NavigationAuthorize extends Component{
+  LogOut() {
+    console.log('Good Bye!');
+    localStorage.removeItem('token');
+  }
+
+  render() {
     return (
         <nav className="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
                 <div className="container">
@@ -13,7 +20,7 @@ const NavigationAuthorize = () => {
                                     <span className="icon-bar"></span>
                             </button>
                             <Link to="/" className="brand logo-container">
-                              <img src="assets/img/parneran-logo-small-inline.png" alt="Partneran" role="presentation" /> 
+                              <img src="assets/img/parneran-logo-small-inline.png" alt="Partneran" role="presentation" />
                             </Link>
                         </div>
 
@@ -29,13 +36,15 @@ const NavigationAuthorize = () => {
                                     <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link>
                                 </li>
                                 <li className="text-info">
-                                    <Link to="signout"><i className="fa fa-sign-out sign-out" /> Sign Out </Link>
+                                    <a href="#" onClick={this.LogOut.bind(this)}><i className="fa fa-sign-out sign-out" /> Sign Out </a>
                                 </li>
                             </ul>
                         </div>
                 </div>
             </nav>
     )
+  }
+
 }
 
 export default NavigationAuthorize

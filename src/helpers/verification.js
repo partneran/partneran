@@ -5,5 +5,7 @@ export function isLoggedIn() {
   if(!Auth.getToken()){
     // browserHistory.push('/login')
     return false
+  } else {
+    return true
   }
 }

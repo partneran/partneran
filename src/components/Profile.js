@@ -2,6 +2,7 @@ import React from 'react';
 import UserIdea from './Category/UserIdea';
 import MemberIdea from './Category/MemberIdea';
 import Footer from './Footer/Footer';
+import Auth from '../helpers/token'
 
 const ProfilePage = () => {
   return (
@@ -9,7 +10,7 @@ const ProfilePage = () => {
       <div className="wrapper">
   		  <div className="header header-filter header-profile">
           <div className="container text-center">
-            <h1>Ken Duigraha Profile</h1>
+            <h1>{Auth.getUser().name} Profile</h1>
           </div>
   		  </div>
     		<div className="main">
@@ -18,16 +19,21 @@ const ProfilePage = () => {
               <div className="row">
                 <div className="profile">
                   <div className="avatar">
-                    <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Profile" className="img-circle img-responsive img-raised"/>
+                    {(Auth.getUser().photo_URL === null) ? <img src="http://i2.kym-cdn.com/photos/images/newsfeed/000/095/354/forever_alone__by_projectendo-d2z3pbc.jpg" alt="Profile" className="img-circle img-responsive img-raised"/> : <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Profile" className="img-circle img-responsive img-raised"/> }
+
                   </div>
                   <div className="name">
-                    <h3 className="title">Ken Duigraha</h3>
-			              <h6>kenduigraha@yahoo.com</h6>
+                    <h3 className="title">{Auth.getUser().name}</h3>
+                    <a className="btn btn-info btn-simple" href={"mailto:" + Auth.getUser().email}>
+                      <h6>{Auth.getUser().email}</h6>
+                    </a>
+
                   </div>
                 </div>
               </div>
               <div className="description text-center">
-                <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                {(Auth.getUser().short_bio === null) ? <p>He is still not confident enough to tell about him/herself</p> : <p>{Auth.getUser().short_bio}</p>}
+
                 <div className="btn-group">
                   <button type="button" className="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Edit Profile <span className="caret"></span>
