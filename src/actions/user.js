@@ -53,11 +53,14 @@ export const forgetPassword = (email) =>
                 .catch(err => console.error(err))
     })
 
-export const newPassword = (password) =>
+export const newPassword = (password, User) =>
     ({
         type: NEW_PASSWORD,
         password: axios
-                    .post(uri+'users/password')
+                    .post(uri+'users/password', {
+                      email: User.email,
+                      new_password: password
+                    })
                     .then(res => { browserHistory.push('/')})
                     .catch(err => console.error(err))
     })

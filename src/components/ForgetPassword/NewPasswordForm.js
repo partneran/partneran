@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { newPassword } from '../../actions/user';
+var jwt_decode = require('jwt-decode');
 
 class NewPasswordForm extends Component {
     constructor(props) {
@@ -22,7 +23,9 @@ class NewPasswordForm extends Component {
     onSubmit(e){
         e.preventDefault()
         // adding some validation here
-        this.props.newPassword(this.state.password)
+        // console.log(this.props.token);
+        var User = jwt_decode(this.props.token)
+        this.props.newPassword(this.state.password, User)
         // console.log(this.state)
     }
 
@@ -39,13 +42,13 @@ class NewPasswordForm extends Component {
                         <span className="input-group-addon">
                             <i className="material-icons">unlock</i>
                         </span>
-                        <input 
-                            type="password" 
-                            className="form-control" 
+                        <input
+                            type="password"
+                            className="form-control"
                             placeholder="New Password"
                             name="password"
                             onChange={this.onChange}
-                            value={this.state.password} 
+                            value={this.state.password}
                         />
                     </div>
 
@@ -53,10 +56,10 @@ class NewPasswordForm extends Component {
                         <span className="input-group-addon">
                             <i className="material-icons">unlock</i>
                         </span>
-                        <input 
-                            type="password" 
-                            className="form-control" 
-                            placeholder="Password Confirmation" 
+                        <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Password Confirmation"
                             name="passwordConfirmation"
                             onChange={this.onChange}
                             value={this.state.passwordConfirmation}
