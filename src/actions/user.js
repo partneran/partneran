@@ -46,7 +46,7 @@ export const forgetPassword = (email) =>
     ({
         type: FORGET_PASSWORD,
         email: axios
-                .post(uri+'users/foget', { email })
+                .post(uri+'users/forgot', { email })
                 .then(res => {
                     browserHistory.push('/')
                 })

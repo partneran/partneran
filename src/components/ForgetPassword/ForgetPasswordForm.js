@@ -21,7 +21,6 @@ class ForgetPasswordForm extends Component {
     onSubmit(e){
         e.preventDefault()
         this.props.forgetPassword(this.state.email)
-        // console.log(this.state)
     }
 
     render() {

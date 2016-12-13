@@ -28,7 +28,6 @@ class EditPassword extends Component {
     }
     // call dispatch to state
     this.props.newPassword(this.state.password)
-    // console.log(this.state.password)
   }
 
   render() {
