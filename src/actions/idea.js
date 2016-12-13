@@ -1,4 +1,4 @@
-import { ADD_IDEA } from '../constants/actionTypes'
+import { ADD_IDEA, LOAD_IDEA } from '../constants/actionTypes'
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';
@@ -24,3 +24,12 @@ export const addIdea = (idea) =>
                 })
                 .catch(err => console.log(err))
     })
+
+export const loadIdea = () => 
+({
+    type: LOAD_IDEA,
+    data: axios
+            .get(uri)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+})

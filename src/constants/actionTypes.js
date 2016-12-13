@@ -6,5 +6,6 @@ export const NEW_PASSWORD = 'NEW_PASSWORD';
 export const ADD_IDEA = 'ADD_IDEA';
 export const DELETE_IDEA = 'DELETE_IDEA';
 export const UPDATE_IDEA = 'UPDATE_IDEA';
+export const LOAD_IDEA = 'LOAD_IDEA';
 
 export const EDIT_PASSWORD = 'EDIT_PASSWORD';
