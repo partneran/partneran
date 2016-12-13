@@ -24,7 +24,7 @@ export default (
         <Route path="signup" component={SignupPage} />
         <Route path="login" component={LoginPage} />
         <Route path="forget-password" component={ForgetPasswordPage} />
-        <Route path="verify-password" component={NewPasswordPage} />
+        <Route path="verify-password/:token" component={NewPasswordPage} />
         <Route path="share-idea" component={CreateIdea} />
         <Route path="profile" component={ProfilePage} />
         <Route path="explore" component={MainPage}>
