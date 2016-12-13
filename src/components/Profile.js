@@ -3,6 +3,7 @@ import UserIdea from './Category/UserIdea';
 import MemberIdea from './Category/MemberIdea';
 import Footer from './Footer/Footer';
 import Auth from '../helpers/token'
+import { Link } from 'react-router';
 
 const ProfilePage = () => {
   return (
@@ -39,7 +40,7 @@ const ProfilePage = () => {
                     Edit Profile <span className="caret"></span>
                   </button>
                   <ul className="dropdown-menu">
-                    <li><Link to="#">Edit Profile</Link></li>
+                    <li><Link to="edit-profile">Edit Profile</Link></li>
                     <li><Link to="edit-password">Change Password</Link></li>
                   </ul>
                 </div>
