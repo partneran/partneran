@@ -13,7 +13,7 @@ const NavigationUnauthorize = () => {
     						<span className="icon-bar"></span>
     				</button>
             <Link to="/" className="brand logo-container">
-              <img alt="Partneran" role="presentation" src="assets/img/parneran-logo-small-inline.png" />
+              <img alt="Partneran" role="presentation" src="http://localhost:3000/assets/img/parneran-logo-small-inline.png" />
             </Link>
     			</div>
 
