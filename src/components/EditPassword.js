@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Footer from './Footer/Footer'
 import ReactDOM from 'react-dom'
-// import { isLoggedIn } from '../../helpers/verification';
-
-// import {
-//   convertFromHTML,
-//   convertToRaw,
-//   ContentState,
-// } from 'draft-js';
+import { newPassword } from '../actions/user'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class EditPassword extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      oldpassword: "",
       password: "",
       confirmPassword: "",
     }
@@ -25,24 +20,19 @@ class EditPassword extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  _validate() {
-    if(this.state.password !== this.state.confirmPassword) {
-      alert('password do not match')
-      return ReactDOM.findDOMNode(this.refs.confirmPassword).focus();
-    }
-  }
   onSubmit(e) {
     e.preventDefault()
     if(this.state.password !== this.state.confirmPassword) {
-      alert('password do not match')
+      alert('Password do not match')
       return ReactDOM.findDOMNode(this.refs.confirmPassword).focus();
     }
     // call dispatch to state
-    console.log(this.state)
+    this.props.newPassword(this.state.password)
+    // console.log(this.state.password)
   }
 
   render() {
-    const { oldpassword, password, confirmPassword } = this.state
+    const {password, confirmPassword } = this.state
     // isLoggedIn()
     return (
         <div className="components-page">
@@ -73,7 +63,8 @@ class EditPassword extends Component {
                               name="password"
                               value={password}
                               onChange={this.onChange}
-                              required
+                              pattern=".{8,}" 
+											        required title="Minimum Password is 8 Characters"
                             />
                           </div>
                           <div className="form-group label-floating">
@@ -85,7 +76,8 @@ class EditPassword extends Component {
                               name="confirmPassword"
                               value={confirmPassword}
                               onChange={this.onChange}
-                              required
+                              pattern=".{8,}" 
+											        required title="Minimum Password is 8 Characters"
                             />
                           </div>
 
@@ -106,5 +98,10 @@ class EditPassword extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    newPassword: bindActionCreators(newPassword, dispatch)
+  }
+}
 
-export default EditPassword;
+export default connect(null, mapDispatchToProps)(EditPassword)

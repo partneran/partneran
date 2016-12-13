@@ -57,9 +57,7 @@ export const newPassword = (password) =>
     ({
         type: NEW_PASSWORD,
         password: axios
-                    .post(uri, { password })
-                    .then(res => {
-                        browserHistory.push('/')
-                    })
+                    .post(uri+'users/password')
+                    .then(res => { browserHistory.push('/')})
                     .catch(err => console.error(err))
     })
