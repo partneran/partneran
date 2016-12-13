@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 
 const uri = 'http://localhost:8080/api/ideas/'
 
-export const addIdea = (idea) => 
+export const addIdea = (idea) =>
     ({
         type: ADD_IDEA,
         idea: axios
@@ -20,7 +20,7 @@ export const addIdea = (idea) =>
                 .then(res => {
                     console.log(res)
                     // waiting the slug from server
-                    browserHistory('/')
+                    // browserHistory('/')
                 })
                 .catch(err => console.log(err))
     })
