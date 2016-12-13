@@ -106,8 +106,6 @@ class CreateIdea extends Component {
                             <div className="col-md-2 no-padding-left">
                             <label className="btn btn-info btn-sm">Upload Image</label>
                             <input
-                              value={image}
-                              onChange={this.onChange}
                               type="file"
                               id="exampleInputFile"
                               // required
