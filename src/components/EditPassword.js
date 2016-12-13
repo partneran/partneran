@@ -55,17 +55,6 @@ class EditPassword extends Component {
                       <div className="container">
                         <form onSubmit={this.onSubmit}>
                           <div className="form-group label-floating">
-                            <label className="control-label">Old Password</label>
-                            <input
-                              type="password"
-                              className="form-control"
-                              name="oldpassword"
-                              value={oldpassword}
-                              onChange={this.onChange}
-                              required
-                            />
-                          </div>
-                          <div className="form-group label-floating">
                             <label className="control-label">New Password</label>
                             <input
                               type="password"
