@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer/Footer'
+import ReactDOM from 'react-dom'
 // import { isLoggedIn } from '../../helpers/verification';
 
 // import {
@@ -14,7 +15,7 @@ class EditPassword extends Component {
     this.state = {
       oldpassword: "",
       password: "",
-      confirmpassword: "",
+      confirmPassword: "",
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -24,14 +25,24 @@ class EditPassword extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  _validate() {
+    if(this.state.password !== this.state.confirmPassword) {
+      alert('password do not match')
+      return ReactDOM.findDOMNode(this.refs.confirmPassword).focus();
+    }
+  }
   onSubmit(e) {
     e.preventDefault()
+    if(this.state.password !== this.state.confirmPassword) {
+      alert('password do not match')
+      return ReactDOM.findDOMNode(this.refs.confirmPassword).focus();
+    }
     // call dispatch to state
     console.log(this.state)
   }
 
   render() {
-    const { oldpassword, password, confirmpassword } = this.state
+    const { oldpassword, password, confirmPassword } = this.state
     // isLoggedIn()
     return (
         <div className="components-page">
@@ -70,8 +81,9 @@ class EditPassword extends Component {
                             <input
                               type="password"
                               className="form-control"
-                              name="confirmpassword"
-                              value={confirmpassword}
+                              ref="confirmPassword"
+                              name="confirmPassword"
+                              value={confirmPassword}
                               onChange={this.onChange}
                               required
                             />
