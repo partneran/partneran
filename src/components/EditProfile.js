@@ -4,19 +4,22 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 // import { isLoggedIn } from '../../helpers/verification';
+import Auth from '../helpers/token'
 
 // import {
 //   convertFromHTML,
 //   convertToRaw,
 //   ContentState,
 // } from 'draft-js';
+const imgur = require('imgur');
+
 
 class EditProfile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
-      email: "",
+      name: "" || Auth.getUser().name,
+      email: "" || Auth.getUser().email,
       bio: "",
       photo: "",
     }
@@ -24,6 +27,19 @@ class EditProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.onEditorChange = this.onEditorChange.bind(this)
   }
+
+  // ImgUpload(e) {
+  //   imgur.uploadFile({this.state})
+  //     .then(function (json) {
+  //       this.setState({
+  //         image: json.data.link
+  //       })
+  //     })
+  //     .catch(function (err) {
+  //       console.error(err.message);
+  //     });
+  // }
+
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -71,7 +87,7 @@ class EditProfile extends Component {
                             <input
                               type="text"
                               className="form-control"
-                              name="title"
+                              name="name"
                               value={name}
                               onChange={this.onChange}
                               required
@@ -102,6 +118,9 @@ class EditProfile extends Component {
                             <div className="col-md-2 no-padding-left">
                             <label className="btn btn-info btn-sm">Upload Image</label>
                             <input
+                              value={photo}
+                              onChange={this.onChange}
+                              name="photo"
                               type="file"
                               id="exampleInputFile"
                               required
