@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Footer from '../Footer/Footer'
-import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import draftToHtml from 'draftjs-to-html';
-import CategoryDetail from './CategoryDetail';
+import { Editor } from 'react-draft-wysiwyg'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import draftToHtml from 'draftjs-to-html'
+import CategoryDetail from './CategoryDetail'
+import { assign } from 'lodash'
+import Auth from '../../helpers/token'
 // import { isLoggedIn } from '../../helpers/verification';
 
 // import {
@@ -34,7 +36,7 @@ class CreateIdea extends Component {
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    console.log(this.state)
+    console.log(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
   onEditorChange(description) {
