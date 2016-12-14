@@ -12,9 +12,8 @@ import {
 } from '../constants/actionTypes'
 
 import axios from 'axios';
-// import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import request from 'superagent'
-import { browserHistory } from 'react-redux'
 
 const uri = 'http://localhost:8080/api/ideas/'
 
@@ -58,9 +57,9 @@ export const addIdea = (idea) => {
                         console.log(err);
                         dispatch(addIdeaFailure())
                     } else {
-                        console.log('res', res.body)
-                        browserHistory.push(`/idea/${res.body.slug}`)
+                        browserHistory.push(`/${res.body.slug}`)
                         dispatch(addIdeaSuccess(res.body))
+
                     }
                 })
     }

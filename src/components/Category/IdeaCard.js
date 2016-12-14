@@ -1,5 +1,8 @@
 import React from 'react'
-import { stateFromHTML } from 'draft-js';
+import Auth from '../../helpers/token'
+import { Link } from 'react-router'
+// console.log('this auth', Auth.getUser())
+// import { stateFromHTML } from 'draft-js';
 
 
 // const sampleMarkup =
@@ -15,6 +18,8 @@ import { stateFromHTML } from 'draft-js';
 
 const IdeaCard = (props) => {
   // console.log(stateFromHTML(props.description))
+  // console.log('this is coming from idea card', props)
+
   return (
         <div className="col-md-4 text-left">
             <div className="card thumbnail">
@@ -22,6 +27,7 @@ const IdeaCard = (props) => {
               <img src={props.image} alt="..."  className="img-responsive"/>
               <div className="caption">
                 <h3>{props.title}</h3>
+                {console.log('this is coming from idea card', props)}
                 <p>
                   <i className="fa fa-icon fa-user"></i> {props.author}
                   &nbsp;
@@ -31,7 +37,7 @@ const IdeaCard = (props) => {
                 </p>
                 <p>{props.description}</p>
                 <ul className="pager">
-                  <li className="next"><a href="#">See Details <span aria-hidden="true">&rarr;</span></a></li>
+                  <li className="next"><Link to={`/${props.slug}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>
               </div>
             </div>
