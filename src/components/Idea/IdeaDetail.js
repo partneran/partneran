@@ -249,6 +249,12 @@ class IdeaDetail extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    state: state.ideas
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch)
