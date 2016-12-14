@@ -1,6 +1,7 @@
 import React from 'react'
 import Auth from '../../helpers/token'
 import { Link } from 'react-router'
+import slug from 'slug'
 // console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
 
