@@ -33,7 +33,7 @@ const IdeaCard = (props) => {
                 <p>
                   <i className="fa fa-icon fa-user"></i> {props.author}
                   &nbsp;
-                  <i className="fa fa-icon fa-tag"></i> <a href={props.social}>Social Network</a>
+                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.category}</a>
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.join}
                 </p>
