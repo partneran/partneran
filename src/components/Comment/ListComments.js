@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DataComment from './DataComment'
+// import { uniq } from 'lodash'
 
 export default class ListComments extends Component {
   constructor(props){
@@ -11,6 +12,7 @@ export default class ListComments extends Component {
     var { data_idea } = this.props
     console.log('this is list of comment data',data_idea)
     // console.log('test0', data_idea)
+    // console.log(data_idea.Comments)
     let dataComment = data_idea.Comments.reverse().map(comment => {
       return(
         <DataComment key={comment.id} comment={comment}/>

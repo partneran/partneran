@@ -3,6 +3,7 @@ import Auth from '../../helpers/token'
 import { Link } from 'react-router'
 import slug from 'slug'
 console.log('this is slug',slug('MAK cek'.toLowerCase()))
+import renderHTML from 'react-render-html'
 // console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
 
@@ -37,7 +38,7 @@ const IdeaCard = (props) => {
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.join}
                 </p>
-                <p>{props.description}</p>
+                <p>{renderHTML(props.description)}</p>
                 <ul className="pager">
                   <li className="next"><Link to={`/${path}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>
