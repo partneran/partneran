@@ -67,17 +67,46 @@ export const newPassword = (password, User) =>
     })
 
 export const editProfile = (User) => {
+  var formData = new FormData();
+  for (var key in User) {
+    formData.append(key, User[key]);
+  }
+  // for (var key in User.photo_URL) {
+  //   // is the item a File?
+  //   if (User.photo_URL.hasOwnProperty(key) && User.photo_URL[key] instanceof File) {
+  //     formData.append(key, User.photo_URL[key]);
+  //   }
+  // }
   console.log(User);
   ({
     type: EDIT_PROFILE,
-    user: axios
-            .put(uri+'users/'+User.UserId, {
-              name: User.name,
-              email: User.email,
-              photo_URL: User.file,
-              short_bio: User.bio
+    user: request.put(uri+'users/'+User.UserId)
+            .type('form')
+            .send(formData)
+            //   {
+            //   name: User.name,
+            //   email: User.email,
+            //   photo_URL: formData,
+            //   short_bio: User.bio
+            // }
+          // )
+            .end((err, res) => {
+              if (err) {
+                console.log(err);
+              } else {
+                res => { browserHistory.push('/profile')}
+              }
             })
-            .then(res => { browserHistory.push('/profile')})
-            .catch(err => console.error(err))
+
+    // axios
+    //         .put(uri+'users/'+User.UserId, {
+    //           name: User.name,
+    //           email: User.email,
+    //           photo_URL: User.photo_URL,
+    //           short_bio: User.bio
+    //         },
+    //         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+    //         .then(res => { browserHistory.push('/profile')})
+    //         .catch(err => console.error(err))
   })
 }

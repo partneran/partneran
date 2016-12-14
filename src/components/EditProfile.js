@@ -45,7 +45,6 @@ class EditProfile extends Component {
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.onChangeFile = this.onChangeFile.bind(this)
     this.onEditorChange = this.onEditorChange.bind(this)
   }
 
@@ -90,13 +89,6 @@ class EditProfile extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onChangeFile(e) {
-    const fReader = new FileReader();
-    this.setState({ "photo" :  e.target.files[0].name });
-    console.log('isitblob: '+ JSON.stringify(e.target.files[0]));
-    console.log('freader :' + fReader.readAsDataURL(e.target.files[0]));
   }
 
   onSubmit(e) {
