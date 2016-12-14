@@ -114,3 +114,19 @@ export const editProfile = (User) => {
     //         .catch(err => console.error(err))
   })
 }
+
+
+export const verifiedUser = (token, router) => {
+  return dispatch => {
+    return request
+          .get(uri+'auth/verification/'+token)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              console.log(err);
+            }else{
+              router.replace('/')
+            }
+          })
+  }
+}
