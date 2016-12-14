@@ -27,7 +27,6 @@ const IdeaCard = (props) => {
               <img src={props.image} alt="..."  className="img-responsive"/>
               <div className="caption">
                 <h3>{props.title}</h3>
-                {console.log('this is coming from idea card', props)}
                 <p>
                   <i className="fa fa-icon fa-user"></i> {props.author}
                   &nbsp;
