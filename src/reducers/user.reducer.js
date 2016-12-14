@@ -1,6 +1,7 @@
 import {
     SIGN_UP,
-    LOG_IN
+    LOG_IN,
+    EDIT_PROFILE
 } from '../constants/actionTypes'
 
 const user = (state={}, action) => {
@@ -16,6 +17,11 @@ const user = (state={}, action) => {
             return {
                 ...state,
                 user: action.payload,
+            }
+        case EDIT_PROFILE:
+            return {
+              ...state,
+              user: action.payload,
             }
         default:
             return state

@@ -65,3 +65,18 @@ export const newPassword = (password, User) =>
                     .then(res => { browserHistory.push('/')})
                     .catch(err => console.error(err))
     })
+
+export const editProfile = (User) => {
+  ({
+    type: EDIT_PROFILE,
+    user: axios
+            .put(uri+'users/:id', {
+              name: User.name,
+              email: User.email,
+              photo_URL: User.file,
+              short_bio: User.bio
+            })
+            .then(res => { browserHistory.push('/profile')})
+            .catch(err => console.error(err))
+  })
+}
