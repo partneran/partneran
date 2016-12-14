@@ -23,7 +23,7 @@ export const signup = user =>
                 })
                 .then(res => {
                     Auth.authenticateUser(res)
-                    browserHistory.push('/')
+                    browserHistory.push('/explore')
                 })
                 .catch(err => console.error(err))
     })
