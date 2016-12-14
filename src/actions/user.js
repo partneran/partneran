@@ -69,28 +69,31 @@ export const newPassword = (password, User) =>
 
 export const editProfile = (User) => {
   var formData = new FormData();
-  for (var key in User) {
-    formData.append(key, User[key]);
-  }
-  // for (var key in User.photo_URL) {
-  //   // is the item a File?
-  //   if (User.photo_URL.hasOwnProperty(key) && User.photo_URL[key] instanceof File) {
-  //     formData.append(key, User.photo_URL[key]);
-  //   }
+  // for (var key in User) {
+  //   formData.append(key, User[key]);
   // }
+  console.log(User.photo_URL);
+  for (var key in User.photo_URL) {
+    // is the item a File?
+    if (User.photo_URL.hasOwnProperty(key) && User.photo_URL[key] instanceof File) {
+      formData.append(key, User.photo_URL[key]);
+    }
+  }
+  // formData.append('name', User.name);
+  // formData.append('email', User.email);
+  // formData.append('short_bio', User.bio);
+  console.log('Form Data: ' + JSON.stringify(formData));
   console.log(User);
   ({
     type: EDIT_PROFILE,
     user: request.put(uri+'users/'+User.UserId)
             .type('form')
-            .send(formData)
-            //   {
-            //   name: User.name,
-            //   email: User.email,
-            //   photo_URL: formData,
-            //   short_bio: User.bio
-            // }
-          // )
+            .send({
+              name: User.name,
+              email: User.email,
+              photo_URL: User.imagePreviewUrl,
+              short_bio: User.bio
+            })
             .end((err, res) => {
               if (err) {
                 console.log(err);
