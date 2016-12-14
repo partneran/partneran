@@ -14,6 +14,8 @@ class IdeaDetail extends Component {
   }
 
   render(){
+    const data_idea = this.props.data_idea
+    console.log(data_idea);
     return (
       <div className="components-page">
         <div className="wrapper">
@@ -251,7 +253,7 @@ class IdeaDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    state: state.ideas
+    data_idea: state.ideas
   }
 }
 
@@ -261,4 +263,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(IdeaDetail)
+export default connect(mapStateToProps, mapDispatchToProps)(IdeaDetail)

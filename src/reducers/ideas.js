@@ -3,7 +3,9 @@ import v4 from 'uuid/v4';
 
 import {
     ADD_IDEA,
-    DELETE_IDEA
+    DELETE_IDEA,
+    LOAD_ONE_IDEA_SUCCESS,
+    LOAD_ONE_IDEA_FAILURE
 } from '../constants/actionTypes'
 
 const initialState = [
@@ -69,6 +71,13 @@ const ideas = (state = initialState, action) => {
                 ...state,
                 idea(undefined, action)
             ]
+        case LOAD_ONE_IDEA_SUCCESS:
+          // console.log(action.one_idea);
+          return action.one_idea
+
+        case LOAD_ONE_IDEA_FAILURE:
+          return []
+
         default:
             return state;
     }
