@@ -16,11 +16,10 @@ const uri = 'http://localhost:8080/api/ideas/'
 
 // Add Idea
 
-export const addData = (data) =>
-    ({
-        type: ADD_IDEA,
-        data: data
-    })
+export function addData(payload){
+    console.log('from action', payload)
+  return {type: ADD_IDEA, payload}
+}
 
 export const addIdeaFailure = () =>
     ({
@@ -34,8 +33,9 @@ export const addIdeaSuccess = (idea) =>
     })
 
 export const addIdea = (idea) => {
-    console.log(idea)
+    console.log('above first dispatch', idea)
     return dispatch => {
+        console.log(idea)
         dispatch(addData(idea))
         return request
                 .post(uri)
@@ -79,6 +79,7 @@ let loadOneIdeFailure = () => ({
   type: LOAD_ONE_IDEA_FAILURE
 })
 
+<<<<<<< 722142110363a6a8d6c6cc6d46acb347214ccf69
 let loadOneIdeaSuccess = (idea) => ({
   type: LOAD_ONE_IDEA_SUCCESS,
   idea: idea
@@ -106,3 +107,7 @@ export const loadOneIdea = (slug) => {
           })
   }
 }
+=======
+// Add Idea
+
+>>>>>>> fixing bugs on create idea action

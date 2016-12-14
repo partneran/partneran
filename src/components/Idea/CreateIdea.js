@@ -25,7 +25,9 @@ class CreateIdea extends Component {
       video: "",
       image: "",
       description: "",
-      category: ""
+      category: "",
+      imagePreviewUrl: "",
+      file: "",
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -36,10 +38,26 @@ class CreateIdea extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+    _handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
+
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    addIdea(assign(this.state, {UserId: Auth.getUser().sub}))
+    this.props.addIdea(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
   onEditorChange(description) {
@@ -49,7 +67,13 @@ class CreateIdea extends Component {
   }
 
   render() {
-    const { title, video, image, category, description} = this.state
+    const { title, video, image, category, description, imagePreviewUrl} = this.state
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} alt="idea preview" className="img-responsive"/>);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
     // isLoggedIn()
     return (
         <div className="components-page">
@@ -106,16 +130,21 @@ class CreateIdea extends Component {
                               onChange={this.onChange}
                             />
                             </div>
-                            <div className="col-md-2 no-padding-left">
-                            <label className="btn btn-info btn-sm">Upload Image</label>
-                            <input
-                              value={image}
-                              onChange={this.onChange}
-                              type="file"
-                              id="exampleInputFile"
-                              // required
-                            />
+                            <div className="form-group label-floating">
+                            <div className="row">
+                              <div className="col-md-offset-3 col-md-6 text-center">
+                                {$imagePreview}
+                              </div>
                             </div>
+                              <label className="btn btn-info btn-sm">Upload Image</label>
+                              <input
+                                className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
+                                name="photo"
+                                type="file"
+                                id="exampleInputFile"
+                                // required
+                              />
+                          </div>
                           </div>
                           <br/>
                           <br/>
