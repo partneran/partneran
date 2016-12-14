@@ -10,11 +10,10 @@ class IdeaDetail extends Component {
   }
 
   componentDidMount(){
-    this.props.loadOneIdea()
+    this.props.loadOneIdea(this.props.params.title)
   }
 
   render(){
-    console.log(this.props.params.title);
     return (
       <div className="components-page">
         <div className="wrapper">
