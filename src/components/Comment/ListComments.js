@@ -9,6 +9,7 @@ export default class ListComments extends Component {
   render(){
     // console.log(this.props.comments);
     var { data_idea } = this.props
+    console.log('this is list of comment data',data_idea)
     // console.log('test0', data_idea)
     let dataComment = data_idea.Comments.reverse().map(comment => {
       return(
