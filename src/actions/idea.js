@@ -61,6 +61,8 @@ export const addIdea = (idea) => {
     }
 }
 
+// Load Idea
+
 export const loadIdea = () =>
 ({
     type: LOAD_IDEA,
@@ -79,7 +81,7 @@ let loadOneIdeFailure = () => ({
   type: LOAD_ONE_IDEA_FAILURE
 })
 
-<<<<<<< 722142110363a6a8d6c6cc6d46acb347214ccf69
+
 let loadOneIdeaSuccess = (idea) => ({
   type: LOAD_ONE_IDEA_SUCCESS,
   idea: idea
@@ -107,7 +109,3 @@ export const loadOneIdea = (slug) => {
           })
   }
 }
-=======
-// Add Idea
-
->>>>>>> fixing bugs on create idea action
