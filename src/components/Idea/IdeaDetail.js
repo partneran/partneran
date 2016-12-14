@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Link from 'react-router';
 import Footer from '../Footer/Footer';
 import { loadOneIdea } from '../../actions/idea'
 import { showLoading, hideLoading } from '../../actions/loading'
@@ -78,7 +79,10 @@ class IdeaDetail extends Component {
                     <li role="presentation"><a href="#status" aria-controls="status" role="tab" data-toggle="tab">Status</a></li>
                     <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comment</a></li>
                     <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
-                  </ul>
+
+                    <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
+                    <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea"><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                </ul>
 
                   <div className="tab-content">
                     <div role="tabpanel" className="tab-pane fade in active" id="details">
@@ -211,6 +215,23 @@ class IdeaDetail extends Component {
                       <ListMembers membersComment={data_idea.Comments} />
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 className="modal-title" id="deleteModalLabel">Delete This Idea?</h4>
+                </div>
+                <div className="modal-body">
+                  Deleting this idea will permanently remove it along with all of it's comments and update.
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-default" data-dismiss="modal">No, Keep Idea</button>
+                  <button type="button" className="btn btn-danger">Yes, Delete Idea</button>
                 </div>
               </div>
             </div>

@@ -532,7 +532,11 @@ line-height: 22px;
     }
 }
 
-
+.delete-detail,
+.edit-detail {
+  margin-top: 10px;
+  margin-left: 5px;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
