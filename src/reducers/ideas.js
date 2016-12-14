@@ -1,4 +1,4 @@
-import { ADD_IDEA } from '../constants/actionTypes'
+import { ADD_IDEA, LOAD_IDEAS_SUCCESS } from '../constants/actionTypes'
 
 const ideas = (state = [], action) => {
     switch(action.type){
@@ -12,6 +12,8 @@ const ideas = (state = [], action) => {
                 },
                     ...state
                 ]
+        case LOAD_IDEAS_SUCCESS:
+            return action.ideas
         default:
             return state
     }
