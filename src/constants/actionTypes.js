@@ -17,7 +17,6 @@ export const ADD_IDEA = 'ADD_IDEA';
 export const ADD_IDEA_SUCCESS = 'ADD_IDEA_SUCCESS';
 export const ADD_IDEA_FAILURE = 'ADD_IDEA_FAILURE';
 
-export const DELETE_IDEA = 'DELETE_IDEA';
 export const UPDATE_IDEA = 'UPDATE_IDEA';
 
 

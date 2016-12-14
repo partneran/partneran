@@ -1,15 +1,38 @@
-import { ADD_IDEA, LOAD_IDEA } from '../constants/actionTypes'
-
-import axios from 'axios';
-import { browserHistory } from 'react-router';
-
+import { ADD_IDEA, ADD_IDEA_SUCCESS, ADD_IDEA_FAILURE } from '../constants/actionTypes'
+import request from 'superagent'
 const uri = 'http://localhost:8080/api/ideas/'
 
-export const addIdea = (idea) =>
+
+// --------------------------------
+// addData
+// --------------------------------
+
+export const addData = (data) => 
     ({
         type: ADD_IDEA,
-        idea: axios
-                .post(uri, {
+        data: data
+    })
+
+export const addIdeaFailure = () => 
+    ({
+        type: ADD_IDEA_FAILURE
+    })
+
+export const addIdeaSuccess = (idea) => 
+    ({
+        type: ADD_IDEA_SUCCESS,
+        idea: idea
+    })
+
+export const addIdea = (idea) => {
+    console.log(idea)
+    return dispatch => {
+        dispatch(addData(idea))
+        return request
+                .post(uri)
+                .set('Accept', 'application/json')
+                .type('form')
+                .send({
                     UserId: idea.UserId,
                     category: idea.category,
                     description: idea.description,
@@ -17,20 +40,13 @@ export const addIdea = (idea) =>
                     title: idea.title,
                     video: idea.video
                 })
-                .then(res => {
-                    console.log(res.data.length-1)
-                    // waiting the slug from server
-
-                    browserHistory.push(`/explore`)
+                .end((err, res) => {
+                    if(err){
+                        console.log(err);
+                        dispatch(addIdeaFailure())
+                    } else {
+                        dispatch(addIdeaSuccess(res.body))
+                    }
                 })
-                .catch(err => console.log(err))
-    })
-
-export const loadIdea = () =>
-({
-    type: LOAD_IDEA,
-    data: axios
-            .get(uri)
-            .then(res => console.log('ini response', res))
-            .catch(err => console.log(err))
-})
+    }
+}
