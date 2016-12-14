@@ -1,6 +1,7 @@
 import React from 'react'
 import Auth from '../../helpers/token'
-console.log('this auth', Auth.getUser())
+import { Link } from 'react-router'
+// console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
 
 
@@ -26,6 +27,7 @@ const IdeaCard = (props) => {
               <img src={props.image} alt="..."  className="img-responsive"/>
               <div className="caption">
                 <h3>{props.title}</h3>
+                {console.log('this is coming from idea card', props)}
                 <p>
                   <i className="fa fa-icon fa-user"></i> {props.author}
                   &nbsp;
@@ -35,7 +37,7 @@ const IdeaCard = (props) => {
                 </p>
                 <p>{props.description}</p>
                 <ul className="pager">
-                  <li className="next"><a href="#">See Details <span aria-hidden="true">&rarr;</span></a></li>
+                  <li className="next"><Link to={`/idea/${props.slug}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>
               </div>
             </div>
