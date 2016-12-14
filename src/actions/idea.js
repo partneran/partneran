@@ -6,11 +6,13 @@ import {
   LOAD_ONE_IDEA,
   LOAD_ONE_IDEA_SUCCESS,
   LOAD_ONE_IDEA_FAILURE,
-  LOAD_ALL_IDEAS
+  LOAD_ALL_IDEAS,
+  LOAD_IDEAS_FAILURE,
+  LOAD_IDEAS_SUCCESS
 } from '../constants/actionTypes'
 
 import axios from 'axios';
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 import request from 'superagent'
 
 const uri = 'http://localhost:8080/api/ideas/'
@@ -113,11 +115,70 @@ export const loadOneIdea = (slug) => {
 
 
 
+// Load ideas 
 
-export const loadAllIdeas = () => 
+const loadData = () => 
   ({
-    type: LOAD_ALL_IDEAS,
-    ideas : request
-                .get(uri)
-                .end((err, res) => err ? console.err(err) : console.log(res))
+    type: LOAD_ALL_IDEAS
   })
+
+const loadIdeasSuccess = (ideas) => 
+  ({
+    type: LOAD_IDEAS_SUCCESS,
+    ideas: ideas
+  })
+
+const loadIdeasFailure = () =>
+  ({
+    type: LOAD_IDEAS_FAILURE
+  })
+
+export const loadIdeas = () => {
+  return dispatch => {
+          dispatch(loadData())
+          return request
+                  .get(uri)
+                  .set('Accept', 'application/json')
+                  .end((err, res) => {
+                    err? console.error(err) : dispatch(loadIdeasSuccess(res.body))
+                  })
+  }
+}
+
+// export function loadData(){
+//   return {type: types.LOAD_TIMELINE}
+// }
+
+// export function loadTimelinesSuccess(timelines){
+//   return {type: types.LOAD_TIMELINES_SUCCESS, timelines}
+// }
+
+// export function loadTimelinesFailure(){
+//   return {type: types.LOAD_TIMELINES_FAILURE}
+// }
+
+// export function loadTimelines(){
+//   return dispatch => {
+//     dispatch(loadData())
+//     return request
+//           .get(TIMELINES_URL)
+//           .set('Accept', 'application/json')
+//           .end((err, res) => {
+//             if(err){
+//               console.error(err);
+//               dispatch(loadTimelinesFailure())
+//             }else{
+//               dispatch(loadTimelinesSuccess(res.body))
+//             }
+//           })
+//   }
+// }
+
+
+// export const loadAllIdeas = () => 
+//   ({
+//     type: LOAD_ALL_IDEAS,
+//     ideas : request
+//                 .get(uri)
+//                 .end((err, res) => err ? console.err(err) : console.log(res))
+//   })
