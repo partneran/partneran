@@ -1,8 +1,7 @@
 import { SIGN_UP,
         LOG_IN,
         FORGET_PASSWORD,
-        NEW_PASSWORD,
-        EDIT_PROFILE } from '../constants/actionTypes'
+        NEW_PASSWORD} from '../constants/actionTypes'
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';

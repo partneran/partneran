@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import CommentForm from '../Comment/CommentForm'
 import ListComments from '../Comment/ListComments'
 import Auth from '../../helpers/token'
+import { addComment } from '../../actions/comment'
 
 import {
   convertFromHTML,
@@ -18,14 +19,15 @@ class IdeaDetail extends Component {
   constructor(props){
     super(props)
   }
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadOneIdea(this.props.params.title)
   }
 
   render(){
-    const data_idea = this.props.data_idea
-    if(data_idea === null){
+    const { data_idea , addComment } = this.props
+
+    // console.log("render", data_idea);
+    if(data_idea.hasOwnProperty('id') === false){
       //loading
       return(
         <h1>loading bar nih</h1>
@@ -33,7 +35,6 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
 
-      // console.log(data_idea.Comments);
       return (
         <div className="components-page">
           <div className="wrapper">
@@ -195,13 +196,13 @@ class IdeaDetail extends Component {
                           </div>
                           <div className="card-signup">
                             <div className="col-md-12">
-                              <CommentForm UserId={Auth.getUser().sub} IdeaId={data_idea.id} />
+                              <CommentForm UserId={Auth.getUser().sub} data_idea={data_idea} addComment={addComment}/>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <ListComments comments={data_idea.Comments} />
+                      <ListComments data_idea={data_idea} />
 
                     </div>
                     <div role="tabpanel" className="tab-pane fade" id="members">
@@ -245,6 +246,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
+    addComment: bindActionCreators(addComment, dispatch),
     showLoading: bindActionCreators(showLoading, dispatch),
     hideLoading: bindActionCreators(hideLoading, dispatch)
   }

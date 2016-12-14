@@ -3,7 +3,7 @@ import { addComment } from '../../actions/comment'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class CommentForm extends Component {
+export default class CommentForm extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -11,9 +11,9 @@ class CommentForm extends Component {
     }
   }
 
-  componentDidMount(){
-    
-  }
+  // componentDidMount(){
+  //
+  // }
 
   handleCommentChange(e){
     this.setState({
@@ -29,7 +29,7 @@ class CommentForm extends Component {
     }else{
       // addComment(ideaid, content, UserId, IdeaId)
       // console.log(this.props);
-      var ideaid = this.props.IdeaId
+      var ideaid = this.props.data_idea.id
       var userid = this.props.UserId
 
       this.props.addComment(this.state.comment, userid, ideaid)
@@ -57,10 +57,10 @@ class CommentForm extends Component {
 }
 
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addComment: bindActionCreators(addComment, dispatch)
-  }
-}
-
-export default connect(null, mapDispatchToProps)(CommentForm)
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     addComment: bindActionCreators(addComment, dispatch)
+//   }
+// }
+//
+// export default connect(null, mapDispatchToProps)(CommentForm)

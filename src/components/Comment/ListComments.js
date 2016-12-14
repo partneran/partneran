@@ -5,11 +5,12 @@ export default class ListComments extends Component {
   constructor(props){
     super(props)
   }
+
   render(){
     // console.log(this.props.comments);
-    var { comments } = this.props
-
-    let dataComment = comments.map(comment => {
+    var { data_idea } = this.props
+    // console.log('test0', data_idea)
+    let dataComment = data_idea.Comments.reverse().map(comment => {
       return(
         <DataComment key={comment.id} comment={comment}/>
       )
