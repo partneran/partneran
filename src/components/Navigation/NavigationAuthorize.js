@@ -20,7 +20,7 @@ class NavigationAuthorize extends Component{
                                     <span className="icon-bar"></span>
                             </button>
                             <Link to="/" className="brand logo-container">
-                              <img src="assets/img/parneran-logo-small-inline.png" alt="Partneran" role="presentation" />
+                              <img src="http://localhost:3000/assets/img/parneran-logo-small-inline.png" alt="Partneran" role="presentation" />
                             </Link>
                         </div>
 
