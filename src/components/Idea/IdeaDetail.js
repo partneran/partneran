@@ -4,6 +4,10 @@ import { loadOneIdea } from '../../actions/idea'
 import { showLoading, hideLoading } from '../../actions/loading'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import CommentForm from '../Comment/CommentForm'
+import ListComments from '../Comment/ListComments'
+import Auth from '../../helpers/token'
+import { addComment } from '../../actions/comment'
 
 import {
   convertFromHTML,
@@ -15,20 +19,22 @@ class IdeaDetail extends Component {
   constructor(props){
     super(props)
   }
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadOneIdea(this.props.params.title)
   }
 
   render(){
-    const data_idea = this.props.data_idea
-    if(data_idea === null){
+    const { data_idea , addComment } = this.props
+
+    console.log("render", data_idea);
+    if(data_idea.hasOwnProperty('id') === false){
       //loading
       return(
         <h1>loading bar nih</h1>
       )
     }else{
       // this.props.hideLoading()
+
       return (
         <div className="components-page">
           <div className="wrapper">
@@ -190,48 +196,13 @@ class IdeaDetail extends Component {
                           </div>
                           <div className="card-signup">
                             <div className="col-md-12">
-                              <form>
-                                <div className="form-group">
-                                  <label className="control-label">Your Comment</label>
-                                  <textarea className="form-control" rows={4} placeholder="Tell us what do you think about this idea"></textarea>
-                                </div>
-
-                                <div className="form-group">
-                                  <button type="submit" className="btn btn-info">Submit</button>
-                                </div>
-                              </form>
+                              <CommentForm UserId={Auth.getUser().sub} data_idea={data_idea} addComment={addComment}/>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <div className="row">
-                        <h2>Comment List</h2>
-                        <div className="comment-list">
-                          <ul className="list-group">
-                            <li className="list-group-item">
-                              <strong>Author said:</strong>
-                              <p>Pertamax!!!</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Author said:</strong>
-                              <p>keduax!!!</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Author said:</strong>
-                              <p>Ketigax!!!</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Author said:</strong>
-                              <p>Kelimax!!!</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Author said:</strong>
-                              <p>Keenamx!!!</p>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+                      <ListComments data_idea={data_idea} />
 
                     </div>
                     <div role="tabpanel" className="tab-pane fade" id="members">
@@ -275,6 +246,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
+    addComment: bindActionCreators(addComment, dispatch),
     showLoading: bindActionCreators(showLoading, dispatch),
     hideLoading: bindActionCreators(hideLoading, dispatch)
   }
