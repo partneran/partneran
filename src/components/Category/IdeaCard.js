@@ -1,5 +1,5 @@
 import React from 'react'
-import { stateFromHTML } from 'draft-js';
+// import { stateFromHTML } from 'draft-js';
 
 
 // const sampleMarkup =
@@ -15,6 +15,7 @@ import { stateFromHTML } from 'draft-js';
 
 const IdeaCard = (props) => {
   // console.log(stateFromHTML(props.description))
+
   return (
         <div className="col-md-4 text-left">
             <div className="card thumbnail">
