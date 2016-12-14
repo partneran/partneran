@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import CommentForm from '../Comment/CommentForm'
 import ListComments from '../Comment/ListComments'
+import ListMembers from '../Comment/ListMembers'
 import Auth from '../../helpers/token'
 import { addComment } from '../../actions/comment'
 
@@ -206,23 +207,7 @@ class IdeaDetail extends Component {
 
                     </div>
                     <div role="tabpanel" className="tab-pane fade" id="members">
-                      <div className="row">
-                        <h2>Member List</h2>
-                          <ul className="list-group">
-                            <li className="list-group-item">
-                              <strong>Name</strong>
-                              <p>Initiator</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Name</strong>
-                              <p>Member</p>
-                            </li>
-                            <li className="list-group-item">
-                              <strong>Name</strong>
-                              <p>Member</p>
-                            </li>
-                          </ul>
-                      </div>
+                      <ListMembers membersComment={data_idea.Comments} />
                     </div>
                   </div>
                 </div>

@@ -14,6 +14,7 @@ import {
 import axios from 'axios';
 // import { browserHistory } from 'react-router';
 import request from 'superagent'
+import { browserHistory } from 'react-redux'
 
 const uri = 'http://localhost:8080/api/ideas/'
 
@@ -58,6 +59,7 @@ export const addIdea = (idea) => {
                         dispatch(addIdeaFailure())
                     } else {
                         console.log('res', res.body)
+                        browserHistory.push(`/idea/${res.body.slug}`)
                         dispatch(addIdeaSuccess(res.body))
                     }
                 })
@@ -111,18 +113,18 @@ export const loadOneIdea = (slug) => {
             }
           })
   }
-} 
+}
 
 
 
-// Load ideas 
+// Load ideas
 
-const loadData = () => 
+const loadData = () =>
   ({
     type: LOAD_ALL_IDEAS
   })
 
-const loadIdeasSuccess = (ideas) => 
+const loadIdeasSuccess = (ideas) =>
   ({
     type: LOAD_IDEAS_SUCCESS,
     ideas: ideas
@@ -175,7 +177,7 @@ export const loadIdeas = () => {
 // }
 
 
-// export const loadAllIdeas = () => 
+// export const loadAllIdeas = () =>
 //   ({
 //     type: LOAD_ALL_IDEAS,
 //     ideas : request

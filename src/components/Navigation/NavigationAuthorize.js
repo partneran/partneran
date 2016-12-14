@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
+import { browserHistory } from 'react-redux'
 
 class NavigationAuthorize extends Component{
   LogOut() {
     console.log('Good Bye!');
     localStorage.removeItem('token');
+    browserHistory.push('/')
   }
 
   render() {
