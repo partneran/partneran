@@ -12,7 +12,7 @@ const idea = (state = null, action) => {
         return {}
 
       case LOAD_ONE_IDEA_SUCCESS:
-      // console.log(action.one_idea);
+      // console.log(action.idea);
         return action.idea
 
       case LOAD_ONE_IDEA_FAILURE:
