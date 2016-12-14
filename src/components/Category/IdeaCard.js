@@ -1,6 +1,7 @@
 import React from 'react'
 import Auth from '../../helpers/token'
 import { Link } from 'react-router'
+import renderHTML from 'react-render-html'
 // console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
 
@@ -35,7 +36,7 @@ const IdeaCard = (props) => {
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.join}
                 </p>
-                <p>{props.description}</p>
+                <p>{renderHTML(props.description)}</p>
                 <ul className="pager">
                   <li className="next"><Link to={`/${props.slug}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>
