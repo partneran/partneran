@@ -20,7 +20,7 @@ const ProfilePage = () => {
               <div className="row">
                 <div className="profile">
                   <div className="avatar">
-                    {(Auth.getUser().photo_URL === null) ? <img src="http://i2.kym-cdn.com/photos/images/newsfeed/000/095/354/forever_alone__by_projectendo-d2z3pbc.jpg" alt="Profile" className="img-circle img-responsive img-raised"/> : <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAe6AAAAJGQ2YjI4OWUxLWYxODItNGUzNC1hOTc4LTA5M2JiZGMwOTg1Nw.jpg" alt="Profile" className="img-circle img-responsive img-raised"/> }
+                    {(Auth.getUser().photo_URL === null) ? <img src="http://i2.kym-cdn.com/photos/images/newsfeed/000/095/354/forever_alone__by_projectendo-d2z3pbc.jpg" alt="Profile" className="img-circle img-responsive img-raised"/> : <img src={Auth.getUser().photo_URL} alt="Profile" className="img-circle img-responsive img-raised"/> }
 
                   </div>
                   <div className="name">
