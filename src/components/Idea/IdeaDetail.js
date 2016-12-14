@@ -27,7 +27,7 @@ class IdeaDetail extends Component {
   render(){
     const { data_idea , addComment } = this.props
 
-    console.log("render", data_idea);
+    // console.log("render", data_idea);
     if(data_idea.hasOwnProperty('id') === false){
       //loading
       return(

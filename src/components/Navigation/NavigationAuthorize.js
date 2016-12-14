@@ -6,7 +6,7 @@ class NavigationAuthorize extends Component{
   LogOut() {
     console.log('Good Bye!');
     localStorage.removeItem('token');
-    browserHistory.push('/')
+    // browserHistory.push('/')
   }
 
   render() {
@@ -40,7 +40,7 @@ class NavigationAuthorize extends Component{
                                               <Link to="explore"><i className="material-icons">explore</i> Explore</Link>
                       					</li>
                                 <li className="text-info">
-                                    <a href="#" onClick={this.LogOut.bind(this)}><i className="fa fa-sign-out sign-out" /> Sign Out </a>
+                                    <Link to="/" onClick={this.LogOut.bind(this)}><i className="fa fa-sign-out sign-out" /> Sign Out </Link>
                                 </li>
                             </ul>
                         </div>
