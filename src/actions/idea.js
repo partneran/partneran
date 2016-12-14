@@ -1,4 +1,4 @@
-import { ADD_IDEA, LOAD_IDEA } from '../constants/actionTypes'
+import { ADD_IDEA, LOAD_IDEA, LOAD_ONE_IDEA_SUCCESS, LOAD_ONE_IDEA_FAILURE } from '../constants/actionTypes'
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';
@@ -36,7 +36,28 @@ export const loadIdea = () =>
             .catch(err => console.log(err))
 })
 
+let loadOneIdeFailure = () => ({
+  type: LOAD_ONE_IDEA_FAILURE
+})
+
+let loadOneIdeaSuccess = (one_idea) => ({
+  type: LOAD_ONE_IDEA_SUCCESS,
+  one_idea: one_idea
+})
 
 export const loadOneIdea = (slug) => {
-  console.log(slug);
+  // console.log(slug);
+
+  return dispatch => {
+    return request
+          .get(uri+slug)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              dispatch(loadOneIdeFailure(err))
+            }else{
+              dispatch(loadOneIdeaSuccess(res.body))
+            }
+          })
+  }
 }
