@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Footer from '../Footer/Footer';
 import { loadOneIdea } from '../../actions/idea'
+import { showLoading, hideLoading } from '../../actions/loading'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -21,13 +22,13 @@ class IdeaDetail extends Component {
 
   render(){
     const data_idea = this.props.data_idea
-
     if(data_idea === null){
       //loading
       return(
         <h1>loading bar nih</h1>
       )
     }else{
+      // this.props.hideLoading()
       return (
         <div className="components-page">
           <div className="wrapper">
@@ -266,13 +267,16 @@ class IdeaDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    data_idea: state.idea
+    data_idea: state.idea,
+    loading: state.loading
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadOneIdea: bindActionCreators(loadOneIdea, dispatch)
+    loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
+    showLoading: bindActionCreators(showLoading, dispatch),
+    hideLoading: bindActionCreators(hideLoading, dispatch)
   }
 }
 
