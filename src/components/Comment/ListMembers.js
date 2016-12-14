@@ -9,8 +9,8 @@ export default class ListMembers extends Component {
   }
 
   render(){
-    let filtered = uniqBy(this.props.membersComment.map(user => user), comment => comment.id)
-    console.log('filtersfklasdfkled',uniqBy(this.props.membersComment, comment => comment.User.id))
+    // let filtered = uniqBy(this.props.membersComment.map(user => user), comment => comment.id)
+    // console.log('filtersfklasdfkled',uniqBy(this.props.membersComment, comment => comment.User.id))
     let userComment = uniqBy(this.props.membersComment, comment => comment.User.id).map(comment => {
       return(
         <UserCommentData key={comment.id} comment={comment}/>
