@@ -26,8 +26,7 @@ class CreateIdea extends Component {
       image: "",
       description: "",
       category: "",
-      imagePreviewUrl: "",
-      file: "",
+      imageTitle: ""
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -38,7 +37,7 @@ class CreateIdea extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-    _handleImageChange(e) {
+  _handleImageChange(e) {
     e.preventDefault();
 
     let reader = new FileReader();
@@ -46,8 +45,8 @@ class CreateIdea extends Component {
 
     reader.onloadend = () => {
       this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
+        image: reader.result,
+        imageTitle: file
       });
     }
 
@@ -67,10 +66,10 @@ class CreateIdea extends Component {
   }
 
   render() {
-    const { title, video, image, category, description, imagePreviewUrl} = this.state
+    const { title, video, image, category, description, imageTitle} = this.state
     let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} alt="idea preview" className="img-responsive"/>);
+    if (image) {
+      $imagePreview = (<img src={image} alt="{imageTitle}" title={imageTitle} className="img-responsive"/>);
     } else {
       $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
@@ -120,31 +119,20 @@ class CreateIdea extends Component {
                             />
                           </div>
                           <div className="form-group label-floating">
-                            <div className="col-md-10 no-padding-left">
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Featured Image URL"
-                              name="image"
-                              value={image}
-                              onChange={this.onChange}
-                            />
-                            </div>
-                            <div className="form-group label-floating">
                             <div className="row">
                               <div className="col-md-offset-3 col-md-6 text-center">
                                 {$imagePreview}
                               </div>
                             </div>
-                              <label className="btn btn-info btn-sm">Upload Image</label>
-                              <input
-                                className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
-                                name="photo"
-                                type="file"
-                                id="exampleInputFile"
-                                // required
-                              />
-                          </div>
+                            <label className="btn btn-info btn-sm">Upload Image</label>
+                            <input
+                              className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
+                              name="photo"
+                              type="file"
+                              id="exampleInputFile"
+                              // required
+                            />
+
                           </div>
                           <br/>
                           <br/>
