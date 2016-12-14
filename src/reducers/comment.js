@@ -1,17 +1,18 @@
 import {
-  ADD_COMMENTS_SUCCESS,
-  ADD_COMMENTS_FAILURE
+  ADD_COMMENT_SUCCESS,
+  ADD_COMMENT_FAILURE
 } from '../constants/actionTypes'
 
 
-const idea = (state = null, action) => {
+const idea = (state = [], action) => {
     switch(action.type){
 
-      case ADD_COMMENTS_SUCCESS:
+      case ADD_COMMENT_SUCCESS:
+        console.log(state);
         return {}
 
 
-      case ADD_COMMENTS_FAILURE:
+      case ADD_COMMENT_FAILURE:
         return state
 
       default:

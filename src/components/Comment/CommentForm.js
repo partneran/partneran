@@ -11,6 +11,10 @@ class CommentForm extends Component {
     }
   }
 
+  componentDidMount(){
+    
+  }
+
   handleCommentChange(e){
     this.setState({
       comment: e.target.value
