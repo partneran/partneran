@@ -4,8 +4,12 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 import Loading from './Lib/Loading';
+import { assign } from 'lodash'
 // import { isLoggedIn } from '../../helpers/verification';
 import Auth from '../helpers/token';
+import { editProfile } from '../actions/user'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 const imgur = require('imgur');
 
@@ -35,8 +39,7 @@ class EditProfile extends Component {
       name: "" || Auth.getUser().name,
       email: "" || Auth.getUser().email,
       bio: "",
-      photo: "",
-      file: "",
+      photo_URL: "",
       imagePreviewUrl: "",
       loading: false
     }
@@ -60,7 +63,7 @@ class EditProfile extends Component {
 
     reader.onloadend = () => {
       this.setState({
-        file: file,
+        photo_URL: file,
         imagePreviewUrl: reader.result
       });
     }
@@ -106,6 +109,11 @@ class EditProfile extends Component {
     e.preventDefault()
     // call dispatch to state
     console.log(this.state)
+  }
+  onSubmit(e) {
+    e.preventDefault()
+    // call dispatch to state
+    editProfile(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
   onEditorChange(bio) {
@@ -177,9 +185,10 @@ class EditProfile extends Component {
                             </div>
                               <label className="btn btn-info btn-sm">Upload Image</label>
                               <input
-                                className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
-                                name="photo"
+                                className="fileInput"
                                 type="file"
+                                onChange={(e)=>this._handleImageChange(e)}
+                                name="photo_URL"
                                 id="exampleInputFile"
                                 required
                               />
@@ -214,4 +223,11 @@ class EditProfile extends Component {
   }
 }
 
-export default EditProfile;
+// export default EditProfile;
+function mapDispatchToProps(dispatch) {
+  return {
+    editProfile: bindActionCreators(EditProfile, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(EditProfile)

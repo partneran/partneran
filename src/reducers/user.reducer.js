@@ -1,7 +1,9 @@
 import {
     SIGN_UP,
     LOG_IN,
-    EDIT_PROFILE
+    EDIT_PROFILE,
+    EDIT_PROFILE_SUCCESS,
+    EDIT_PROFILE_FAILURE
 } from '../constants/actionTypes'
 
 const user = (state={}, action) => {
@@ -19,10 +21,15 @@ const user = (state={}, action) => {
                 user: action.payload,
             }
         case EDIT_PROFILE:
-            return {
-              ...state,
-              user: action.payload,
-            }
+            return [
+              {
+                  name: action.payload.name,
+                  email: action.payload.email,
+                  short_bio: action.payload.short_bio,
+                  photo_URL: action.payload.photo_URL
+              },
+                  ...state
+            ]
         default:
             return state
 

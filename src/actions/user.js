@@ -5,6 +5,7 @@ import { SIGN_UP,
         EDIT_PROFILE } from '../constants/actionTypes'
 
 import axios from 'axios';
+import request from 'superagent';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
@@ -67,10 +68,11 @@ export const newPassword = (password, User) =>
     })
 
 export const editProfile = (User) => {
+  console.log(User);
   ({
     type: EDIT_PROFILE,
     user: axios
-            .put(uri+'users/:id', {
+            .put(uri+'users/'+User.UserId, {
               name: User.name,
               email: User.email,
               photo_URL: User.file,
