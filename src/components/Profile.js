@@ -4,6 +4,7 @@ import MemberIdea from './Category/MemberIdea';
 import Footer from './Footer/Footer';
 import Auth from '../helpers/token'
 import { Link } from 'react-router';
+import renderHTML from 'react-render-html';
 
 const ProfilePage = () => {
   return (
@@ -33,7 +34,7 @@ const ProfilePage = () => {
                 </div>
               </div>
               <div className="description text-center">
-                {(Auth.getUser().short_bio === null) ? <p>He is still not confident enough to tell about him/herself</p> : <p>{Auth.getUser().short_bio}</p>}
+                {(Auth.getUser().short_bio === null) ? <p>He is still not confident enough to tell about him/herself</p> : <p>{renderHTML(Auth.getUser().short_bio)}</p>}
 
                 <div className="btn-group">
                   <button type="button" className="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

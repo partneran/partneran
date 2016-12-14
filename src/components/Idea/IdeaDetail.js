@@ -9,6 +9,7 @@ import ListComments from '../Comment/ListComments'
 import ListMembers from '../Comment/ListMembers'
 import Auth from '../../helpers/token'
 import { addComment } from '../../actions/comment'
+import renderHTML from 'react-render-html'
 
 import {
   convertFromHTML,
@@ -88,7 +89,7 @@ class IdeaDetail extends Component {
                       </div>
                       <br/>
                       <p><strong>Description : </strong></p>
-                      <p>{data_idea.description}</p>
+                      <p>{renderHTML(data_idea.description)}</p>
                     </div>
                     <div role="tabpanel" className="tab-pane fade" id="status">
 
