@@ -1,7 +1,20 @@
 import React from 'react'
+import { stateFromHTML } from 'draft-js';
 
+
+// const sampleMarkup =
+//   '<b>Bold text</b>, <i>Italic text</i><br/ ><br />' +
+//   '<a href="http://www.facebook.com">Example link</a>';
+
+// const blocksFromHTML = convertFromHTML(sampleMarkup);
+// const state = ContentState.createFromBlockArray(blocksFromHTML);
+
+// this.state = {
+//   editorState: EditorState.createWithContent(state),
+// };
 
 const IdeaCard = (props) => {
+  // console.log(stateFromHTML(props.description))
   return (
         <div className="col-md-4 text-left">
             <div className="card thumbnail">
