@@ -3,15 +3,29 @@ import Footer from './Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import Loading from './Lib/Loading';
 // import { isLoggedIn } from '../../helpers/verification';
-import Auth from '../helpers/token'
+import Auth from '../helpers/token';
+
+const imgur = require('imgur');
+
+const ImgUpload = (file) => {
+  imgur.uploadFile(file)
+    .then(function (json) {
+      console.log(json.data.link);
+      return json.data.link;
+    })
+    .catch(function (err) {
+      console.error(err.message);
+    });
+}
 
 // import {
 //   convertFromHTML,
 //   convertToRaw,
 //   ContentState,
 // } from 'draft-js';
-const imgur = require('imgur');
+
 
 
 class EditProfile extends Component {
@@ -22,10 +36,36 @@ class EditProfile extends Component {
       email: "" || Auth.getUser().email,
       bio: "",
       photo: "",
+      file: "",
+      imagePreviewUrl: "",
+      loading: false
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.onChangeFile = this.onChangeFile.bind(this)
     this.onEditorChange = this.onEditorChange.bind(this)
+  }
+
+  _handleSubmit(e) {
+    e.preventDefault();
+    // TODO: do something with -> this.state.file
+    console.log('handle uploading-', this.state.file);
+  }
+
+  _handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
   }
 
   // ImgUpload(e) {
@@ -40,9 +80,26 @@ class EditProfile extends Component {
   //     });
   // }
 
+  // ImgUpload(e) {
+  //   imgur.uploadFile(file)
+  //     .then(function (json) {
+  //       console.log(json.data.link);
+  //       return json.data.link;
+  //     })
+  //     .catch(function (err) {
+  //       console.error(err.message);
+  //     });
+  // }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onChangeFile(e) {
+    const fReader = new FileReader();
+    this.setState({ "photo" :  e.target.files[0].name });
+    console.log('isitblob: '+ JSON.stringify(e.target.files[0]));
+    console.log('freader :' + fReader.readAsDataURL(e.target.files[0]));
   }
 
   onSubmit(e) {
@@ -58,9 +115,17 @@ class EditProfile extends Component {
   }
 
   render() {
-    const { name, email, photo, bio} = this.state
+    const { name, email, photo, bio, loading, file, imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img src={imagePreviewUrl} className="img-responsive"/>);
+    } else {
+      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+    }
     // isLoggedIn()
     return (
+      <div>
+        {(loading) ? <Loading /> :
         <div className="components-page">
           <div className="wrapper">
             <div id="new-idea-intro" className="header header-filter">
@@ -105,27 +170,19 @@ class EditProfile extends Component {
                             />
                           </div>
                           <div className="form-group label-floating">
-                            <div className="col-md-10 no-padding-left">
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Profile Picture"
-                              name="photo"
-                              value={photo}
-                              onChange={this.onChange}
-                            />
+                            <div className="row">
+                              <div className="col-md-offset-3 col-md-6 text-center">
+                                {$imagePreview}
+                              </div>
                             </div>
-                            <div className="col-md-2 no-padding-left">
-                            <label className="btn btn-info btn-sm">Upload Image</label>
-                            <input
-                              value={photo}
-                              onChange={this.onChange}
-                              name="photo"
-                              type="file"
-                              id="exampleInputFile"
-                              required
-                            />
-                            </div>
+                              <label className="btn btn-info btn-sm">Upload Image</label>
+                              <input
+                                className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
+                                name="photo"
+                                type="file"
+                                id="exampleInputFile"
+                                required
+                              />
                           </div>
                           <br/>
                           <br/>
@@ -151,9 +208,10 @@ class EditProfile extends Component {
           </div>
           <Footer />
         </div>
+      }
+    </div>
     )
   }
 }
-
 
 export default EditProfile;
