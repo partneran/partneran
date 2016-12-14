@@ -12,7 +12,7 @@ import {
 } from '../constants/actionTypes'
 
 import axios from 'axios';
-// import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import request from 'superagent'
 
 const uri = 'http://localhost:8080/api/ideas/'
@@ -57,8 +57,10 @@ export const addIdea = (idea) => {
                         console.log(err);
                         dispatch(addIdeaFailure())
                     } else {
-                        console.log('res', res.body)
+                        console.log('this is come from add idea', res.body)
+                        browserHistory.push(`/idea/${res.body.slug}`)
                         dispatch(addIdeaSuccess(res.body))
+                        
                     }
                 })
     }

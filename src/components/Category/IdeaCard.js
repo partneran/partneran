@@ -1,4 +1,6 @@
 import React from 'react'
+import Auth from '../../helpers/token'
+console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
 
 
@@ -15,6 +17,7 @@ import React from 'react'
 
 const IdeaCard = (props) => {
   // console.log(stateFromHTML(props.description))
+  // console.log('this is coming from idea card', props)
 
   return (
         <div className="col-md-4 text-left">
