@@ -31,8 +31,8 @@ export default (
         <Route path="explore" component={MainPage}>
             <Route path="all-idea" component={AllIdea}/>
         </Route>
-        <Route path=":title" component={IdeaDetail} />
         <Route path="edit-profile" component={EditProfile} />
         <Route path="edit-password" component={EditPassword} />
+        <Route path=":title" component={IdeaDetail} />
     </Route>
 )
