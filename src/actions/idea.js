@@ -2,10 +2,7 @@ import { ADD_IDEA, ADD_IDEA_SUCCESS, ADD_IDEA_FAILURE } from '../constants/actio
 import request from 'superagent'
 const uri = 'http://localhost:8080/api/ideas/'
 
-
-// --------------------------------
-// addData
-// --------------------------------
+// Add Idea
 
 export const addData = (data) => 
     ({
@@ -45,8 +42,11 @@ export const addIdea = (idea) => {
                         console.log(err);
                         dispatch(addIdeaFailure())
                     } else {
+                        console.log('res', res.body)
                         dispatch(addIdeaSuccess(res.body))
                     }
                 })
     }
 }
+
+
