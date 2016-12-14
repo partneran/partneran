@@ -35,6 +35,7 @@ class IdeaDetail extends Component {
       )
     }else{
       // this.props.hideLoading()
+      console.log('what inside props', data_idea)
 
       return (
         <div className="components-page">
@@ -43,7 +44,7 @@ class IdeaDetail extends Component {
               <div className="container">
                 <div className="row text-center">
                   <h1 className="title">
-                    Idea Detail
+                    {data_idea.title}
                   </h1>
                   <h5>Get more insight about the Idea . . .</h5>
                 </div>
@@ -58,7 +59,7 @@ class IdeaDetail extends Component {
                 <div className="col-md-6">
                   <div className="card thumbnail">
 
-                    <img src='https://static.pexels.com/photos/185764/pexels-photo-185764.jpeg' alt="..."  className="img-responsive"/>
+                    <img src={data_idea.image} alt="..."  className="img-responsive"/>
                     <div className="caption">
                       <h3>{data_idea.title}</h3>
                       <p>
@@ -84,7 +85,7 @@ class IdeaDetail extends Component {
                       <br/>
                       <p><strong>Featured Video : </strong></p>
                       <div className="embed-responsive embed-responsive-16by9">
-                        <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/YfUEci1JbQc"></iframe>
+                        <iframe className="embed-responsive-item" src={data_idea.video}></iframe>
                       </div>
                       <br/>
                       <p><strong>Description : </strong></p>
