@@ -27,6 +27,8 @@ class IdeaDetail extends Component {
 
   render(){
     const { data_idea , addComment } = this.props
+    console.log(data_idea.video)
+    // let video = data_idea.video.replace(/watch?v=/g, "embed/")
 
     console.log("render", data_idea);
     if(data_idea.hasOwnProperty('id') === false){
@@ -89,7 +91,7 @@ class IdeaDetail extends Component {
                       <br/>
                       <p><strong>Featured Video : </strong></p>
                       <div className="embed-responsive embed-responsive-16by9">
-                        <iframe className="embed-responsive-item" src={data_idea.video}></iframe>
+                        <iframe className="embed-responsive-item" src={data_idea.video.replace(/watch\?v=/g, 'embed/')}></iframe>
                       </div>
                       <br/>
                       <p><strong>Description : </strong></p>
