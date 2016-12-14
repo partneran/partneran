@@ -1,9 +1,7 @@
 import {
     SIGN_UP,
     LOG_IN,
-    EDIT_PROFILE,
-    EDIT_PROFILE_SUCCESS,
-    EDIT_PROFILE_FAILURE
+    EDIT_PROFILE
 } from '../constants/actionTypes'
 
 const user = (state={}, action) => {

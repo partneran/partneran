@@ -1,10 +1,11 @@
 import { SIGN_UP,
         LOG_IN,
         FORGET_PASSWORD,
-        NEW_PASSWORD} from '../constants/actionTypes'
+        NEW_PASSWORD,
+        EDIT_PROFILE} from '../constants/actionTypes'
 
 import axios from 'axios';
-import request from 'superagent';
+// import request from 'superagent';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
@@ -66,8 +67,7 @@ export const newPassword = (password, User) =>
                     .catch(err => console.error(err))
     })
 
-export const editProfile = (User) => {
-  console.log(User);
+export const editProfile = (User) => 
   ({
     type: EDIT_PROFILE,
     user: axios
@@ -80,4 +80,3 @@ export const editProfile = (User) => {
             .then(res => { browserHistory.push('/profile')})
             .catch(err => console.error(err))
   })
-}
