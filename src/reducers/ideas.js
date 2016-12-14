@@ -1,6 +1,7 @@
-import { ADD_IDEA } from '../constants/actionTypes'
+import { ADD_IDEA, LOAD_ALL_IDEAS } from '../constants/actionTypes'
 
 const ideas = (state = [], action) => {
+    console.log('this is comming from action', action)
     switch(action.type){
         case ADD_IDEA:
             return [
@@ -12,6 +13,8 @@ const ideas = (state = [], action) => {
                 },
                     ...state
                 ]
+        case LOAD_ALL_IDEAS:
+            return state
         default:
             return state
     }

@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard'
 
 
 const PopularIdea = ({ ideas }) => {
+    console.log('ideas', ideas)
     // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
       const sampleIdea = sampleSize(ideas, 3)
       const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image} 

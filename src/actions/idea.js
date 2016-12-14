@@ -5,7 +5,8 @@ import {
   LOAD_IDEA,
   LOAD_ONE_IDEA,
   LOAD_ONE_IDEA_SUCCESS,
-  LOAD_ONE_IDEA_FAILURE 
+  LOAD_ONE_IDEA_FAILURE,
+  LOAD_ALL_IDEAS
 } from '../constants/actionTypes'
 
 import axios from 'axios';
@@ -108,4 +109,15 @@ export const loadOneIdea = (slug) => {
             }
           })
   }
-}
+} 
+
+
+
+
+export const loadAllIdeas = () => 
+  ({
+    type: LOAD_ALL_IDEAS,
+    ideas : request
+                .get(uri)
+                .end((err, res) => err ? console.err(err) : console.log(res))
+  })
