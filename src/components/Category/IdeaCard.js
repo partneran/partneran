@@ -1,11 +1,8 @@
 import React from 'react'
 import Auth from '../../helpers/token'
 import { Link } from 'react-router'
-<<<<<<< HEAD
-=======
 import slug from 'slug'
 console.log('this is slug',slug('MAK cek'.toLowerCase()))
->>>>>>> e71b146
 import renderHTML from 'react-render-html'
 // console.log('this auth', Auth.getUser())
 // import { stateFromHTML } from 'draft-js';
