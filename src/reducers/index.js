@@ -4,11 +4,11 @@ import { combineReducers } from 'redux'
 import counter from './counter'
 import user from './user.reducer'
 import ideas from './ideas'
+import idea from './idea'
 import categories from './categories'
 
 
 
-const reducers = combineReducers({ counter, user, ideas, categories })
+const reducers = combineReducers({ counter, user, ideas, idea, categories })
 
 export default reducers
-
