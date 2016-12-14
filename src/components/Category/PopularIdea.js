@@ -14,13 +14,13 @@ class PopularIdea extends Component {
         // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
       console.log(this.props.ideas)
       const sampleIdea = sampleSize(this.props.ideas, 3)
-      const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image} 
-                                                              key={i.id} 
-                                                              title={i.title} 
-                                                              author={i.author} 
-                                                              social={i.social}
-                                                              join={i.join}
-                                                              description={i.description}                                            
+      const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
+                                                              key={i.id}
+                                                              title={i.title}
+                                                              author={i.User.name}
+                                                              category={i.Category.name}
+                                                              join={i.createdAt}
+                                                              description={i.description}
                                                     />)
     return (
           <div className="container">
@@ -45,13 +45,13 @@ class PopularIdea extends Component {
 //     console.log('ideas', ideas)
 //     // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
 //       const sampleIdea = sampleSize(ideas, 3)
-//       const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image} 
-//                                                               key={i.id} 
-//                                                               title={i.title} 
-//                                                               author={i.author} 
+//       const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
+//                                                               key={i.id}
+//                                                               title={i.title}
+//                                                               author={i.author}
 //                                                               social={i.social}
 //                                                               join={i.join}
-//                                                               description={i.description}                                            
+//                                                               description={i.description}
 //                                                     />)
 //     return (
 //             <div className="container">

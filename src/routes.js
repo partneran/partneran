@@ -16,7 +16,7 @@ import AllIdea from './components/Category/AllIdea';
 // import ExplorePage from './components/ExplorePage';
 // import ProfilePage from'./components/ProfilePage';
 // import IdeaPage from './components/IdeaPage';
-
+import VerifyUserPage from './components/VerifyUserPage'
 
 export default (
      <Route path="/" component={App}>
@@ -25,13 +25,14 @@ export default (
         <Route path="login" component={LoginPage} />
         <Route path="forget-password" component={ForgetPasswordPage} />
         <Route path="verify-password/:token" component={NewPasswordPage} />
+        <Route path="verify-user/:token" component={VerifyUserPage} />
         <Route path="share-idea" component={CreateIdea} />
         <Route path="profile" component={ProfilePage} />
         <Route path="explore" component={MainPage}>
             <Route path="all-idea" component={AllIdea}/>
         </Route>
-        <Route path=":title" component={IdeaDetail} />
         <Route path="edit-profile" component={EditProfile} />
         <Route path="edit-password" component={EditPassword} />
+        <Route path=":title" component={IdeaDetail} />
     </Route>
 )

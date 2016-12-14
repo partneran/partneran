@@ -4,24 +4,25 @@ import IdeaCard from './IdeaCard'
 
 const AllIdea = ({category, ideas}) => {
   console.log(ideas)
-  const allIdeas = ideas.map(i => <IdeaCard image={i.image} 
-                                            key={i.id} 
-                                            title={i.title} 
-                                            author={i.author} 
+  const allIdeas = ideas.map(i => <IdeaCard image={i.image}
+                                            key={i.id}
+                                            title={i.title}
+                                            author={i.author}
                                             social={i.social}
                                             join={i.join}
                                             description={i.description}
                                             slug={i.slug}                                            
                                   />)
-  const filteredIdea = ideas.filter(idea => idea.category === category).map(i => <IdeaCard image={i.image} 
-                                                                                           key={i.id} 
-                                                                                           title={i.title} 
-                                                                                           author={i.author} 
+  const filteredIdea = ideas.filter(idea => idea.category === category).map(i => <IdeaCard image={i.image}
+                                                                                           key={i.id}
+                                                                                           title={i.title}
+                                                                                           author={i.author}
                                                                                            social={i.social}
                                                                                            join={i.join}
                                                                                            description={i.description}
-                                                                                           slug={i.slug}                                            
+                                                                                           slug={i.slug}
                                                                                   />)
+
   switch(category){
     case 'All Categories':
       return (

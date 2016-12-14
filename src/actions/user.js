@@ -23,7 +23,7 @@ export const signup = user =>
                 })
                 .then(res => {
                     Auth.authenticateUser(res)
-                    browserHistory.push('/')
+                    browserHistory.push('/explore')
                 })
                 .catch(err => console.error(err))
     })
@@ -113,4 +113,20 @@ export const editProfile = (User) => {
     //         .then(res => { browserHistory.push('/profile')})
     //         .catch(err => console.error(err))
   })
+}
+
+
+export const verifiedUser = (token, router) => {
+  return dispatch => {
+    return request
+          .get(uri+'auth/verification/'+token)
+          .set('Accept', 'application/json')
+          .end((err, res) => {
+            if(err){
+              console.log(err);
+            }else{
+              router.replace('/')
+            }
+          })
+  }
 }

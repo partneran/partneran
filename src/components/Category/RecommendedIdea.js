@@ -10,12 +10,11 @@ const RecommendedIdea = ({ideas}) => {
   const recommendIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
                                                           key={i.id}
                                                           title={i.title}
-                                                          author={i.author}
-                                                          social={i.social}
-                                                          join={i.join}
+                                                          author={i.User.name}
+                                                          category={i.Category.name}
+                                                          join={i.createdAt}
                                                           description={i.description}
-                                                />
-                                          )
+                                                />)
     return (
         <div className="container">
             <div className="section text-center">

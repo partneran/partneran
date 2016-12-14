@@ -8,14 +8,14 @@ import IdeaCard from './IdeaCard'
 const Latest = ({ ideas }) => {
     // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
       const sampleIdea = sampleSize(ideas, 3)
-      const latestIdeaList = sampleIdea.map(i => <IdeaCard image={i.image} 
-                                                              key={i.id} 
-                                                              title={i.title} 
-                                                              author={i.author} 
-                                                              social={i.social}
-                                                              join={i.join}
-                                                              description={i.description}                                            
-                                              />)
+      const latestIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
+                                                              key={i.id}
+                                                              title={i.title}
+                                                              author={i.User.name}
+                                                              category={i.Category.name}
+                                                              join={i.createdAt}
+                                                              description={i.description}
+                                                    />)
     return (
             <div className="container">
               <div className="section text-center">
