@@ -2,7 +2,7 @@ import { ADD_IDEA, LOAD_IDEA } from '../constants/actionTypes'
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import superagent from 'superagent'
+import request from 'superagent'
 
 const uri = 'http://localhost:8080/api/ideas/'
 
@@ -38,5 +38,5 @@ export const loadIdea = () =>
 
 
 export const loadOneIdea = (slug) => {
-
+  console.log(slug);
 }
