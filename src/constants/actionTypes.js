@@ -26,6 +26,8 @@ export const LOAD_IDEA = 'LOAD_IDEA';
 export const LOAD_IDEA_SUCCESS = 'LOAD_IDEA_SUCCESS';
 export const LOAD_IDEA_FAILURE = 'LOAD_IDEA_FAILURE';
 
+export const FETCH_IDEA = 'FETCH_IDEA'
+
 export const EDIT_IDEA = 'EDIT_POST';
 export const EDIT_IDEA_SUCCESS = 'EDIT_IDEA_SUCCESS';
 export const EDIT_IDEA_FAILURE = 'EDIT_IDEA_FAILURE';

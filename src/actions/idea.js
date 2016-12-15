@@ -9,7 +9,8 @@ import {
   LOAD_ALL_IDEAS,
   LOAD_IDEAS_FAILURE,
   LOAD_IDEAS_SUCCESS,
-  DELETE_IDEA_SUCCESS
+  DELETE_IDEA_SUCCESS,
+  FETCH_IDEA
 } from '../constants/actionTypes'
 
 import axios from 'axios';
@@ -130,7 +131,7 @@ export const deleteIdea = (ideaid, router) => {
             if(err){
               console.log(err);
             }else{
-              
+
               router.replace('/explore')
               dispatch(deleteIdeaSuccess(ideaid))
             }
@@ -138,6 +139,11 @@ export const deleteIdea = (ideaid, router) => {
   }
 }
 
+//edit idea
+export const fetchData = (dataIdea) => ({
+  type: FETCH_IDEA,
+  dataIdea: dataIdea
+})
 
 
 // Load ideas

@@ -3,7 +3,10 @@ import Footer from '../Footer/Footer'
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
+import CategoryDetail from './CategoryDetail';
 // import { isLoggedIn } from '../../helpers/verification';
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
 // import {
 //   convertFromHTML,
@@ -21,6 +24,7 @@ class EditIdea extends Component {
       description: "",
       category: "",
       statuses: "",
+      imageTitle: ""
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -44,117 +48,128 @@ class EditIdea extends Component {
   }
 
   render() {
-    const { title, video, image, category, description} = this.state
+    const { title, video, image, category, description, imageTitle} = this.state
     // isLoggedIn()
-    return (
-        <div className="components-page">
-          <div className="wrapper">
-            <div id="new-idea-intro" className="header header-filter">
-              <div className="container">
-                <div className="row text-center">
-                  <h1 className="title">Edit Idea</h1>
-                  <h5>Change something about your idea</h5>
+    // console.log(this.props.fetchData);
+    const { fetchData } = this.props
+    if(fetchData.hasOwnProperty('id') === false){
+      // this.props.router.replace('/explore')
+      browserHistory.push('/explore')
+      return(
+        <div>LOADING NIH bro</div>
+      )
+    }else{
+      let $imagePreview = null;
+      if (image) {
+        $imagePreview = (<img src={image} alt={imageTitle} title={imageTitle} className="img-responsive"/>);
+      } else {
+        $imagePreview = (<img src={fetchData.image} alt={imageTitle} title={imageTitle} className="img-responsive"/>);
+      }
+      return (
+
+          <div className="components-page">
+            <div className="wrapper">
+              <div id="new-idea-intro" className="header header-filter">
+                <div className="container">
+                  <div className="row text-center">
+                    <h1 className="title">Edit Idea</h1>
+                    <h5>Change something about your idea</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="main">
-              <div className="container">
-                <div className="row">
-                  <div className="card form-card">
-                    <div className="card-header" data-background-color="blue">
-                      <h4 className="title">Your Idea</h4>
-                      <p className="category">Tell us about your idea</p>
-                    </div>
-                    <div className="card-signup">
-                      <div className="container">
-                        <form encType="multipart/form-data" onSubmit={this.onSubmit}>
-                          <div className="form-group label-floating">
-                            <label className="control-label">Your Idea's Title</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              name="title"
-                              value={title}
-                              onChange={this.onChange}
-                              required
-                            />
-                          </div>
-                          <p>{title}</p>
-                          <div className="form-group label-floating">
-                            <label className="control-label">Featured Video (Youtube-Link)</label>
-                            <input
-                              type="url"
-                              className="form-control"
-                              name="video"
-                              value={video}
-                              onChange={this.onChange}
-                              required
-                            />
-                          </div>
-                          <div className="form-group label-floating">
-                            <div className="col-md-10 no-padding-left">
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Featured Image URL"
-                              name="image"
-                              value={image}
-                              onChange={this.onChange}
-                            />
+              <div className="main">
+                <div className="container">
+                  <div className="row">
+                    <div className="card form-card">
+                      <div className="card-header" data-background-color="blue">
+                        <h4 className="title">Your Idea</h4>
+                        <p className="category">Tell us about your idea</p>
+                      </div>
+                      <div className="card-signup">
+                        <div className="container">
+                          <form encType="multipart/form-data" onSubmit={this.onSubmit}>
+                            <div className="form-group label-floating">
+                              <label className="control-label">Your Idea's Title</label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                name="title"
+                                value={fetchData.title}
+                                onChange={this.onChange}
+                                required
+                              />
                             </div>
-                            <div className="col-md-2 no-padding-left">
-                            <label className="btn btn-info btn-sm">Upload Image</label>
-                            <input
-                              type="file"
-                              id="exampleInputFile"
-                              required
-                            />
+                            <p>{title}</p>
+                            <div className="form-group label-floating">
+                              <label className="control-label">Featured Video (Youtube-Link)</label>
+                              <input
+                                type="url"
+                                className="form-control"
+                                name="video"
+                                value={fetchData.video}
+                                onChange={this.onChange}
+                                required
+                              />
                             </div>
-                          </div>
-                          <br/>
-                          <br/>
-                          <div className="form-group label-floating">
-                            <label className="control-label">Category</label>
-                            <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
-                              <option value="option1">Lalala</option>
-                              <option value="option2">Lalala</option>
-                              <option value="option3">Lalala</option>
-                            </select>
-                          </div>
-                          <div className="form-group">
+                            <div className="form-group label-floating">
+                              <div className="row">
+                                <div className="col-md-offset-3 col-md-6 text-center">
+                                  {$imagePreview}
+                                </div>
+                              </div>
+                              <label className="btn btn-info btn-sm">Upload Image</label>
+                              <input
+                                type="file"
+                                id="exampleInputFile"
+                                required
+                              />
+                            </div>
                             <br/>
-                            <label>Your Idea Detail</label>
-                            <Editor
-                              description={description}
-                              onChange={this.onEditorChange}
-                            />
-                          </div>
-                          <div className="form-group label-floating">
-                            <label className="control-label">Status</label>
-                            <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
-                              <option value="option1">Baby</option>
-                              <option value="option2">Kid</option>
-                              <option value="option3">Teenager</option>
-                              <option value="option4">Mature</option>
-                              <option value="option5">RIP</option>
-                            </select>
-                          </div>
-                          <div className="form-group">
-                            <button type="submit" className="btn btn-info">Submit</button>
-                          </div>
-                        </form>
+                            <br/>
+                              <div className="form-group label-floating">
+                                <label className="control-label">Category</label>
+                                <CategoryDetail onChange={this.onChange} value={category} name="category"/>
+                              </div>
+                            <div className="form-group">
+                              <br/>
+                              <label>Your Idea Detail</label>
+                              <Editor
+                                description={fetchData.description}
+                                onChange={this.onEditorChange}
+                              />
+                            </div>
+                            <div className="form-group label-floating">
+                              <label className="control-label">Status</label>
+                              <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
+                                <option value="option1">Baby</option>
+                                <option value="option2">Kid</option>
+                                <option value="option3">Teenager</option>
+                                <option value="option4">Mature</option>
+                                <option value="option5">RIP</option>
+                              </select>
+                            </div>
+                            <div className="form-group">
+                              <button type="submit" className="btn btn-info">Submit</button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-    )
+      )
+    }
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    fetchData: state.idea
+  }
+}
 
-export default EditIdea;
+export default connect(mapStateToProps)(EditIdea)

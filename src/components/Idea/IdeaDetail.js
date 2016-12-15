@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Link from 'react-router';
 import Footer from '../Footer/Footer';
-import { loadOneIdea, deleteIdea } from '../../actions/idea'
+import { loadOneIdea, deleteIdea, fetchData } from '../../actions/idea'
 import { showLoading, hideLoading } from '../../actions/loading'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -33,6 +33,11 @@ class IdeaDetail extends Component {
     this.props.deleteIdea(this.props.data_idea.id, this.props.router)
   }
 
+  onEditClick(){
+    this.props.fetchData(this.props.data_idea)
+    this.props.router.replace('/edit-idea')
+  }
+
   render(){
     const { data_idea , addComment } = this.props
     console.log(data_idea.video)
@@ -46,7 +51,7 @@ class IdeaDetail extends Component {
       )
     }else{
       // this.props.hideLoading()
-      console.log('what inside props', data_idea)
+      // console.log('what inside props', data_idea)
       let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
       return (
         <div className="components-page">
@@ -92,7 +97,7 @@ class IdeaDetail extends Component {
 
                     <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
 
-                    <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea"><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                    <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea" onClick={this.onEditClick.bind(this)}><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
 
                 </ul>
 
@@ -168,6 +173,7 @@ function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
     deleteIdea: bindActionCreators(deleteIdea, dispatch),
+    fetchData: bindActionCreators(fetchData, dispatch),
     addComment: bindActionCreators(addComment, dispatch),
     showLoading: bindActionCreators(showLoading, dispatch),
     hideLoading: bindActionCreators(hideLoading, dispatch)
