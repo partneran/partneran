@@ -11,7 +11,11 @@ class Latest extends Component {
     this.props.loadIdeas()
   }
   render() {
-      const sampleIdea = this.props.ideas.sort((a, b) => b.Comments.length - a.Comments.length ).slice(0, 2)
+      const sampleIdea = this.props.ideas.sort(function(a, b){
+        var c = new Date(a.createdAt)
+        var d = new Date(b.createdAt)
+        c - d
+      } ).slice(0, 3)
       const latestIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title} />)
     return (
           <div className="container">

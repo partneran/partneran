@@ -22,7 +22,6 @@ class LandingPage extends Component {
                     <ModalVideo />
                     <div className="main">
                         <PopularIdea />
-                        <RecommendedIdea />
                         <LatestIdea />
                         <Marketing />
                         <Footer />
