@@ -60,7 +60,7 @@ export const newPassword = (password, User) =>
         type: NEW_PASSWORD,
         password: axios
                     .post(uri+'users/password', {
-                      email: User.email,
+                      email: Auth.getUser().email,
                       new_password: password
                     })
                     .then(res => { browserHistory.push('/')})

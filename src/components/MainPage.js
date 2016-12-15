@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import AllIdea from './Category/AllIdea';
+import { AllIdea } from './Category/AllIdea';
 import Footer from './Footer/Footer';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { loadIdeas } from '../actions/idea'
 
 class MainPage extends Component {
   constructor(){
@@ -10,7 +13,12 @@ class MainPage extends Component {
     }
   }
 
+  componentDidMount(){
+    this.props.loadIdeas()
+  }
+
   render(){
+    console.log(this.props.ideas);
     return (
       <div className="components-page">
         <div className="wrapper">
@@ -49,7 +57,7 @@ class MainPage extends Component {
                   </div>
                 </div>
                 <div className="col-md-10">
-                  <AllIdea category={this.state.category}/>
+                  <AllIdea category={this.state.category} ideas={this.props.ideas}/>
                 </div>
               </div>
             </div>
@@ -60,7 +68,19 @@ class MainPage extends Component {
       </div>
     )
   }
-
 }
 
-export default MainPage
+
+function mapStateToProps(state){
+  return {
+    ideas: state.ideas
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadIdeas: bindActionCreators(loadIdeas, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
