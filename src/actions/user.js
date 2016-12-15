@@ -82,8 +82,8 @@ export const editProfile = (User) => {
   // formData.append('name', User.name);
   // formData.append('email', User.email);
   // formData.append('short_bio', User.bio);
-  console.log('Form Data: ' + JSON.stringify(formData));
-  console.log(User);
+  // console.log('Form Data: ' + JSON.stringify(formData));
+  // console.log(User);
   ({
     type: EDIT_PROFILE,
     user: request.put(uri+'users/'+User.UserId)
@@ -98,7 +98,9 @@ export const editProfile = (User) => {
               if (err) {
                 console.log(err);
               } else {
-                res => { browserHistory.push('/profile')}
+                console.log('this is response from backend', res)
+                Auth.setToken(res.body)
+                browserHistory.push('/profile')
               }
             })
 

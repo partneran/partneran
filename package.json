@@ -51,6 +51,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
+    "dns": "^0.2.2",
     "draft-js": "^0.9.1",
     "draft-js-import-html": "git+https://github.com/sstur/draft-js-import-html.git",
     "draftjs-to-html": "^0.4.1",

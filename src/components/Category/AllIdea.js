@@ -1,27 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import IdeaCard from './IdeaCard'
+import Auth from '../../helpers/token'
 
 export const AllIdea = ({category, ideas}) => {
-  console.log(ideas)
-  const allIdeas = ideas.map(i => <IdeaCard image={i.image}
-                                            key={i.id}
-                                            title={i.title}
-                                            author={i.author}
-                                            social={i.social}
-                                            join={i.join}
-                                            description={i.description}
-                                            slug={i.slug}
-                                  />)
-  const filteredIdea = ideas.filter(idea => idea.category === category).map(i => <IdeaCard image={i.image}
-                                                                                           key={i.id}
-                                                                                           title={i.title}
-                                                                                           author={i.author}
-                                                                                           social={i.social}
-                                                                                           join={i.join}
-                                                                                           description={i.description}
-                                                                                           slug={i.slug}
-                                                                                  />)
+  console.log(category)
+  const allIdeas = ideas.map(i => <IdeaCard props={i} user={Auth.getUser().sub} key={i.id}/>)
+  const filteredIdea = ideas.filter(idea => idea.Category.name === category).map(i => <IdeaCard props={i} key={i.id} />)
 
   switch(category){
     case 'All Categories':

@@ -10,19 +10,20 @@ import Auth from '../helpers/token';
 import { editProfile } from '../actions/user'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+// const jwt = require('jsonwebtoken')
 
-const imgur = require('imgur');
+// const imgur = require('imgur');
 
-const ImgUpload = (file) => {
-  imgur.uploadFile(file)
-    .then(function (json) {
-      console.log(json.data.link);
-      return json.data.link;
-    })
-    .catch(function (err) {
-      console.error(err.message);
-    });
-}
+// const ImgUpload = (file) => {
+//   imgur.uploadFile(file)
+//     .then(function (json) {
+//       console.log(json.data.link);
+//       return json.data.link;
+//     })
+//     .catch(function (err) {
+//       console.error(err.message);
+//     });
+// }
 
 // import {
 //   convertFromHTML,
@@ -99,7 +100,7 @@ class EditProfile extends Component {
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    editProfile(assign(this.state, {UserId: Auth.getUser().sub}))
+    this.props.editProfile(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
   onEditorChange(bio) {
@@ -176,7 +177,6 @@ class EditProfile extends Component {
                                 onChange={(e)=>this._handleImageChange(e)}
                                 name="photo_URL"
                                 id="exampleInputFile"
-                                required
                               />
                           </div>
                           <br/>
@@ -212,7 +212,7 @@ class EditProfile extends Component {
 // export default EditProfile;
 function mapDispatchToProps(dispatch) {
   return {
-    editProfile: bindActionCreators(EditProfile, dispatch)
+    editProfile: bindActionCreators(editProfile, dispatch)
   }
 }
 

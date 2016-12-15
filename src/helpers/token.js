@@ -22,6 +22,10 @@ const Auth = {
         else {
             return jwt_decode(token)
         }
+    },
+
+    setToken(newtoken) {
+      localStorage.setItem('token', newtoken)
     }
 
 }

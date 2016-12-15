@@ -19,8 +19,9 @@ import renderHTML from 'react-render-html'
 //   editorState: EditorState.createWithContent(state),
 // };
 
-const IdeaCard = ({props, user}) => {
+const IdeaCard = ({props}) => {
   // console.log(stateFromHTML(props.description))
+  console.log(props)
   let path = slug(props.title.toLowerCase())
     return (
           <div className="col-md-4 text-left">
