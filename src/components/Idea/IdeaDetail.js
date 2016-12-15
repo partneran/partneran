@@ -40,7 +40,7 @@ class IdeaDetail extends Component {
 
   render(){
     const { data_idea , addComment } = this.props
-    console.log(data_idea.video)
+    // console.log(data_idea.video)
     // let video = data_idea.video.replace(/watch?v=/g, "embed/")
 
     console.log("render", data_idea);

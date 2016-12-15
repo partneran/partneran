@@ -13,10 +13,10 @@ const idea = (state = {Comments : []}, action) => {
     switch(action.type){
 
       case LOAD_ONE_IDEA:
-        return {}
+        return state
 
       case LOAD_ONE_IDEA_SUCCESS:
-      // console.log(action.idea);
+      console.log(action.idea);
         return action.idea
 
       case LOAD_ONE_IDEA_FAILURE:

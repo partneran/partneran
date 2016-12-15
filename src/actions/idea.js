@@ -16,6 +16,7 @@ import {
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import request from 'superagent'
+import slug from 'slug'
 
 const uri = 'http://localhost:8080/api/ideas/'
 
@@ -94,14 +95,7 @@ let loadOneIdeaSuccess = (idea) => ({
 })
 
 export const loadOneIdea = (slug) => {
-  // console.log(slug);
-  var data = {
-    title : "",
-    createdAt: new Date(),
-    User: {
-      name: ""
-    }
-  }
+  console.log(slug);
   return dispatch => {
     return request
           .get(uri+slug)
@@ -144,6 +138,38 @@ export const fetchData = (dataIdea) => ({
   type: FETCH_IDEA,
   dataIdea: dataIdea
 })
+
+export const editIdea = (idea) => {
+  console.log(idea);
+  return dispatch => {
+    // dispatch(editIdea(idea))
+    // new_idea.title = req.body.title
+    // new_idea.description = req.body.description
+    // new_idea.image = req.body.image
+    // new_idea.video = req.body.video
+    return request
+            .put(uri + idea.ideaid)
+            .set('Accept', 'application/json')
+            .type('form')
+            .send({
+              title: idea.title,
+              description: idea.description,
+              image: idea.image,
+              video: idea.video,
+              status: idea.status,
+              category: idea.category 
+            })
+            .end((err, res) => {
+                if(err){
+                    console.log(err);
+                    // dispatch(editIdeaFailure())
+                } else {
+                    browserHistory.push(slug(idea.title))
+                    // dispatch(editIdeaSuccess(res.body))
+                }
+            })
+  }
+}
 
 
 // Load ideas
