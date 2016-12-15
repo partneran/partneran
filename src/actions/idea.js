@@ -10,7 +10,8 @@ import {
   LOAD_IDEAS_FAILURE,
   LOAD_IDEAS_SUCCESS,
   DELETE_IDEA_SUCCESS,
-  FETCH_IDEA
+  FETCH_IDEA,
+  EDIT_IDEA_SUCCESS
 } from '../constants/actionTypes'
 
 import axios from 'axios';
@@ -139,6 +140,11 @@ export const fetchData = (dataIdea) => ({
   dataIdea: dataIdea
 })
 
+let editIdeaSuccess = (editedIdea) => ({
+  type: EDIT_IDEA_SUCCESS,
+  editedIdea: editedIdea
+})
+
 export const editIdea = (idea) => {
   console.log(idea);
   return dispatch => {
@@ -157,7 +163,7 @@ export const editIdea = (idea) => {
               image: idea.image,
               video: idea.video,
               status: idea.status,
-              category: idea.category 
+              category: idea.category
             })
             .end((err, res) => {
                 if(err){
@@ -165,7 +171,7 @@ export const editIdea = (idea) => {
                     // dispatch(editIdeaFailure())
                 } else {
                     browserHistory.push(slug(idea.title))
-                    // dispatch(editIdeaSuccess(res.body))
+                    dispatch(editIdeaSuccess(res.body))
                 }
             })
   }

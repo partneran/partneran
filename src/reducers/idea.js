@@ -3,7 +3,9 @@ import {
     LOAD_ONE_IDEA_SUCCESS,
     LOAD_ONE_IDEA_FAILURE,
     ADD_COMMENT_SUCCESS,
-    ADD_COMMENT_FAILURE
+    ADD_COMMENT_FAILURE,
+    EDIT_IDEA_SUCCESS,
+    FETCH_IDEA
 } from '../constants/actionTypes'
 
 import { assign } from 'lodash'
@@ -28,6 +30,13 @@ const idea = (state = {Comments : []}, action) => {
         }
         newState.Comments.push(action.comment)
         return newState
+
+      case EDIT_IDEA_SUCCESS:
+        return action.editedIdea
+
+      case FETCH_IDEA:
+        // console.log(action.dataIdea);
+        return action.dataIdea
 
 
       case ADD_COMMENT_FAILURE:
