@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { sampleSize } from 'lodash'
+// import { sampleSize } from 'lodash'
 import IdeaCard from './IdeaCard'
 import { loadIdeas } from '../../actions/idea'
 import { bindActionCreators } from 'redux'
@@ -11,12 +11,14 @@ class Latest extends Component {
     this.props.loadIdeas()
   }
   render() {
-      const sampleIdea = this.props.ideas.sort(function(a, b){
-        var c = new Date(a.createdAt)
-        var d = new Date(b.createdAt)
-        c - d
-      } ).slice(0, 3)
-      const latestIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title} />)
+    const sampleIdea = this.props.ideas.sort(function(a, b){
+      var c = new Date(a.createdAt)
+      var d = new Date(b.createdAt)
+      return c - d
+    } ).slice(0, 3)
+
+    const latestIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title} />)
+
     return (
           <div className="container">
             <div className="section text-center">

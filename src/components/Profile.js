@@ -1,6 +1,6 @@
 import React from 'react';
 import UserIdea from './Category/UserIdea';
-import MemberIdea from './Category/MemberIdea';
+// import MemberIdea from './Category/MemberIdea';
 import Footer from './Footer/Footer';
 import Auth from '../helpers/token'
 import { Link } from 'react-router';

@@ -3,11 +3,11 @@ import {
   ADD_IDEA_FAILURE,
   ADD_IDEA_SUCCESS,
   LOAD_IDEA,
-  LOAD_ONE_IDEA,
+  // LOAD_ONE_IDEA,
   LOAD_ONE_IDEA_SUCCESS,
   LOAD_ONE_IDEA_FAILURE,
   LOAD_ALL_IDEAS,
-  LOAD_IDEAS_FAILURE,
+  // LOAD_IDEAS_FAILURE,
   LOAD_IDEAS_SUCCESS,
   DELETE_IDEA_SUCCESS,
   FETCH_IDEA,
@@ -80,10 +80,10 @@ export const loadIdea = () =>
             .catch(err => console.log(err))
 })
 
-let loadStateOneIdea = (data) => ({
-  type: LOAD_ONE_IDEA,
-  data: data
-})
+// let loadStateOneIdea = (data) => ({
+//   type: LOAD_ONE_IDEA,
+//   data: data
+// })
 
 let loadOneIdeFailure = () => ({
   type: LOAD_ONE_IDEA_FAILURE
@@ -191,10 +191,10 @@ const loadIdeasSuccess = (ideas) =>
     ideas: ideas
   })
 
-const loadIdeasFailure = () =>
-  ({
-    type: LOAD_IDEAS_FAILURE
-  })
+// const loadIdeasFailure = () =>
+//   ({
+//     type: LOAD_IDEAS_FAILURE
+//   })
 
 export const loadIdeas = () => {
   return dispatch => {

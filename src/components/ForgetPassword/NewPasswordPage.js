@@ -3,9 +3,6 @@ import NewPasswordForm from './NewPasswordForm';
 import Footer from '../Footer/Footer';
 
 class NewPasswordPage extends Component {
-  constructor(props){
-    super(props)
-  }
     render() {
       return (
         <div className="signup-page">

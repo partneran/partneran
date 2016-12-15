@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { sampleSize } from 'lodash'
+// import { sampleSize } from 'lodash'
 import IdeaCard from './IdeaCard'
 import { loadIdeas } from '../../actions/idea'
 import { bindActionCreators } from 'redux'
@@ -46,7 +46,7 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const mapStateToProps = (state) => 
+const mapStateToProps = (state) =>
   ({
     ideas: state.ideas
   })
@@ -159,7 +159,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(UserIdea)
 
 // const UserIdea = ({props}) => {
 //   // console.log(stateFromHTML(props.description))
-  
+
 //   console.log('this is coming from idea card', props, Auth.getUser())
 //   let path = slug(props.title.toLowerCase())
 
@@ -188,4 +188,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(UserIdea)
 // }
 
 // export default UserIdea
-

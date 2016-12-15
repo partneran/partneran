@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { sampleSize } from 'lodash'
+// import { sampleSize } from 'lodash'
 import IdeaCard from './IdeaCard'
 import { loadIdeas } from '../../actions/idea'
 import { bindActionCreators } from 'redux'

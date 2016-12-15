@@ -69,7 +69,7 @@ class CreateIdea extends Component {
     const { title, video, image, category, description, imageTitle} = this.state
     let $imagePreview = null;
     if (image) {
-      $imagePreview = (<img src={image} alt="{imageTitle}" title={imageTitle} className="img-responsive"/>);
+      $imagePreview = (<img src={image} alt={imageTitle} title={imageTitle} className="img-responsive"/>);
     } else {
       $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
@@ -104,7 +104,7 @@ class CreateIdea extends Component {
                               name="title"
                               value={title}
                               onChange={this.onChange}
-                              // required
+                              required
                             />
                           </div>
                           <div className="form-group label-floating">
@@ -115,7 +115,7 @@ class CreateIdea extends Component {
                               name="video"
                               value={video}
                               onChange={this.onChange}
-                              // required
+                              required
                             />
                           </div>
                           <div className="form-group label-floating">
@@ -128,9 +128,8 @@ class CreateIdea extends Component {
                             <input
                               className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)}
                               name="photo"
-                              type="file"
                               id="exampleInputFile"
-                              // required
+                              required
                             />
 
                           </div>

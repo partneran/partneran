@@ -4,9 +4,6 @@ import { uniqBy } from 'lodash'
 
 
 export default class ListMembers extends Component {
-  constructor(props){
-    super(props)
-  }
 
   render(){
     // let filtered = uniqBy(this.props.membersComment.map(user => user), comment => comment.id)

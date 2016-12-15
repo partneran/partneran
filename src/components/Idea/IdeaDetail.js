@@ -14,16 +14,13 @@ import renderHTML from 'react-render-html'
 import { Link } from 'react-router'
 import Loading from '../Lib/Loading'
 
-import {
-  convertFromHTML,
-  convertToRaw,
-  ContentState,
-} from 'draft-js';
+// import {
+//   convertFromHTML,
+//   convertToRaw,
+//   ContentState,
+// } from 'draft-js';
 
 class IdeaDetail extends Component {
-  constructor(props){
-    super(props)
-  }
   componentDidMount() {
     this.props.loadOneIdea(this.props.params.title)
   }

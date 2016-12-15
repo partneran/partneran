@@ -3,10 +3,6 @@ import DataComment from './DataComment'
 // import { uniq } from 'lodash'
 
 export default class ListComments extends Component {
-  constructor(props){
-    super(props)
-  }
-
   render(){
     // console.log(this.props.comments);
     var { data_idea } = this.props

@@ -95,11 +95,6 @@ class EditProfile extends Component {
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    console.log(this.state)
-  }
-  onSubmit(e) {
-    e.preventDefault()
-    // call dispatch to state
     this.props.editProfile(assign(this.state, {UserId: Auth.getUser().sub}))
   }
 
@@ -110,10 +105,10 @@ class EditProfile extends Component {
   }
 
   render() {
-    const { name, email, photo, bio, loading, file, imagePreviewUrl} = this.state;
+    const { name, email, bio, loading, imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} className="img-responsive"/>);
+      $imagePreview = (<img src={imagePreviewUrl} alt={name} className="img-responsive"/>);
     } else {
       $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
     }
