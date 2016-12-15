@@ -12,6 +12,7 @@ import Auth from '../../helpers/token'
 import { addComment } from '../../actions/comment'
 import renderHTML from 'react-render-html'
 import { Link } from 'react-router'
+import Loading from '../Lib/Loading'
 
 import {
   convertFromHTML,
@@ -41,7 +42,7 @@ class IdeaDetail extends Component {
     if(data_idea.hasOwnProperty('id') === false){
       //loading
       return(
-        <h1>loading bar nih</h1>
+        <Loading />
       )
     }else{
       // this.props.hideLoading()
