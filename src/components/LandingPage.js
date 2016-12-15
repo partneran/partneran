@@ -3,7 +3,7 @@ import Intro from './Intro';
 import ModalVideo from './ModalVideo';
 import PopularIdea from './Category/PopularIdea';
 import LatestIdea from './Category/LatestIdea';
-import RecommendedIdea from './Category/RecommendedIdea';
+// import RecommendedIdea from './Category/RecommendedIdea';
 import Marketing from './Marketing'
 import Footer from './Footer/Footer';
 import { loadIdeas } from '../actions/idea'
