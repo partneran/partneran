@@ -12,21 +12,64 @@ import Auth from '../helpers/token';
 const uri = 'http://localhost:8080/api/'
 
 
-export const signup = user =>
-    ({
-        type: SIGN_UP,
-        user:  axios
-                .post(uri+'auth/signup', {
-                    name: user.name,
-                    email: user.email,
-                    password: user.password
-                })
-                .then(res => {
-                    Auth.authenticateUser(res)
-                    browserHistory.push('/explore')
-                })
-                .catch(err => console.error(err))
-    })
+const signUser = user =>
+ ({
+   type: 'SIGNUP_USER'
+ })
+
+const signupSuccess = user =>
+ ({
+   type: 'SIGN_UP_SUCCESS',
+   user: user
+ })
+
+const signupFailure = () =>
+ ({
+   type: 'SIGN_UP_FAILURE'
+ })
+
+export const signup = (user) => {
+   // console.log('above first dispatch', idea)
+   return dispatch => {
+       console.log(user)
+       dispatch(signUser(user))
+       return request
+               .post(uri+'auth/signup')
+               .set('Accept', 'application/json')
+               .type('form')
+               .send({
+                   name: user.name,
+                   email: user.email,
+                   password: user.password
+               })
+               .end((err, res) => {
+                   if(err){
+                       console.log(err);
+                       dispatch(signupFailure())
+                   } else {
+                       browserHistory.push(`/explore`)
+                       dispatch(signupFailure(res.body))
+
+                   }
+               })
+   }
+}
+
+// export const signup = user =>
+//     ({
+//         type: SIGN_UP,
+//         user:  axios
+//                 .post(uri+'auth/signup', {
+//                     name: user.name,
+//                     email: user.email,
+//                     password: user.password
+//                 })
+//                 .then(res => {
+//                     Auth.authenticateUser(res)
+//                     browserHistory.push('/explore')
+//                 })
+//                 .catch(err => console.error(err))
+//     })
 
 export const login = (user) =>
     ({
