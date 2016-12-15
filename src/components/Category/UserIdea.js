@@ -18,8 +18,12 @@ class UserIdea extends Component {
       const sampleIdea = this.props.ideas.filter(idea => idea.UserId === Auth.getUser().sub )
       const userIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
       if(userIdea.length > 0 ) {
+<<<<<<< 3985af43bcbf487e5713c312ba1269292bc32eb0
           return (
 
+=======
+        return(
+>>>>>>> checkin user-idea
           <div className="container">
             <div className="section text-center">
                 <h2 className="poptitle text-info">{Auth.getUser().name} Idea</h2>
@@ -39,7 +43,6 @@ class UserIdea extends Component {
           <PopularIdea />
         )
       }
-    )
   }
 }
 
