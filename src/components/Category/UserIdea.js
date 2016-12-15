@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard'
 import { loadIdeas } from '../../actions/idea'
 import { bindActionCreators } from 'redux'
 import Auth from '../../helpers/token'
+import PopularIdea from './PopularIdea'
 
 class UserIdea extends Component {
   componentDidMount() {
@@ -33,7 +34,7 @@ class UserIdea extends Component {
         )
       } else {
         return (
-          <h3 className="text-center"> No idea </h3>
+          <PopularIdea />
         )
       }
   }
