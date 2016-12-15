@@ -23,6 +23,7 @@ const IdeaCard = (props) => {
   // console.log(stateFromHTML(props.description))
   // console.log('this is coming from idea card', props)
   let path = slug(props.title.toLowerCase())
+  let description = renderHTML(props.description.substring(3, 125));
 
   return (
         <div className="col-md-4 text-left">
@@ -38,7 +39,7 @@ const IdeaCard = (props) => {
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.join}
                 </p>
-                <p className="break">{renderHTML(props.description)}</p>
+                <div className="break">{description} . . .</div>
                 <ul className="pager">
                   <li className="next"><Link to={`/${path}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>
