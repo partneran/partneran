@@ -30,7 +30,7 @@ class SignupForm extends Component {
 		if(this.state.password !== this.state.passwordConfirmation){
 			// lacking popup
 
-			return ReactDOM.findDOMNode(this.refs.passwordConfirmation).focus(); 
+			return ReactDOM.findDOMNode(this.refs.passwordConfirmation).focus();
 		}
 		this.props.signup(R.omit(['passwordConfirmation'], this.state))
 	}
@@ -41,11 +41,6 @@ class SignupForm extends Component {
             <form className="form" onSubmit={this.onSubmit}  >
 								<div className="header header-info text-center" style={{height:'auto'}}>
 									<h4>Sign Up</h4>
-									<div className="social-line">
-										<a href="#pablo" className="btn btn-simple btn-just-icon">
-											<i className="fa fa-facebook-square"></i>
-										</a>
-									</div>
 								</div>
 								<p className="text-divider">Confirm The Detail</p>
 								<div className="content">
@@ -90,7 +85,7 @@ class SignupForm extends Component {
 											name="password"
 											value={this.state.password}
 											onChange={this.onChange}
-											pattern=".{8,}" 
+											pattern=".{8,}"
 											required title="Minimum Password is 8 Characters"
                     />
 									</div>
