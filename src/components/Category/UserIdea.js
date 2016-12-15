@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux'
 import Auth from '../../helpers/token'
 import PopularIdea from './PopularIdea'
 
+
 class UserIdea extends Component {
   componentDidMount() {
     this.props.loadIdeas()
@@ -18,6 +19,7 @@ class UserIdea extends Component {
       const userIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
       if(userIdea.length > 0 ) {
           return (
+
           <div className="container">
             <div className="section text-center">
                 <h2 className="poptitle text-info">{Auth.getUser().name} Idea</h2>
@@ -37,6 +39,7 @@ class UserIdea extends Component {
           <PopularIdea />
         )
       }
+    )
   }
 }
 

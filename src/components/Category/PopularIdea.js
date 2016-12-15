@@ -13,6 +13,7 @@ class PopularIdea extends Component {
   render() {
       const sampleIdea = this.props.ideas.sort((a, b) => b.Comments.length - a.Comments.length ).slice(0, 2)
       const popularIdeaList = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
+
     return (
           <div className="container">
             <div className="section text-center">
