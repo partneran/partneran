@@ -14,8 +14,9 @@ class UserIdea extends Component {
   render() {
         // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
       const sampleIdea = this.props.ideas.filter(idea => idea.UserId === Auth.getUser().sub )
-      const userIdea = sampleIdea.map(idea => <IdeaCard props={idea} />)
-    return (
+      const userIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
+      if(userIdea.length > 0 ) {
+          return (
           <div className="container">
             <div className="section text-center">
                 <h2 className="poptitle text-info">{Auth.getUser().name} Idea</h2>
@@ -29,7 +30,12 @@ class UserIdea extends Component {
                 </ul>
             </div>
           </div>
-    )
+        )
+      } else {
+        return (
+          <h3 className="text-center"> No idea </h3>
+        )
+      }
   }
 }
 
