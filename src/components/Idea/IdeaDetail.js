@@ -78,7 +78,7 @@ class IdeaDetail extends Component {
                       <p>
                         <i className="fa fa-icon fa-user"></i> {data_idea.User.name}
                         &nbsp;
-                        <i className="fa fa-icon fa-tag"></i> <Link to="/explore">{data_idea.Category.name}</Link>
+                        <i className="fa fa-icon fa-tag"></i> {data_idea.Category.name}
                         &nbsp;
                         <i className="fa fa-icon fa-calendar"></i> {data_idea.createdAt}
                       </p>

@@ -18,7 +18,7 @@ const idea = (state = {Comments : []}, action) => {
         return state
 
       case LOAD_ONE_IDEA_SUCCESS:
-      console.log(action.idea);
+      // console.log(action.idea);
         return action.idea
 
       case LOAD_ONE_IDEA_FAILURE:
@@ -28,7 +28,7 @@ const idea = (state = {Comments : []}, action) => {
         let newState = {
           ...state
         }
-        newState.Comments.push(action.comment)
+        newState.Comments.unshift(action.comment)
         return newState
 
       case EDIT_IDEA_SUCCESS:

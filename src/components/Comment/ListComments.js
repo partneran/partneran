@@ -9,7 +9,7 @@ export default class ListComments extends Component {
     console.log('this is list of comment data',data_idea)
     // console.log('test0', data_idea)
     // console.log(data_idea.Comments)
-    let dataComment = data_idea.Comments.reverse().map(comment => {
+    let dataComment = data_idea.Comments.map(comment => {
       return(
         <DataComment key={comment.id} comment={comment}/>
       )

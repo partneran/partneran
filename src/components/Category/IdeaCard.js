@@ -35,7 +35,7 @@ const IdeaCard = ({props}) => {
                 <p>
                   <i className="fa fa-icon fa-user"></i> {props.User.name}
                   &nbsp;
-                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.Category.name}</a>
+                  <i className="fa fa-icon fa-tag"></i> {props.Category.name}
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.createdAt}
                 </p>

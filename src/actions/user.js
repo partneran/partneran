@@ -47,7 +47,7 @@ export const signup = (user) => {
                        console.log(err);
                        dispatch(signupFailure())
                    } else {
-                       browserHistory.push(`/explore`)
+                       browserHistory.push(`/login`)
                        dispatch(signupFailure(res.body))
 
                    }
@@ -71,21 +71,62 @@ export const signup = (user) => {
 //                 .catch(err => console.error(err))
 //     })
 
-export const login = (user) =>
-    ({
-        type: LOG_IN,
-        user: axios
-                .post(uri+'auth/login', {
+// export const login = (user) =>
+//     ({
+//         type: LOG_IN,
+//         user: axios
+//                 .post(uri+'auth/login', {
+//                     email: user.email,
+//                     password: user.password
+//                 })
+//                 .then(res => {
+//                   console.log(res);
+//                     Auth.authenticateUser(res)
+//                     browserHistory.push('/')
+//                 })
+//                 .catch(err => console.log(err))
+//     })
+const loginUser = user =>
+  ({
+    type: 'LOGIN_USER'
+  })
+
+const loginSuccess = user =>
+  ({
+    type: 'LOGIN_USER_SUCCESS',
+    user: user
+  })
+
+const loginFailure = () =>
+  ({
+    type: 'LOGIN_USER_FAILED'
+  })
+
+export const login = (user) => {
+    // console.log('above first dispatch', idea)
+    return dispatch => {
+        dispatch(loginUser(user))
+        return request
+                .post(uri+'auth/login')
+                .set('Accept', 'application/json')
+                .type('form')
+                .send({
                     email: user.email,
                     password: user.password
                 })
-                .then(res => {
-                  console.log(res);
-                    Auth.authenticateUser(res)
-                    browserHistory.push('/')
+                .end((err, res) => {
+                    if(err){
+                        console.log(err);
+                        dispatch(loginFailure())
+                    } else {
+                        localStorage.setItem('token', res.body.token)
+                        // browserHistory.push(`/explore`)
+                        dispatch(loginSuccess(res.body))
+
+                    }
                 })
-                .catch(err => console.log(err))
-    })
+    }
+}
 
 export const forgetPassword = (email) =>
     ({
