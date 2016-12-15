@@ -7,6 +7,8 @@ import CategoryDetail from './CategoryDetail';
 // import { isLoggedIn } from '../../helpers/verification';
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
+import { editIdea } from '../../actions/idea'
+import { bindActionCreators } from 'redux'
 
 // import {
 //   convertFromHTML,
@@ -18,12 +20,13 @@ class EditIdea extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: "",
-      video: "",
-      image: "",
-      description: "",
-      category: "",
-      statuses: "",
+      title: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.title : '',
+      video: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.video : '',
+      image: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.image : '',
+      description: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.description: '',
+      category: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.Category.name : '',
+      status: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.status : '',
+      ideaid: this.props.fetchData.hasOwnProperty('id') === true ? this.props.fetchData.id : '',
       imageTitle: ""
     }
     this.onChange = this.onChange.bind(this)
@@ -33,12 +36,30 @@ class EditIdea extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    // console.log(this.state);
+  }
+
+  _handleImageChange(e) {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        image: reader.result,
+        imageTitle: file
+      });
+    }
+
+    reader.readAsDataURL(file)
   }
 
   onSubmit(e) {
     e.preventDefault()
     // call dispatch to state
-    console.log(this.state)
+    // console.log(this.state)
+    this.props.editIdea(this.state)
   }
 
   onEditorChange(description) {
@@ -52,6 +73,7 @@ class EditIdea extends Component {
     // isLoggedIn()
     // console.log(this.props.fetchData);
     const { fetchData } = this.props
+
     if(fetchData.hasOwnProperty('id') === false){
       // this.props.router.replace('/explore')
       browserHistory.push('/explore')
@@ -66,7 +88,6 @@ class EditIdea extends Component {
         $imagePreview = (<img src={fetchData.image} alt={imageTitle} title={imageTitle} className="img-responsive"/>);
       }
       return (
-
           <div className="components-page">
             <div className="wrapper">
               <div id="new-idea-intro" className="header header-filter">
@@ -94,19 +115,18 @@ class EditIdea extends Component {
                                 type="text"
                                 className="form-control"
                                 name="title"
-                                value={fetchData.title}
+                                value={title}
                                 onChange={this.onChange}
                                 required
                               />
                             </div>
-                            <p>{title}</p>
                             <div className="form-group label-floating">
                               <label className="control-label">Featured Video (Youtube-Link)</label>
                               <input
                                 type="url"
                                 className="form-control"
                                 name="video"
-                                value={fetchData.video}
+                                value={video}
                                 onChange={this.onChange}
                                 required
                               />
@@ -121,6 +141,7 @@ class EditIdea extends Component {
                               <input
                                 type="file"
                                 id="exampleInputFile"
+                                onChange={(e)=>this._handleImageChange(e)}
                                 required
                               />
                             </div>
@@ -128,24 +149,24 @@ class EditIdea extends Component {
                             <br/>
                               <div className="form-group label-floating">
                                 <label className="control-label">Category</label>
-                                <CategoryDetail onChange={this.onChange} value={category} name="category"/>
+                                <CategoryDetail onChange={this.onChange} value={category} selected={category} name="category" />
                               </div>
                             <div className="form-group">
                               <br/>
                               <label>Your Idea Detail</label>
                               <Editor
-                                description={fetchData.description}
+                                description={description}
                                 onChange={this.onEditorChange}
                               />
                             </div>
                             <div className="form-group label-floating">
                               <label className="control-label">Status</label>
-                              <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={category} name="category">
-                                <option value="option1">Baby</option>
-                                <option value="option2">Kid</option>
-                                <option value="option3">Teenager</option>
-                                <option value="option4">Mature</option>
-                                <option value="option5">RIP</option>
+                              <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={fetchData.status} name="status">
+                                <option value="Baby">Baby</option>
+                                <option value="Kid">Kid</option>
+                                <option value="Teenager">Teenager</option>
+                                <option value="Mature">Mature</option>
+                                <option value="RIP">RIP</option>
                               </select>
                             </div>
                             <div className="form-group">
@@ -172,4 +193,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EditIdea)
+function mapDispatchToProps(dispatch){
+  return {
+    editIdea: bindActionCreators(editIdea, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditIdea)

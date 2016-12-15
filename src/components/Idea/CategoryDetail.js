@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const CategoryDetail = ({ categories, onChange, category }) => {
+const CategoryDetail = ({ categories, onChange, category, selected }) => {
     const option = categories.map(category => <option key={category} value={category}>{category}</option>)
     return (
-        <select id="dropdown-menu" className="form-control" onChange={onChange} value={category} name='category' required>
+        <select id="dropdown-menu" className="form-control" value={selected} onChange={onChange} name='category' required>
             {option}
         </select>
     )
-} 
+}
 
 function mapStateToProps(state) {
   return {
