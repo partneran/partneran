@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Link from 'react-router';
 import Footer from '../Footer/Footer';
-import { loadOneIdea } from '../../actions/idea'
+import { loadOneIdea, deleteIdea } from '../../actions/idea'
 import { showLoading, hideLoading } from '../../actions/loading'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -11,6 +11,7 @@ import ListMembers from '../Comment/ListMembers'
 import Auth from '../../helpers/token'
 import { addComment } from '../../actions/comment'
 import renderHTML from 'react-render-html'
+import { Link } from 'react-router'
 import Loading from '../Lib/Loading'
 
 import {
@@ -27,6 +28,11 @@ class IdeaDetail extends Component {
     this.props.loadOneIdea(this.props.params.title)
   }
 
+  onClickDelete(){
+    // console.log(this.props.router);
+    this.props.deleteIdea(this.props.data_idea.id, this.props.router)
+  }
+
   render(){
     const { data_idea , addComment } = this.props
     console.log(data_idea.video)
@@ -41,7 +47,7 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
       console.log('what inside props', data_idea)
-
+      let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
       return (
         <div className="components-page">
           <div className="wrapper">
@@ -70,7 +76,7 @@ class IdeaDetail extends Component {
                       <p>
                         <i className="fa fa-icon fa-user"></i> {data_idea.User.name}
                         &nbsp;
-                        <i className="fa fa-icon fa-tag"></i> <a href="#">EdTech</a>
+                        <i className="fa fa-icon fa-tag"></i> <Link to="/explore">{data_idea.Category.name}</Link>
                         &nbsp;
                         <i className="fa fa-icon fa-calendar"></i> {data_idea.createdAt}
                       </p>
@@ -80,12 +86,14 @@ class IdeaDetail extends Component {
                 <div className="col-md-6">
                   <ul className="nav nav-tabs nav-info" role="tablist">
                     <li role="presentation" className="active"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
-                    <li role="presentation"><a href="#status" aria-controls="status" role="tab" data-toggle="tab">Status</a></li>
+                    {/* <li role="presentation"><a href="#status" aria-controls="status" role="tab" data-toggle="tab">Status</a></li> */}
                     <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comment</a></li>
                     <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
 
                     <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
+
                     <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea"><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+
                 </ul>
 
                   <div className="tab-content">
@@ -99,105 +107,7 @@ class IdeaDetail extends Component {
                       <p><strong>Description : </strong></p>
                       <p>{renderHTML(data_idea.description)}</p>
                     </div>
-                    <div role="tabpanel" className="tab-pane fade" id="status">
 
-                      <h2>{data_idea.status}</h2>
-                      <p>It means all of the stories about it have just begin</p>
-
-                      <div className="row">
-                        <div className="card form-card">
-                          <div className="card-header" data-background-color="blue">
-                            <h4 className="title">Update</h4>
-                          </div>
-                          <div className="card-signup">
-                            <div className="col-md-12">
-                              <form>
-                                <div className="form-group">
-                                  <label className="control-label">New Update</label>
-                                  <select className="form-control">
-                                    <option>Baby</option>
-                                    <option>Kid</option>
-                                    <option>Teen</option>
-                                    <option>Mature</option>
-                                    <option>RIP</option>
-                                  </select>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">About this update</label>
-                                  <textarea className="form-control" rows={4} placeholder="Tell us something about this update"></textarea>
-                                </div>
-
-                                <div className="form-group">
-                                  <button type="submit" className="btn btn-info">Submit</button>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                        <div className="col-md-12">
-
-                            <div>
-                              <div className="page-header">
-                                  <h2 id="">Timeline</h2>
-                              </div>
-                            <div id="timeline"><div className="row timeline-movement timeline-movement-top">
-                              <div className="timeline-badge timeline-future-movement">
-                                  <a href="#">
-                                      <span className="glyphicon glyphicon-plus"></span>
-                                  </a>
-                              </div>
-                              <div className="timeline-badge timeline-filter-movement">
-                                  <a href="#">
-                                      <span className="glyphicon glyphicon-time"></span>
-                                  </a>
-                              </div>
-
-                          </div>
-                          <div className="row timeline-movement">
-
-                              <div className="timeline-badge">
-                                  <span className="timeline-balloon-date-day">18</span>
-                                  <span className="timeline-balloon-date-month">APR</span>
-                              </div>
-
-
-                              <div className="col-sm-6  timeline-item">
-                                  <div className="row">
-                                      <div className="col-sm-11">
-                                          <div className="timeline-panel credits">
-                                              <ul className="timeline-panel-ul">
-                                                  <li><span className="importo">Kenduigraha</span></li>
-                                                  <li><span className="causale">Akhirnya partneran dapet investor!</span> </li>
-                                                  <li><p><small className="text-muted"><i className="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
-                                              </ul>
-                                          </div>
-
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div className="col-sm-6  timeline-item">
-                                  <div className="row">
-                                      <div className="col-sm-offset-1 col-sm-11">
-                                          <div className="timeline-panel debits">
-                                              <ul className="timeline-panel-ul">
-                                                  <li><span className="importo">Mussum ipsum cacilds</span></li>
-                                                  <li><span className="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
-                                                  <li><p><small className="text-muted"><i className="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
-                                              </ul>
-                                          </div>
-
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    </div>
                     <div role="tabpanel" className="tab-pane fade" id="comment">
                       <div className="row">
                         <div className="card form-card">
@@ -223,7 +133,7 @@ class IdeaDetail extends Component {
               </div>
             </div>
           </div>
-          <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+          <div className="modal fade" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="deleteModalLabel">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
@@ -231,11 +141,11 @@ class IdeaDetail extends Component {
                   <h4 className="modal-title" id="deleteModalLabel">Delete This Idea?</h4>
                 </div>
                 <div className="modal-body">
-                  Deleting this idea will permanently remove it along with all of it's comments and update.
+                  {warning}
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">No, Keep Idea</button>
-                  <button type="button" className="btn btn-danger">Yes, Delete Idea</button>
+                  <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.onClickDelete.bind(this)}>Yes, Delete Idea</button>
                 </div>
               </div>
             </div>
@@ -257,6 +167,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
+    deleteIdea: bindActionCreators(deleteIdea, dispatch),
     addComment: bindActionCreators(addComment, dispatch),
     showLoading: bindActionCreators(showLoading, dispatch),
     hideLoading: bindActionCreators(hideLoading, dispatch)
@@ -264,3 +175,105 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IdeaDetail)
+
+/*
+<div role="tabpanel" className="tab-pane fade" id="status">
+
+  <h2>{data_idea.status}</h2>
+  <p>It means all of the stories about it have just begin</p>
+
+  <div className="row">
+    <div className="card form-card">
+      <div className="card-header" data-background-color="blue">
+        <h4 className="title">Update</h4>
+      </div>
+      <div className="card-signup">
+        <div className="col-md-12">
+          <form>
+            <div className="form-group">
+              <label className="control-label">New Update</label>
+              <select className="form-control">
+                <option>Baby</option>
+                <option>Kid</option>
+                <option>Teen</option>
+                <option>Mature</option>
+                <option>RIP</option>
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label className="control-label">About this update</label>
+              <textarea className="form-control" rows={4} placeholder="Tell us something about this update"></textarea>
+            </div>
+
+            <div className="form-group">
+              <button type="submit" className="btn btn-info">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div className="col-md-12">
+
+        <div>
+          <div className="page-header">
+              <h2 id="">Timeline</h2>
+          </div>
+        <div id="timeline"><div className="row timeline-movement timeline-movement-top">
+          <div className="timeline-badge timeline-future-movement">
+              <a href="#">
+                  <span className="glyphicon glyphicon-plus"></span>
+              </a>
+          </div>
+          <div className="timeline-badge timeline-filter-movement">
+              <a href="#">
+                  <span className="glyphicon glyphicon-time"></span>
+              </a>
+          </div>
+
+      </div>
+      <div className="row timeline-movement">
+
+          <div className="timeline-badge">
+              <span className="timeline-balloon-date-day">18</span>
+              <span className="timeline-balloon-date-month">APR</span>
+          </div>
+
+
+          <div className="col-sm-6  timeline-item">
+              <div className="row">
+                  <div className="col-sm-11">
+                      <div className="timeline-panel credits">
+                          <ul className="timeline-panel-ul">
+                              <li><span className="importo">Kenduigraha</span></li>
+                              <li><span className="causale">Akhirnya partneran dapet investor!</span> </li>
+                              <li><p><small className="text-muted"><i className="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
+                          </ul>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+          <div className="col-sm-6  timeline-item">
+              <div className="row">
+                  <div className="col-sm-offset-1 col-sm-11">
+                      <div className="timeline-panel debits">
+                          <ul className="timeline-panel-ul">
+                              <li><span className="importo">Mussum ipsum cacilds</span></li>
+                              <li><span className="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
+                              <li><p><small className="text-muted"><i className="glyphicon glyphicon-time"></i> 11/09/2014</small></p> </li>
+                          </ul>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+*/

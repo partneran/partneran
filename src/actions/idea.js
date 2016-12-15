@@ -8,7 +8,8 @@ import {
   LOAD_ONE_IDEA_FAILURE,
   LOAD_ALL_IDEAS,
   LOAD_IDEAS_FAILURE,
-  LOAD_IDEAS_SUCCESS
+  LOAD_IDEAS_SUCCESS,
+  DELETE_IDEA_SUCCESS
 } from '../constants/actionTypes'
 
 import axios from 'axios';
@@ -109,6 +110,29 @@ export const loadOneIdea = (slug) => {
               dispatch(loadOneIdeFailure(err))
             }else{
               dispatch(loadOneIdeaSuccess(res.body))
+            }
+          })
+  }
+}
+
+// delete idea
+let deleteIdeaSuccess = (id) => ({
+  type: DELETE_IDEA_SUCCESS,
+  id: id
+})
+
+export const deleteIdea = (ideaid, router) => {
+  // console.log(ideaid
+  return dispatch => {
+    return request
+          .del(uri+ideaid)
+          .end((err, res) => {
+            if(err){
+              console.log(err);
+            }else{
+              
+              router.replace('/explore')
+              dispatch(deleteIdeaSuccess(ideaid))
             }
           })
   }
