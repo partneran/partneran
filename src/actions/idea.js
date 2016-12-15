@@ -148,11 +148,6 @@ let editIdeaSuccess = (editedIdea) => ({
 export const editIdea = (idea) => {
   console.log(idea);
   return dispatch => {
-    // dispatch(editIdea(idea))
-    // new_idea.title = req.body.title
-    // new_idea.description = req.body.description
-    // new_idea.image = req.body.image
-    // new_idea.video = req.body.video
     return request
             .put(uri + idea.ideaid)
             .set('Accept', 'application/json')

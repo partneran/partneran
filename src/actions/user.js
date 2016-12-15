@@ -217,7 +217,7 @@ export const editProfile = (User) => {
             .send({
               name: User.name,
               email: User.email,
-              photo_URL: User.imagePreviewUrl,
+              photo_URL: User.imagePreviewUrl || Auth.getUser().photo_URL,
               short_bio: User.bio
             })
             .end((err, res) => {
