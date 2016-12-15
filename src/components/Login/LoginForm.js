@@ -23,7 +23,7 @@ class LoginForm extends Component {
     onSubmit(e) {
         e.preventDefault()
         this.props.login(this.state)
-        
+
         setTimeout(function() {
             browserHistory.push('/');
         }, 1500);
@@ -35,11 +35,6 @@ class LoginForm extends Component {
             <form className="form" onSubmit={this.onSubmit}>
                 <div className="header header-info text-center" style={{height:'auto'}}>
                     <h4>LOGIN</h4>
-                    <div className="social-line">
-                        <a href="#pablo" className="btn btn-simple btn-just-icon">
-                            <i className="fa fa-facebook-square"></i>
-                        </a>
-                    </div>
                 </div>
                 <p className="text-divider">Or Be clasical</p>
                 <div className="content">
