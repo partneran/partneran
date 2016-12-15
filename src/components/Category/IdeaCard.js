@@ -27,7 +27,7 @@ const IdeaCard = (props) => {
 
   return (
         <div className="col-md-4 text-left">
-            <div className="card thumbnail">
+            <div className="card thumbnail explore-card">
 
               <img src={props.image} alt="..."  className="img-responsive"/>
               <div className="caption">

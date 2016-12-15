@@ -546,6 +546,10 @@ line-height: 22px;
 .break {
   word-wrap: break-word;
 }
+
+.explore-card {
+  height: 460px;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
