@@ -11,8 +11,15 @@ class PopularIdea extends Component {
     this.props.loadIdeas()
   }
   render() {
+//     employees.sort(function(a, b){
+//     return a.age-b.age
+// })
         // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-      const sampleIdea = sampleSize(this.props.ideas, 3)
+      // console.log('checking the popularity length',this.props.ideas.sort((a, b) => b.Comments.length - a.Comments.length ))
+      // console.log('checking the popularity', this.props.ideas.map(idea => (idea.Comments.length)).sort((a, b) => b - a))
+      // const highestThree = this.props.Comments.lengthideas.sort((a, b) => (b - a));
+      // console.log('the highest three', highestThree)
+      const sampleIdea = this.props.ideas.sort((a, b) => b.Comments.length - a.Comments.length ).slice(0, 2)
       const popularIdeaList = sampleIdea.map(idea => <IdeaCard props={idea}/>)
     return (
           <div className="container">
