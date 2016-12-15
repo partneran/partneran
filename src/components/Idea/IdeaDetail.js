@@ -66,6 +66,8 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
       // console.log('what inside props', data_idea)
+      console.log(data_idea.User.name);
+      console.log(Auth.getUser().name);
       let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
       return (
         <div className="components-page">
@@ -109,9 +111,15 @@ class IdeaDetail extends Component {
                     <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comment</a></li>
                     <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
 
-                    <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
+                    {data_idea.User.id === Auth.getUser().sub
+                    ?
+                    <div>
+                      <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
 
-                    <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea" onClick={this.onEditClick.bind(this)}><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                      <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea" onClick={this.onEditClick.bind(this)}><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                    </div>
+                    :
+                    ''}
 
                 </ul>
 
