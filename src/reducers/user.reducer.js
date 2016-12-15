@@ -1,7 +1,8 @@
 import {
     SIGN_UP,
     LOG_IN,
-    EDIT_PROFILE
+    EDIT_PROFILE,
+    NEW_PASSWORD
 } from '../constants/actionTypes'
 
 const user = (state={}, action) => {
@@ -27,6 +28,14 @@ const user = (state={}, action) => {
                   photo_URL: action.payload.photo_URL
               },
                   ...state
+            ]
+        case NEW_PASSWORD:
+            return [
+              {
+                email: action.payload.email,
+                password: action.payload.password
+              },
+              ...state
             ]
         default:
             return state
