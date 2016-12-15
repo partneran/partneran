@@ -19,24 +19,22 @@ import renderHTML from 'react-render-html'
 //   editorState: EditorState.createWithContent(state),
 // };
 
-const IdeaCard = (props) => {
+const IdeaCard = ({props, user}) => {
   // console.log(stateFromHTML(props.description))
-  // console.log('this is coming from idea card', props)
   let path = slug(props.title.toLowerCase())
-
-  return (
-        <div className="col-md-4 text-left">
+    return (
+          <div className="col-md-4 text-left">
             <div className="card thumbnail">
 
               <img src={props.image} alt="..."  className="img-responsive"/>
               <div className="caption">
                 <h3>{props.title}</h3>
                 <p>
-                  <i className="fa fa-icon fa-user"></i> {props.author}
+                  <i className="fa fa-icon fa-user"></i> {props.User.name}
                   &nbsp;
-                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.category}</a>
+                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.Category.name}</a>
                   &nbsp;
-                  <i className="fa fa-icon fa-calendar"></i> {props.join}
+                  <i className="fa fa-icon fa-calendar"></i> {props.createdAt}
                 </p>
                 <p>{renderHTML(props.description)}</p>
                 <ul className="pager">
@@ -45,7 +43,7 @@ const IdeaCard = (props) => {
               </div>
             </div>
           </div>
-  )
+    )
 }
 
 export default IdeaCard

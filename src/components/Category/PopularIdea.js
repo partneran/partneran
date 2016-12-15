@@ -12,20 +12,12 @@ class PopularIdea extends Component {
   }
   render() {
         // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-      console.log(this.props.ideas)
       const sampleIdea = sampleSize(this.props.ideas, 3)
-      const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
-                                                              key={i.id}
-                                                              title={i.title}
-                                                              author={i.User.name}
-                                                              category={i.Category.name}
-                                                              join={i.createdAt}
-                                                              description={i.description}
-                                                    />)
+      const popularIdeaList = sampleIdea.map(idea => <IdeaCard props={idea}/>)
     return (
           <div className="container">
             <div className="section text-center">
-                <h2 className="poptitle text-info">Popular Ideas</h2>
+            <h2 className="poptitle text-info">Popular Idea</h2>
                 <div className="row">
                   {popularIdeaList}
                 </div>
