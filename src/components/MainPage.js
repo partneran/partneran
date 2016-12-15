@@ -18,7 +18,7 @@ class MainPage extends Component {
   }
 
   render(){
-    console.log(this.props.ideas);
+    console.log('from main page',this.props.ideas);
     return (
       <div className="components-page">
         <div className="wrapper">
@@ -42,13 +42,13 @@ class MainPage extends Component {
                   <div className="fixed-section affix-top" data-spy="affix" data-offset-top="340">
                       <ul className="list-group">
                           <li className="list-group-item" onClick={() => this.setState({category: 'All Categories'})}><a href="#">All Categories</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'E Commerce'})}><a href="#">E-Commerce</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'Education Technology'})}><a href="#">EdTech</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'Financial Technology'})}><a href="#">FinTech</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'Internet of Thing'})}><a href="#">IoT</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'E-Commerce'})}><a href="#">E-Commerce</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'EdTech'})}><a href="#">EdTech</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'FinTech'})}><a href="#">FinTech</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'IoT'})}><a href="#">IoT</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Art'})}><a href="#">Art & Culture</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Agriculture'})}><a href="#">Agriculture</a></li>
-                          <li className="list-group-item" onClick={() => this.setState({category: 'Health'})}><a href="#">Health & Lifestyle</a></li>
+                          <li className="list-group-item" onClick={() => this.setState({category: 'Health & Lifestyle'})}><a href="#">Health & Lifestyle</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'On Demand Service'})}><a href="#">On Demand Service</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Games'})}><a href="#">Games</a></li>
                           <li className="list-group-item" onClick={() => this.setState({category: 'Software'})}><a href="#">Software</a></li>

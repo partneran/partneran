@@ -11,21 +11,12 @@ class PopularIdea extends Component {
     this.props.loadIdeas()
   }
   render() {
-        // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-      // console.log(this.props.ideas)
-      const sampleIdea = sampleSize(this.props.ideas, 3)
-      const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
-                                                              key={i.id}
-                                                              title={i.title}
-                                                              author={i.User.name}
-                                                              category={i.Category.name}
-                                                              join={i.createdAt}
-                                                              description={i.description}
-                                                    />)
+      const sampleIdea = this.props.ideas.sort((a, b) => b.Comments.length - a.Comments.length ).slice(0, 2)
+      const popularIdeaList = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
     return (
           <div className="container">
             <div className="section text-center">
-                <h2 className="poptitle text-info">Popular Ideas</h2>
+            <h2 className="poptitle text-info">Popular Idea</h2>
                 <div className="row">
                   {popularIdeaList}
                 </div>
@@ -40,35 +31,6 @@ class PopularIdea extends Component {
   }
 }
 
-
-// const PopularIdea = ({ ideas }) => {
-//     console.log('ideas', ideas)
-//     // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-//       const sampleIdea = sampleSize(ideas, 3)
-//       const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
-//                                                               key={i.id}
-//                                                               title={i.title}
-//                                                               author={i.author}
-//                                                               social={i.social}
-//                                                               join={i.join}
-//                                                               description={i.description}
-//                                                     />)
-//     return (
-//             <div className="container">
-//               <div className="section text-center">
-//                   <h2 className="poptitle text-info">Popular Ideas</h2>
-//                   <div className="row">
-//                     {popularIdeaList}
-//                   </div>
-//                   <ul className="pager">
-//                     <li className="next">
-//                       <Link to="explore"> Explore More  <span aria-hidden="true">&rarr;</span></Link>
-//                       </li>
-//                   </ul>
-//               </div>
-//             </div>
-//     )
-// }
 
 function mapDispatchToProps(dispatch) {
   return {

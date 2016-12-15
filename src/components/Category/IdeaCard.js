@@ -19,9 +19,9 @@ import renderHTML from 'react-render-html'
 //   editorState: EditorState.createWithContent(state),
 // };
 
-const IdeaCard = (props) => {
+const IdeaCard = ({props}) => {
   // console.log(stateFromHTML(props.description))
-  // console.log('this is coming from idea card', props)
+  // console.log(props)
   let path = slug(props.title.toLowerCase())
   let description = renderHTML(props.description.substring(3, 125));
 
@@ -33,11 +33,11 @@ const IdeaCard = (props) => {
               <div className="caption">
                 <h3>{props.title}</h3>
                 <p>
-                  <i className="fa fa-icon fa-user"></i> {props.author}
+                  <i className="fa fa-icon fa-user"></i> {props.User.name}
                   &nbsp;
-                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.category}</a>
+                  <i className="fa fa-icon fa-tag"></i> <a href={props.category}>{props.Category.name}</a>
                   &nbsp;
-                  <i className="fa fa-icon fa-calendar"></i> {props.join}
+                  <i className="fa fa-icon fa-calendar"></i> {props.createdAt}
                 </p>
                 <div className="break">{description} . . .</div>
                 <ul className="pager">
@@ -46,7 +46,7 @@ const IdeaCard = (props) => {
               </div>
             </div>
           </div>
-  )
+    )
 }
 
 export default IdeaCard

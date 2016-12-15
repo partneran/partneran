@@ -1,36 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { sampleSize } from 'lodash'
 import IdeaCard from './IdeaCard'
+import { loadIdeas } from '../../actions/idea'
+import { bindActionCreators } from 'redux'
 
-
-const Latest = ({ ideas }) => {
-    // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-      const sampleIdea = sampleSize(ideas, 3)
-      const latestIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
-                                                              key={i.id}
-                                                              title={i.title}
-                                                              author={i.User.name}
-                                                              category={i.Category.name}
-                                                              join={i.createdAt}
-                                                              description={i.description}
-                                                    />)
+class Latest extends Component {
+  componentDidMount() {
+    this.props.loadIdeas()
+  }
+  render() {
+      const sampleIdea = this.props.ideas.sort(function(a, b){
+        var c = new Date(a.createdAt)
+        var d = new Date(b.createdAt)
+        c - d
+      } ).slice(0, 3)
+      const latestIdea = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title} />)
     return (
-            <div className="container">
-              <div className="section text-center">
-                  <h2 className="poptitle text-info">Newest Idea</h2>
-                  <div className="row">
-                    {latestIdeaList}
-                  </div>
-                  <ul className="pager">
-                    <li className="next">
-                      <Link to="explore"> Explore More  <span aria-hidden="true">&rarr;</span></Link>
-                      </li>
-                  </ul>
-              </div>
+          <div className="container">
+            <div className="section text-center">
+            <h2 className="poptitle text-info">Latest Idea</h2>
+                <div className="row">
+                  {latestIdea}
+                </div>
+                <ul className="pager">
+                  <li className="next">
+                    <Link to="explore"> Explore More  <span aria-hidden="true">&rarr;</span></Link>
+                    </li>
+                </ul>
             </div>
+          </div>
     )
+  }
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadIdeas: bindActionCreators(loadIdeas, dispatch)
+  }
 }
 
 
@@ -41,4 +50,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, null)(Latest)
+export default connect(mapStateToProps, mapDispatchToProps)(Latest)

@@ -49,10 +49,6 @@ const ProfilePage = () => {
               <div className="section">
                 <UserIdea/>
               </div>
-
-              <div className="section">
-                <MemberIdea/>
-              </div>
             </div>
 	        </div>
     		</div>

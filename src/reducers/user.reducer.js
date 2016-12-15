@@ -20,6 +20,7 @@ const user = (state={}, action) => {
                 user: action.payload,
             }
         case EDIT_PROFILE:
+          console.log('action from edit profile', action)
             return [
               {
                   name: action.payload.name,

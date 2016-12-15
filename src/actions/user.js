@@ -98,7 +98,9 @@ export const editProfile = (User) => {
               if (err) {
                 console.log(err);
               } else {
-                res => { browserHistory.push('/profile')}
+                console.log('this is response from backend', res)
+                Auth.setToken(res.body)
+                browserHistory.push('/profile')
               }
             })
 
