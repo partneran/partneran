@@ -36,9 +36,9 @@ class ForgetPasswordForm extends Component {
                         <span className="input-group-addon">
                             <i className="material-icons">email</i>
                         </span>
-                        <input 
-                            type="email" 
-                            className="form-control" 
+                        <input
+                            type="email"
+                            className="form-control"
                             placeholder="Email"
                             name="email"
                             value={this.state.email}

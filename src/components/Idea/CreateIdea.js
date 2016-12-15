@@ -9,13 +9,7 @@ import Auth from '../../helpers/token'
 import { addIdea } from '../../actions/idea'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import { isLoggedIn } from '../../helpers/verification';
 
-// import {
-//   convertFromHTML,
-//   convertToRaw,
-//   ContentState,
-// } from 'draft-js';
 
 class CreateIdea extends Component {
   constructor(props) {
@@ -35,6 +29,10 @@ class CreateIdea extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  componentDidMount(){
+    !Auth.getToken() || Auth.getUser().verify === false ? this.props.router.replace('/') : this.props.router.replace('/share-idea')
   }
 
   _handleImageChange(e) {

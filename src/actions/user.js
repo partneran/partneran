@@ -128,23 +128,65 @@ export const login = (user) => {
     }
 }
 
-export const forgetPassword = (email) =>
-    ({
-        type: FORGET_PASSWORD,
-        email: axios
-                .post(uri+'users/forgot', { email })
-                .then(res => {
-                    browserHistory.push('/')
+// export const forgetPassword = (email) =>
+//     ({
+//         type: FORGET_PASSWORD,
+//         email: axios
+//                 .post(uri+'users/forgot', { email })
+//                 .then(res => {
+//                     browserHistory.push('/')
+//                 })
+//                 .catch(err => console.error(err))
+//     })
+
+// forget password
+
+const forgetPasswordFetch = email =>
+  ({
+    type: 'FORGET_PASSWORD'
+  })
+
+const forgetPasswordSuccess = email =>
+  ({
+    type: 'FORGET_PASSWORD_SUCCESS',
+    email: email
+  })
+
+const forgetPasswordFailure = () =>
+  ({
+    type: 'FORGET_PASSWORD_FAILED'
+  })
+
+export const forgetPassword = email => {
+    // console.log('above first dispatch', idea)
+    return dispatch => {
+        dispatch(forgetPasswordFetch(email))
+        return request
+                .post(uri+'auth/forgot')
+                .set('Accept', 'application/json')
+                .type('form')
+                .send({
+                    email
                 })
-                .catch(err => console.error(err))
-    })
+                .end((err, res) => {
+                    if(err){
+                        console.log(err);
+                        dispatch(forgetPasswordFailure())
+                    } else {
+                        browserHistory.push(`/login`)
+                        dispatch(forgetPasswordSuccess(res.body))
+
+                    }
+                })
+    }
+}
 
 export const newPassword = (password, User) =>
     ({
         type: NEW_PASSWORD,
         password: axios
                     .post(uri+'users/password', {
-                      email: Auth.getUser().email,
+                      email: Auth.getUser().email || User.email,
                       new_password: password
                     })
                     .then(res => { browserHistory.push('/')})
@@ -211,6 +253,9 @@ export const verifiedUser = (token, router) => {
             if(err){
               console.log(err);
             }else{
+              console.log('res', res.body)
+              localStorage.removeItem('token')
+              localStorage.setItem('token', res.body.token)
               router.replace('/')
             }
           })

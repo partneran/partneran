@@ -4,17 +4,11 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
 import CategoryDetail from './CategoryDetail';
-// import { isLoggedIn } from '../../helpers/verification';
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { editIdea } from '../../actions/idea'
 import { bindActionCreators } from 'redux'
-
-// import {
-//   convertFromHTML,
-//   convertToRaw,
-//   ContentState,
-// } from 'draft-js';
+import Auth from '../../helpers/token'
 
 class EditIdea extends Component {
   constructor(props) {
@@ -35,9 +29,11 @@ class EditIdea extends Component {
   }
 
   onChange(e) {
-    console.log(e.target.name, e.target.value);
     this.setState({ [e.target.name]: e.target.value });
-    // console.log(this.state);
+  }
+
+  componentDidMount(){
+    !Auth.getToken() ? this.props.router.replace('/login') : this.props.router.replace('/edit-idea')
   }
 
   _handleImageChange(e) {
@@ -58,8 +54,6 @@ class EditIdea extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    // call dispatch to state
-    // console.log(this.state)
     this.props.editIdea(this.state)
   }
 
@@ -71,12 +65,9 @@ class EditIdea extends Component {
 
   render() {
     const { title, video, image, category, description, imageTitle, status} = this.state
-    // isLoggedIn()
-    // console.log(this.props.fetchData);
     const { fetchData } = this.props
 
     if(fetchData.hasOwnProperty('id') === false){
-      // this.props.router.replace('/explore')
       browserHistory.push('/explore')
       return(
         <div>LOADING NIH bro</div>
@@ -143,7 +134,6 @@ class EditIdea extends Component {
                                 type="file"
                                 id="exampleInputFile"
                                 onChange={(e)=>this._handleImageChange(e)}
-                                required
                               />
                             </div>
                             <br/>

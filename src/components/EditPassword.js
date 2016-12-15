@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { newPassword } from '../actions/user'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Auth from '../helpers/token'
 
 class EditPassword extends Component {
   constructor(props) {
@@ -18,6 +19,10 @@ class EditPassword extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  componentDidMount(){
+    !Auth.getToken() ? this.props.router.replace('/login') : this.props.router.replace('/edit-password')
   }
 
   onSubmit(e) {
@@ -62,7 +67,7 @@ class EditPassword extends Component {
                               name="password"
                               value={password}
                               onChange={this.onChange}
-                              pattern=".{8,}" 
+                              pattern=".{8,}"
 											        required title="Minimum Password is 8 Characters"
                             />
                           </div>
@@ -75,7 +80,7 @@ class EditPassword extends Component {
                               name="confirmPassword"
                               value={confirmPassword}
                               onChange={this.onChange}
-                              pattern=".{8,}" 
+                              pattern=".{8,}"
 											        required title="Minimum Password is 8 Characters"
                             />
                           </div>

@@ -25,6 +25,7 @@ class NewPasswordForm extends Component {
         // adding some validation here
         // console.log(this.props.token);
         var User = jwt_decode(this.props.token)
+        console.log(User);
         this.props.newPassword(this.state.password, User)
         // console.log(this.state)
     }
@@ -68,7 +69,7 @@ class NewPasswordForm extends Component {
 
                 </div>
                 <div className="footer text-center">
-                    <button className="btn btn-info btn-lg">Send reset password link</button>
+                    <button className="btn btn-info btn-lg">Reset Your Password</button>
                 </div>
             </form>
         )

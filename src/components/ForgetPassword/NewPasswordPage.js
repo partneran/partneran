@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import NewPasswordForm from './NewPasswordForm';
 import Footer from '../Footer/Footer';
+import Auth from '../../helpers/token'
+
 
 class NewPasswordPage extends Component {
+  componentDidMount(){
+    !Auth.getToken() ? '' : this.props.router.replace('/explore')
+  }
+
     render() {
       return (
         <div className="signup-page">

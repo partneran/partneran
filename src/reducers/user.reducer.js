@@ -30,6 +30,10 @@ const user = (state={}, action) => {
               },
                   ...state
             ]
+            
+        case 'FORGET_PASSWORD':
+          return state
+
         case NEW_PASSWORD:
             return [
               {
