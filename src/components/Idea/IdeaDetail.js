@@ -11,6 +11,7 @@ import ListMembers from '../Comment/ListMembers'
 import Auth from '../../helpers/token'
 import { addComment } from '../../actions/comment'
 import renderHTML from 'react-render-html'
+import { Link } from 'react-router'
 
 import {
   convertFromHTML,
@@ -69,7 +70,7 @@ class IdeaDetail extends Component {
                       <p>
                         <i className="fa fa-icon fa-user"></i> {data_idea.User.name}
                         &nbsp;
-                        <i className="fa fa-icon fa-tag"></i> <a href="#">{data_idea.Category.name}</a>
+                        <i className="fa fa-icon fa-tag"></i> <Link to="/explore">{data_idea.Category.name}</Link>
                         &nbsp;
                         <i className="fa fa-icon fa-calendar"></i> {data_idea.createdAt}
                       </p>
@@ -222,7 +223,7 @@ class IdeaDetail extends Component {
               </div>
             </div>
           </div>
-          <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+          <div className="modal fade" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="deleteModalLabel">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
