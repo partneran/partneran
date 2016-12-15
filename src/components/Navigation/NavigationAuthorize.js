@@ -27,9 +27,9 @@ class NavigationAuthorize extends Component{
 
                         <div className="collapse navbar-collapse" id="navigation-index">
                             <ul className="nav navbar-nav navbar-right">
-                                <li className="text-info">
+                                {/* <li className="text-info">
                                   <Link to="notifications"><i className="material-icons">notifications</i></Link>
-                                </li>
+                                </li> */}
                                 <li className="text-info">
                                     <Link to="profile"> <i className="material-icons">account_circle</i> My Profile</Link>
                                 </li>
