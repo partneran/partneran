@@ -35,6 +35,7 @@ class EditIdea extends Component {
   }
 
   onChange(e) {
+    console.log(e.target.name, e.target.value);
     this.setState({ [e.target.name]: e.target.value });
     // console.log(this.state);
   }
@@ -69,7 +70,7 @@ class EditIdea extends Component {
   }
 
   render() {
-    const { title, video, image, category, description, imageTitle} = this.state
+    const { title, video, image, category, description, imageTitle, status} = this.state
     // isLoggedIn()
     // console.log(this.props.fetchData);
     const { fetchData } = this.props
@@ -161,7 +162,7 @@ class EditIdea extends Component {
                             </div>
                             <div className="form-group label-floating">
                               <label className="control-label">Status</label>
-                              <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={fetchData.status} name="status">
+                              <select id="dropdown-menu" className="form-control" onChange={this.onChange} value={status} name="status">
                                 <option value="Baby">Baby</option>
                                 <option value="Kid">Kid</option>
                                 <option value="Teenager">Teenager</option>
