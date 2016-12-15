@@ -19,7 +19,7 @@ const ideas = (state = [], action) => {
 
         case DELETE_IDEA_SUCCESS:
           // console.log(state.filter(idea => idea.id != action.id));
-          return state.filter(idea => idea.id != action.id)
+          return state.filter(idea => idea.id !== action.id)
 
 
         default:

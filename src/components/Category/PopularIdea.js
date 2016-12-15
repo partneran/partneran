@@ -12,7 +12,7 @@ class PopularIdea extends Component {
   }
   render() {
         // sampleSize from lodash takes two arguments in which the first is the array, and the second is the picked element randomly
-      console.log(this.props.ideas)
+      // console.log(this.props.ideas)
       const sampleIdea = sampleSize(this.props.ideas, 3)
       const popularIdeaList = sampleIdea.map(i => <IdeaCard image={i.image}
                                                               key={i.id}

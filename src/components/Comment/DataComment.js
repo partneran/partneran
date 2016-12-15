@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 export default class DataComment extends Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   render(){
     // console.log(this.props.comment);

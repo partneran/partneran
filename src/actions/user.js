@@ -72,7 +72,7 @@ export const editProfile = (User) => {
   // for (var key in User) {
   //   formData.append(key, User[key]);
   // }
-  console.log(User.photo_URL);
+  // console.log(User.photo_URL);
   for (var key in User.photo_URL) {
     // is the item a File?
     if (User.photo_URL.hasOwnProperty(key) && User.photo_URL[key] instanceof File) {
@@ -82,9 +82,9 @@ export const editProfile = (User) => {
   // formData.append('name', User.name);
   // formData.append('email', User.email);
   // formData.append('short_bio', User.bio);
-  console.log('Form Data: ' + JSON.stringify(formData));
-  console.log(User);
-  ({
+  // console.log('Form Data: ' + JSON.stringify(formData));
+  // console.log(User);
+  return {
     type: EDIT_PROFILE,
     user: request.put(uri+'users/'+User.UserId)
             .type('form')
@@ -112,7 +112,7 @@ export const editProfile = (User) => {
     //         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
     //         .then(res => { browserHistory.push('/profile')})
     //         .catch(err => console.error(err))
-  })
+  }
 }
 
 

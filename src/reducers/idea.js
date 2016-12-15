@@ -8,7 +8,7 @@ import {
     FETCH_IDEA
 } from '../constants/actionTypes'
 
-import { assign } from 'lodash'
+// import { assign } from 'lodash'
 
 
 const idea = (state = {Comments : []}, action) => {
