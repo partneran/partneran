@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Link from 'react-router';
 import Footer from '../Footer/Footer';
-import { loadOneIdea } from '../../actions/idea'
+import { loadOneIdea, deleteIdea } from '../../actions/idea'
 import { showLoading, hideLoading } from '../../actions/loading'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -27,6 +27,11 @@ class IdeaDetail extends Component {
     this.props.loadOneIdea(this.props.params.title)
   }
 
+  onClickDelete(){
+    // console.log(this.props.router);
+    this.props.deleteIdea(this.props.data_idea.id, this.props.router)
+  }
+
   render(){
     const { data_idea , addComment } = this.props
     console.log(data_idea.video)
@@ -41,7 +46,7 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
       console.log('what inside props', data_idea)
-
+      let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
       return (
         <div className="components-page">
           <div className="wrapper">
@@ -85,7 +90,9 @@ class IdeaDetail extends Component {
                     <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
 
                     <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
+
                     <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea"><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+
                 </ul>
 
                   <div className="tab-content">
@@ -133,11 +140,11 @@ class IdeaDetail extends Component {
                   <h4 className="modal-title" id="deleteModalLabel">Delete This Idea?</h4>
                 </div>
                 <div className="modal-body">
-                  Deleting this idea will permanently remove it along with all of it's comments and update.
+                  {warning}
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">No, Keep Idea</button>
-                  <button type="button" className="btn btn-danger">Yes, Delete Idea</button>
+                  <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.onClickDelete.bind(this)}>Yes, Delete Idea</button>
                 </div>
               </div>
             </div>
@@ -159,6 +166,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     loadOneIdea: bindActionCreators(loadOneIdea, dispatch),
+    deleteIdea: bindActionCreators(deleteIdea, dispatch),
     addComment: bindActionCreators(addComment, dispatch),
     showLoading: bindActionCreators(showLoading, dispatch),
     hideLoading: bindActionCreators(hideLoading, dispatch)

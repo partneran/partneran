@@ -30,7 +30,6 @@ const idea = (state = {Comments : []}, action) => {
         return newState
 
 
-
       case ADD_COMMENT_FAILURE:
         return state
 
