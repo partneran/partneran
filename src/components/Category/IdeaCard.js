@@ -38,7 +38,7 @@ const IdeaCard = (props) => {
                   &nbsp;
                   <i className="fa fa-icon fa-calendar"></i> {props.join}
                 </p>
-                <p>{renderHTML(props.description)}</p>
+                <p className="break">{renderHTML(props.description)}</p>
                 <ul className="pager">
                   <li className="next"><Link to={`/${path}`}>See Details <span aria-hidden="true">&rarr;</span></Link></li>
                 </ul>

@@ -542,6 +542,10 @@ line-height: 22px;
   margin-top: 10px;
   margin-left: 5px;
 }
+
+.break {
+  word-wrap: break-word;
+}
 /*.text-info {
   color: #03a9f4 !important;
 }
