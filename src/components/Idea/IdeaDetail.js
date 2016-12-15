@@ -42,7 +42,7 @@ class IdeaDetail extends Component {
     // let video = data_idea.video.replace(/watch?v=/g, "embed/")
 
     console.log("render", data_idea);
-    // var itstatus;
+    var itstatus;
     // console.log(data_idea)
     // switch (data_idea.status) {
     //   case 'baby':
@@ -57,6 +57,17 @@ class IdeaDetail extends Component {
     //     itstatus = <p>In Memoriam, may this idea rest in peace</p>
     //   default:
     // }
+    if(data_idea.status === 'baby'){
+      itstatus = <p>It means all of the stories about it have just begin</p>
+    }else if(data_idea.status === 'Kid'){
+      itstatus = <p>Well, it seems, it's gonna be big.</p>
+    }else if(data_idea.status === 'Teenager'){
+      itstatus = <p>Teenager, It's gonna be big, but we should keep an eye on it, so it won't go wrong</p>
+    }else if(data_idea.status === 'Mature'){
+      itstatus = <p>Well it's already great! It's initiator should be happy right now!</p>
+    }else if(data_idea.status === 'Rip'){
+      itstatus = <p>In Memoriam, may this idea rest in peace</p>
+    }
 
     if(data_idea.hasOwnProperty('id') === false){
       //loading
@@ -138,6 +149,7 @@ class IdeaDetail extends Component {
                     <div role="tabpanel" className="tab-pane fade" id="status">
 
                       <h2 style={{textTransform:'capitalize'}}>{data_idea.status}</h2>
+                      <p>{itstatus}</p>
                     </div>
 
                     <div role="tabpanel" className="tab-pane fade" id="comment">
