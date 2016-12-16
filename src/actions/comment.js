@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes'
 import request from 'superagent'
 
-const uri = `${process.env.SERVER_URL}api/ideas/`
+const uri = 'http://localhost:8080/api/ideas/'
 
 function addCommentSuccess(comment){
   return {type: ADD_COMMENT_SUCCESS, comment}

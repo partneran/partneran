@@ -10,7 +10,7 @@ import request from 'superagent';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
-const uri =`${process.env.SERVER_URL}api/`
+const uri ='http://localhost:8080/api/'
 
 
 const signUser = user =>
