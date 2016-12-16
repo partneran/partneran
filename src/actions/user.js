@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { SIGN_UP,
         LOG_IN,
         FORGET_PASSWORD,
@@ -9,7 +10,7 @@ import request from 'superagent';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
-const uri = 'http://localhost:8080/api/'
+const uri =`${process.env.SERVER_URL}api/`
 
 
 const signUser = user =>

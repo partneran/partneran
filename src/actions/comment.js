@@ -1,10 +1,11 @@
+require('dotenv').config();
 import {
   ADD_COMMENT_SUCCESS,
   ADD_COMMENT_FAILURE
 } from '../constants/actionTypes'
 import request from 'superagent'
 
-const uri = 'http://localhost:8080/api/ideas/'
+const uri = `${process.env.SERVER_URL}api/ideas/`
 
 function addCommentSuccess(comment){
   return {type: ADD_COMMENT_SUCCESS, comment}

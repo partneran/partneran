@@ -19,7 +19,9 @@ import { browserHistory } from 'react-router';
 import request from 'superagent'
 import slug from 'slug'
 
-const uri = 'http://localhost:8080/api/ideas/'
+
+
+const uri = `${process.env.SERVER_URL}api/ideas`
 
 // Add Idea
 
@@ -61,6 +63,7 @@ export const addIdea = (idea) => {
                         console.log(err);
                         dispatch(addIdeaFailure())
                     } else {
+                        console.log('this is res body', res.body)
                         browserHistory.push(`/${res.body.slug}`)
                         dispatch(addIdeaSuccess(res.body))
 
