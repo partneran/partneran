@@ -57,17 +57,6 @@ class IdeaDetail extends Component {
     //     itstatus = <p>In Memoriam, may this idea rest in peace</p>
     //   default:
     // }
-    if(data_idea.status === 'baby'){
-      itstatus = <p>It means all of the stories about it have just begin</p>
-    }else if(data_idea.status === 'Kid'){
-      itstatus = <p>Well, it seems, it's gonna be big.</p>
-    }else if(data_idea.status === 'Teenager'){
-      itstatus = <p>Teenager, It's gonna be big, but we should keep an eye on it, so it won't go wrong</p>
-    }else if(data_idea.status === 'Mature'){
-      itstatus = <p>Well it's already great! It's initiator should be happy right now!</p>
-    }else if(data_idea.status === 'Rip'){
-      itstatus = <p>In Memoriam, may this idea rest in peace</p>
-    }
 
     if(data_idea.hasOwnProperty('id') === false){
       //loading
@@ -77,6 +66,18 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
       // console.log('what inside props', data_idea)
+
+      if(data_idea.status === 'baby'){
+        itstatus = <p>It means all of the stories about it have just begin</p>
+      }else if(data_idea.status === 'Kid'){
+        itstatus = <p>Well, it seems, its gonna be big.</p>
+      }else if(data_idea.status === 'Teenager'){
+        itstatus = <p>Teenager, It's gonna be big, but we should keep an eye on it, so it won't go wrong</p>
+      }else if(data_idea.status === 'Mature'){
+        itstatus = <p>Well it's already great! It's initiator should be happy right now!</p>
+      }else if(data_idea.status === 'Rip'){
+        itstatus = <p>In Memoriam, may this idea rest in peace</p>
+      }
       console.log(data_idea.User.name);
       console.log(Auth.getUser().name);
       let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
