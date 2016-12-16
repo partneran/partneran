@@ -1,4 +1,3 @@
-require('dotenv').config();
 import {
   ADD_COMMENT_SUCCESS,
   ADD_COMMENT_FAILURE

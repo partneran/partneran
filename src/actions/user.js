@@ -1,4 +1,3 @@
-require('dotenv').config();
 import { SIGN_UP,
         LOG_IN,
         FORGET_PASSWORD,
