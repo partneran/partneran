@@ -168,7 +168,7 @@ export const editIdea = (idea) => {
                     console.log(err);
                     // dispatch(editIdeaFailure())
                 } else {
-                    browserHistory.push(slug(idea.title))
+                    browserHistory.push(slug(idea.title.toLowerCase()))
                     dispatch(editIdeaSuccess(res.body))
                 }
             })
