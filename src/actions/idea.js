@@ -21,7 +21,7 @@ import slug from 'slug'
 
 
 
-const uri = 'http://api.partneran.net/api/ideas'
+const uri = 'http://api.partneran.net/api/ideas/'
 
 // Add Idea
 
