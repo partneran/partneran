@@ -21,7 +21,7 @@ import slug from 'slug'
 
 
 
-const uri = 'http://localhost:8080/api/ideas'
+const uri = 'http://api.partneran.net/api/ideas'
 
 // Add Idea
 

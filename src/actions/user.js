@@ -9,7 +9,7 @@ import request from 'superagent';
 import { browserHistory } from 'react-router';
 import Auth from '../helpers/token';
 
-const uri ='http://localhost:8080/api/'
+const uri ='http://api.partneran.net/api/'
 
 
 const signUser = user =>
