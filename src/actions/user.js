@@ -162,7 +162,7 @@ export const forgetPassword = email => {
     return dispatch => {
         dispatch(forgetPasswordFetch(email))
         return request
-                .post(uri+'auth/forgot')
+                .post(uri+'users/forgot')
                 .set('Accept', 'application/json')
                 .type('form')
                 .send({

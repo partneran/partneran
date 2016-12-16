@@ -15,6 +15,7 @@ const ideas = (state = [], action) => {
                 ]
         case LOAD_IDEAS_SUCCESS:
           // console.log('reducer ideas', action.ideas);
+          console.log(action.ideas);
             return action.ideas
 
         case DELETE_IDEA_SUCCESS:

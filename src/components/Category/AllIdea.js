@@ -4,7 +4,7 @@ import IdeaCard from './IdeaCard'
 import Auth from '../../helpers/token'
 
 export const AllIdea = ({category, ideas}) => {
-  console.log(category)
+  console.log(ideas)
   const allIdeas = ideas.map(i => <IdeaCard props={i} user={Auth.getUser().sub} key={i.id}/>)
   const filteredIdea = ideas.filter(idea => idea.Category.name === category).map(i => <IdeaCard props={i} key={i.id} />)
 
