@@ -32,7 +32,7 @@ class CreateIdea extends Component {
   }
 
   componentDidMount(){
-    !Auth.getToken() || Auth.getUser().verify === false ? this.props.router.replace('/') : this.props.router.replace('/share-idea')
+    !Auth.getToken() ? this.props.router.replace('/') : this.props.router.replace('/share-idea')
   }
 
   _handleImageChange(e) {

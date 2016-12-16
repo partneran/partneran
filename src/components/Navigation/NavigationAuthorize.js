@@ -35,7 +35,7 @@ class NavigationAuthorize extends Component{
                                     <Link to="profile"> <i className="material-icons">account_circle</i> My Profile</Link>
                                 </li>
                                 <li className="text-info">
-                                    {Auth.getUser().verify === true ? <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link> : <span></span>}
+                                    <Link to="share-idea"> <i className="material-icons">add_circle</i> Share Idea </Link>
                                 </li>
                                 <li className="text-info">
                                               <Link to="explore"><i className="material-icons">explore</i> Explore</Link>
