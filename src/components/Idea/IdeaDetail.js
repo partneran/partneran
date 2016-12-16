@@ -42,7 +42,7 @@ class IdeaDetail extends Component {
     // let video = data_idea.video.replace(/watch?v=/g, "embed/")
 
     console.log("render", data_idea);
-    // var itstatus;
+    var itstatus;
     // console.log(data_idea)
     // switch (data_idea.status) {
     //   case 'baby':
@@ -66,6 +66,20 @@ class IdeaDetail extends Component {
     }else{
       // this.props.hideLoading()
       // console.log('what inside props', data_idea)
+
+      if(data_idea.status === 'baby'){
+        itstatus = <p>It means all of the stories about it have just begin</p>
+      }else if(data_idea.status === 'Kid'){
+        itstatus = <p>Well, it seems, its gonna be big.</p>
+      }else if(data_idea.status === 'Teenager'){
+        itstatus = <p>Teenager, It's gonna be big, but we should keep an eye on it, so it won't go wrong</p>
+      }else if(data_idea.status === 'Mature'){
+        itstatus = <p>Well it's already great! It's initiator should be happy right now!</p>
+      }else if(data_idea.status === 'Rip'){
+        itstatus = <p>In Memoriam, may this idea rest in peace</p>
+      }
+      console.log(data_idea.User.name);
+      console.log(Auth.getUser().name);
       let  warning="Deleting this idea will permanently remove it along with all of it's comments and update."
       return (
         <div className="components-page">
@@ -109,9 +123,15 @@ class IdeaDetail extends Component {
                     <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comment</a></li>
                     <li role="presentation"><a href="#members" aria-controls="members" role="tab" data-toggle="tab">Members</a></li>
 
-                    <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
+                    {data_idea.User.id === Auth.getUser().sub
+                    ?
+                    <div>
+                      <button type="button" className="close delete-detail" data-toggle="modal" data-placement="top" title="Delete This Idea" data-target="#deleteModal" aria-label="Delete"><span aria-hidden="true"><i className="fa fa-icon fa-trash"></i></span></button>
 
-                    <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea" onClick={this.onEditClick.bind(this)}><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                      <button type="button" className="close edit-detail" data-toggle="tooltip" data-placement="top" title="Edit This Idea" onClick={this.onEditClick.bind(this)}><span aria-hidden="true"><i className="fa fa-icon fa-edit"></i></span></button>
+                    </div>
+                    :
+                    ''}
 
                 </ul>
 
@@ -130,6 +150,7 @@ class IdeaDetail extends Component {
                     <div role="tabpanel" className="tab-pane fade" id="status">
 
                       <h2 style={{textTransform:'capitalize'}}>{data_idea.status}</h2>
+                      <p>{itstatus}</p>
                     </div>
 
                     <div role="tabpanel" className="tab-pane fade" id="comment">

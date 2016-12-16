@@ -24,7 +24,7 @@ const IdeaCard = ({props}) => {
   // console.log(props)
   let path = slug(props.title.toLowerCase())
   let description = renderHTML(props.description.substring(3, 125));
-
+  console.log(props);
   return (
         <div className="col-md-4 text-left">
             <div className="card thumbnail explore-card">
