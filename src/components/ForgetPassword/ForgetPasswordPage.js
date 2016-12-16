@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import ForgetPasswordForm from './ForgetPasswordForm';
 import Footer from '../Footer/Footer';
 import Auth from '../../helpers/token'
-import LoginPage from '../Login/LoginPage'
-import { browserHistory } from 'react-router'
 
 
 class ForgetPasswordPage extends Component {

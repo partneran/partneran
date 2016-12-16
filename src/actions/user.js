@@ -1,7 +1,4 @@
-import { SIGN_UP,
-        LOG_IN,
-        FORGET_PASSWORD,
-        NEW_PASSWORD,
+import { NEW_PASSWORD,
         EDIT_PROFILE} from '../constants/actionTypes'
 
 import axios from 'axios';
@@ -17,11 +14,11 @@ const signUser = user =>
    type: 'SIGNUP_USER'
  })
 
-const signupSuccess = user =>
- ({
-   type: 'SIGN_UP_SUCCESS',
-   user: user
- })
+// const signupSuccess = user =>
+//  ({
+//    type: 'SIGN_UP_SUCCESS',
+//    user: user
+//  })
 
 const signupFailure = () =>
  ({
@@ -55,37 +52,9 @@ export const signup = (user) => {
    }
 }
 
-// export const signup = user =>
-//     ({
-//         type: SIGN_UP,
-//         user:  axios
-//                 .post(uri+'auth/signup', {
-//                     name: user.name,
-//                     email: user.email,
-//                     password: user.password
-//                 })
-//                 .then(res => {
-//                     Auth.authenticateUser(res)
-//                     browserHistory.push('/explore')
-//                 })
-//                 .catch(err => console.error(err))
-//     })
+//  Login User
 
-// export const login = (user) =>
-//     ({
-//         type: LOG_IN,
-//         user: axios
-//                 .post(uri+'auth/login', {
-//                     email: user.email,
-//                     password: user.password
-//                 })
-//                 .then(res => {
-//                   console.log(res);
-//                     Auth.authenticateUser(res)
-//                     browserHistory.push('/')
-//                 })
-//                 .catch(err => console.log(err))
-//     })
+
 const loginUser = user =>
   ({
     type: 'LOGIN_USER'
