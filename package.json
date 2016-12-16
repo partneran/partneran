@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
     "babel-eslint": "7.0.0",
@@ -46,12 +46,14 @@
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
     "webpack-subresource-integrity": "0.7.0",
-    "whatwg-fetch": "1.0.0",
+    "whatwg-fetch": "1.0.0"
+  },
+  "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
     "draft-js": "^0.9.1",
+    "draft-js-import-html": "git+https://github.com/sstur/draft-js-import-html.git",
     "draftjs-to-html": "^0.4.1",
-    "dotenv": "2.0.0",
     "imgur": "^0.2.0",
     "jquery": "^3.1.1",
     "jwt-decode": "^2.1.0",
