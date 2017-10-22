@@ -23,11 +23,8 @@ class NewPasswordForm extends Component {
     onSubmit(e){
         e.preventDefault()
         // adding some validation here
-        // console.log(this.props.token);
         var User = jwt_decode(this.props.token)
-        console.log(User);
         this.props.newPassword(this.state.password, User)
-        // console.log(this.state)
     }
 
     render() {

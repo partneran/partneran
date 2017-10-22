@@ -28,7 +28,6 @@ export default class CommentForm extends Component {
       return
     }else{
       // addComment(ideaid, content, UserId, IdeaId)
-      // console.log(this.props);
       var ideaid = this.props.data_idea.id
       var userid = this.props.UserId
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // import NavigationUnauthorize from './components/Navigation/NavigationUnauthorize';
 import NavigationBar from './components/Navigation/NavigationBar';
 import { isLoggedIn } from './helpers/verification';
-// console.log(isLoggedIn())
 
 class App extends Component {
   render() {

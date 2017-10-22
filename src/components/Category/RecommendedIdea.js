@@ -11,7 +11,6 @@ class RecommendedIdea extends Component {
     this.props.loadIdeas()
   }
   render() {
-    console.log(this.props.ideas)
       const sampleIdea = this.props.ideas.sort((a, b) => b.createdAt - a.Comments.length ).slice(0, 2)
       const recommendedList = sampleIdea.map(idea => <IdeaCard props={idea} key={idea.title}/>)
     return (
