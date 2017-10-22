@@ -41,7 +41,6 @@ class IdeaDetail extends Component {
     // console.log(data_idea.video)
     // let video = data_idea.video.replace(/watch?v=/g, "embed/")
 
-    console.log("render", data_idea);
     var itstatus;
     // console.log(data_idea)
     // switch (data_idea.status) {

@@ -20,8 +20,6 @@ import renderHTML from 'react-render-html'
 // };
 
 const IdeaCard = ({props}) => {
-  // console.log(stateFromHTML(props.description))
-  // console.log(props)
   let path = slug(props.title.toLowerCase())
   let description = renderHTML(props.description.substring(3, 125));
   console.log(props);
