@@ -3,8 +3,6 @@ import SignupForm from './SignupForm'
 import Footer from '../Footer/Footer'
 import Auth from '../../helpers/token'
 
-// console.log(Auth.getUser())
-
 class SignupPage extends Component {
 
   componentDidMount(){

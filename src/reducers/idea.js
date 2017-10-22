@@ -18,7 +18,6 @@ const idea = (state = {Comments : []}, action) => {
         return state
 
       case LOAD_ONE_IDEA_SUCCESS:
-      // console.log(action.idea);
         return action.idea
 
       case LOAD_ONE_IDEA_FAILURE:
@@ -35,7 +34,6 @@ const idea = (state = {Comments : []}, action) => {
         return action.editedIdea
 
       case FETCH_IDEA:
-        // console.log(action.dataIdea);
         return action.dataIdea
 
 
