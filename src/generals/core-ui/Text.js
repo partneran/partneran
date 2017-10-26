@@ -3,8 +3,8 @@ import React from 'react';
 import {Text as TextPrimitives, StyleSheet} from 'react-native-web';
 
 type Props = {
-  style: StyleSheet.styles,
-  children?: React$Node,
+  style?: StyleSheet.styles,
+  children?: mixed,
 };
 
 function Text(props: Props) {

@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom';
 import {AnimatedSwitch} from 'react-router-transition';
 
 import {View} from './generals/core-ui';
-import {Header} from './layouts';
+import {Header, Footer} from './layouts';
 import routes from './routes';
 
 type Props = {
@@ -31,6 +31,7 @@ function Main(props: Props) {
           />
         ))}
       </AnimatedSwitch>
+      <Footer />
     </View>
   );
 }

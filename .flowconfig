@@ -1,0 +1,12 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/jss/.*
+<PROJECT_ROOT>/node_modules/material-ui/.*
+<PROJECT_ROOT>/node_modules/animated/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]

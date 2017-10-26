@@ -9,9 +9,8 @@ type Route = {
   Component: React$Component<*>,
   otherProps?: any,
 };
-type Routes = Array<Route>;
 
-let routes: Routes = [
+let routes = [
   {title: '', path: '/', Component: LandingPage},
   {title: 'help', path: '/help', Component: DummyPage},
   {title: 'sign in', path: '/sign-in', Component: DummyPage},
