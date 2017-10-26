@@ -1,15 +1,15 @@
-// React dependency
-import React from 'react'
-import { render } from 'react-dom'
-import { Router, browserHistory } from 'react-router'
-import { Provider} from 'react-redux'
-import routes from './routes'
-import store from './store'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-render(
-  <Provider store={store}>
-    <Router history={browserHistory} routes={routes}/>
-  </Provider>,
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root')
 );
+registerServiceWorker();

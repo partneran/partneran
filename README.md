@@ -1,2 +1,1 @@
-# partneran
-Partneran
+## Lolita Readme

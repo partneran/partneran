@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-// import NaviationAuthorize from './components/Navigation/NavigationAuthorize';
-// import NavigationUnauthorize from './components/Navigation/NavigationUnauthorize';
-import NavigationBar from './components/Navigation/NavigationBar';
-import { isLoggedIn } from './helpers/verification';
+// @flow
 
-class App extends Component {
+import React, {Component} from 'react';
+import {View} from './generals/core-ui';
+import Main from './Main.js';
+
+class App extends Component<*> {
   render() {
-      return (
-        <div>
-          <NavigationBar isLoggedIn={isLoggedIn()}/>
-          {this.props.children}
-        </div>
-      )
-    }
+    return (
+      <View>
+        <Main />
+      </View>
+    );
   }
+}
 
 export default App;
